@@ -16,24 +16,23 @@
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; line-height: 1.6; padding-bottom: 60px; }
 
-        /* 導航欄 */
+        /* 導航欄優化：確保全系統不掉字 */
         nav { 
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 50px; background: rgba(5,5,5,0.98); border-bottom: 1px solid var(--border);
+            padding: 15px 30px; background: rgba(5,5,5,0.98); border-bottom: 1px solid var(--border);
         }
-        .logo { font-size: 1.8rem; font-weight: 900; color: var(--btv-green); letter-spacing: -1.5px; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--btv-green); letter-spacing: -1.5px; flex-shrink: 0; }
         
-        .menu { display: flex; gap: 25px; }
+        .menu { display: flex; gap: 15px; flex-shrink: 1; }
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { color: #fff; background: none; border: none; font-size: 0.85rem; cursor: pointer; font-weight: 700; text-transform: uppercase; }
+        .dropbtn { color: #fff; background: none; border: none; font-size: 0.75rem; cursor: pointer; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
         
         .dropdown-content {
             display: none; position: absolute; background-color: var(--dark-gray);
             min-width: 250px; border: 1px solid var(--border); z-index: 100; right: 0;
         }
-        .dropdown-content a { color: #fff; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.8rem; }
-        .dropdown-content a:hover { background-color: var(--btv-green); color: #000; font-weight: bold; }
+        .dropdown-content a { padding: 12px 20px; text-decoration: none; display: block; font-size: 0.8rem; }
         .dropdown:hover .dropdown-content { display: block; }
 
         /* 🌈 彩虹粗體連結 */
@@ -41,60 +40,70 @@
         .rainbow-2 { font-weight: 900 !important; color: #fdfc47 !important; }
         .rainbow-3 { font-weight: 900 !important; color: #32fff8 !important; }
 
-        .live-ticker { margin-top: 75px; width: 100%; background: #000; border-bottom: 1px solid var(--border); }
+        /* 行情條容器：加入硬體加速解決 Android 不轉問題 */
+        .live-ticker { 
+            margin-top: 75px; width: 100%; background: #000; border-bottom: 1px solid var(--border);
+            transform: translateZ(0); /* 強制開啟 GPU 加速 */
+            -webkit-transform: translateZ(0);
+        }
 
-        /* 🚀 Hero 區域：壓縮空間並放入 Mission & Vision */
+        /* Hero 視覺 */
         .hero { 
-            padding: 60px 20px; text-align: center;
+            padding: 50px 20px; text-align: center;
             background: radial-gradient(circle at center, #112211 0%, #050505 100%);
             border-bottom: 1px solid var(--border);
         }
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; font-weight: 900; letter-spacing: -2px; }
         .hero h1 .v-green { color: var(--btv-green); }
-        .hero .slogan { font-size: clamp(1rem, 3vw, 1.3rem); color: var(--btv-green); margin: 10px 0 30px 0; font-weight: 700; }
+        .hero .slogan { font-size: clamp(1rem, 3vw, 1.2rem); color: var(--btv-green); margin: 10px 0 25px 0; font-weight: 700; }
 
-        /* Mission & Vision 容器 */
+        /* Mission & Vision */
         .mv-container {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
-            max-width: 1000px; margin: auto; text-align: left;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+            max-width: 900px; margin: auto; text-align: left;
         }
-        .mv-box { background: rgba(255,255,255,0.03); padding: 25px; border-left: 3px solid var(--btv-green); }
-        .mv-box h3 { color: var(--btv-green); margin: 0 0 10px 0; font-size: 1.1rem; text-transform: uppercase; }
-        .mv-box p { font-size: 0.95rem; color: #bbb; margin: 0; line-height: 1.6; }
+        .mv-box { background: rgba(255,255,255,0.03); padding: 20px; border-left: 3px solid var(--btv-green); }
+        .mv-box h3 { color: var(--btv-green); margin: 0 0 10px 0; font-size: 1rem; text-transform: uppercase; }
+        .mv-box p { font-size: 0.9rem; color: #bbb; margin: 0; line-height: 1.5; }
 
         @media (max-width: 800px) {
             .mv-container { grid-template-columns: 1fr; }
-            nav { padding: 15px 20px; }
-            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 15px 15px; }
+            .logo { font-size: 1.4rem; }
+            .menu { gap: 8px; }
+            .dropbtn { font-size: 0.7rem; }
         }
 
-        /* 主內容與側欄佈局 */
+        /* 主佈局 */
         .main-wrapper {
-            max-width: 1300px; margin: auto; padding: 50px 20px;
-            display: grid; grid-template-columns: 1fr 380px; gap: 50px;
+            max-width: 1300px; margin: auto; padding: 40px 20px;
+            display: grid; grid-template-columns: 1fr 380px; gap: 40px;
         }
 
         @media (max-width: 1100px) {
             .main-wrapper { grid-template-columns: 1fr; }
         }
 
-        .content-area section { margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+        .content-area section { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 1px solid var(--border); }
         .label { color: var(--btv-green); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        h2 { font-size: 2.2rem; margin: 0 0 20px 0; letter-spacing: -1.5px; }
-        .content-body { font-size: 1.05rem; color: #ccc; }
+        h2 { font-size: 2rem; margin: 0 0 15px 0; letter-spacing: -1.5px; }
+        .content-body { font-size: 1rem; color: #ccc; }
         .highlight { color: #fff; font-weight: bold; border-bottom: 2px solid var(--btv-green); }
 
-        /* 📺 視聽側欄 */
+        /* 視聽側欄 */
         .sidebar { position: sticky; top: 100px; height: fit-content; }
-        .sidebar-title { color: var(--btv-green); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.15); margin-bottom: 25px; }
+        .sidebar-title { color: var(--btv-green); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.15); margin-bottom: 20px; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .video-desc { font-size: 0.85rem; color: #aaa; margin-top: 8px; }
+        .video-desc { font-size: 0.8rem; color: #aaa; margin-top: 8px; }
 
-        /* 底部行情 */
-        .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); }
-        footer { padding: 60px 20px 140px; text-align: center; color: #444; font-size: 0.8rem; }
+        /* 底部行情 Widget：同樣加入加速 */
+        .footer-widget { 
+            position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); 
+            transform: translateZ(0); -webkit-transform: translateZ(0);
+        }
+        footer { padding: 40px 20px 120px; text-align: center; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -111,7 +120,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropbtn">MARKETS 全球市場 ▾</button>
+                <button class="dropbtn">MARKETS 市場 ▾</button>
                 <div class="dropdown-content">
                     <a href="#macro">EQUITIES 科技美股 (MSTR)</a>
                     <a href="#macro">HARD ASSETS 金銀原油</a>
@@ -142,7 +151,11 @@
                 {"proName": "BINANCE:ALGOUSDT", "description": "ALGO"},
                 {"proName": "MEXC:KASUSDT", "description": "KAS"}
             ],
-            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "zh_TW"
+            "showSymbolLogo": true,
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "locale": "zh_TW"
             }
             </script>
         </div>
@@ -165,7 +178,6 @@
     </div>
 
     <div class="main-wrapper">
-        
         <div class="content-area">
             <section id="macro">
                 <span class="label">Expert Review 01</span>
@@ -174,20 +186,18 @@
                     <p>比特幣已演變為宏觀避險的「數位黃金」。K C 指出，<span class="highlight">BTC 的稀缺性邏輯將與 Nvidia、Tesla 等生產力巨頭產生共鳴</span>。只有理解了 MSTR 的資產負債表革命，才能真正洞察比特幣本位時代的到來。</p>
                 </div>
             </section>
-
             <section id="ada">
                 <span class="label">Expert Review 02</span>
                 <h2>ADA 生態：去中心化的科學實踐</h2>
                 <div class="content-body">
-                    <p>Cardano (ADA) 的價值源於其嚴謹的科學開發流程。生態龍頭 <strong>SNEK</strong> 代表咗社群力量嘅崛起。投資 ADA 係買入一個全球金融作業系統嘅未來入場券。</p>
+                    <p>Cardano (ADA) 的價值源於其嚴謹的科學開發流程。生態龍頭 <strong>SNEK</strong> 代表了社群力量的崛起。投資 ADA 是買入一個全球金融作業系統的未來入場券。</p>
                 </div>
             </section>
-
             <section id="privacy">
                 <span class="label">Expert Review 03</span>
                 <h2>隱私資產：守護個人的數位財富主權</h2>
                 <div class="content-body">
-                    <p>隨着監管步步進逼，<strong>ZEC</strong> 等隱私協議將成為最後防線。隱私係數位時代嘅基本人權，必須包含喺專業投資組合之中。</p>
+                    <p>隨着監管步步進逼，<strong>ZEC</strong> 等隱私協議將成為最後防線。隱私是數位時代的基本人權，必須包含在專業投資組合之中。</p>
                 </div>
             </section>
         </div>
@@ -207,7 +217,6 @@
                 <div class="video-desc"><strong>即時情報：</strong> 快速了解市場動態。</div>
             </div>
         </aside>
-
     </div>
 
     <footer>
@@ -226,9 +235,13 @@
                 {"proName": "OANDA:XAUUSD", "description": "黃金 GOLD"},
                 {"proName": "OANDA:XAGUSD", "description": "白銀 SILVER"},
                 {"proName": "TVC:UKOIL", "description": "原油 OIL"},
-                {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE (CRCL)"}
+                {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE (USDC)"}
             ],
-            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": false, "displayMode": "adaptive", "locale": "zh_TW"
+            "showSymbolLogo": true,
+            "colorTheme": "dark",
+            "isTransparent": false,
+            "displayMode": "adaptive",
+            "locale": "zh_TW"
             }
             </script>
         </div>
