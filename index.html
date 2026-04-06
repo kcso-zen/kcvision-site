@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KCVision | 專業戰略情報與全球宏觀資產</title>
+    <title>KCVision | 專業策略情報與全球宏觀資產智庫</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-black: #050505;
-            --btv-green: #a3ff12; 
+            --btv-green: #a3ff12; /* BTV 招牌螢光綠 */
             --dark-gray: #111;
             --border: #222;
         }
@@ -16,21 +16,21 @@
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; line-height: 1.8; padding-bottom: 60px; }
 
-        /* 📱 修正導航欄：增加響應式寬度控制 */
+        /* 導航欄導航 */
         nav { 
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 30px; /* 減少兩邊 Padding */
-            background: rgba(5,5,5,0.98); border-bottom: 1px solid var(--border);
+            padding: 15px 50px; background: rgba(5,5,5,0.95); border-bottom: 1px solid var(--border);
         }
-        .logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -1.5px; flex-shrink: 0; }
-        .logo span { color: var(--btv-green); }
         
-        .menu { display: flex; gap: 20px; flex-shrink: 1; justify-content: flex-end; }
+        /* Left Logo: 根據 K C 要求，取消 'Vision' 字樣，只保留 'KC' */
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--btv-green); letter-spacing: -1.5px; }
+        
+        .menu { display: flex; gap: 30px; }
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { color: #fff; background: none; border: none; font-size: 0.8rem; cursor: pointer; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+        .dropbtn { color: #fff; background: none; border: none; font-size: 0.85rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* 手機模式細節調整 */
+        /* 📱 手機模式適配 (保留優化) */
         @media (max-width: 850px) {
             nav { padding: 15px 10px; }
             .logo { font-size: 1.3rem; margin-right: 5px; }
@@ -40,25 +40,41 @@
 
         .dropdown-content {
             display: none; position: absolute; background-color: var(--dark-gray);
-            min-width: 220px; border: 1px solid var(--border); z-index: 100; right: 0; /* 下拉選單靠右，防止出界 */
+            min-width: 250px; border: 1px solid var(--border); z-index: 100; right: 0;
         }
-        .dropdown-content a { color: #888; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.8rem; }
+        
+        /* 下拉連結基本樣式 */
+        .dropdown-content a { color: #fff; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.8rem; }
         .dropdown-content a:hover { background-color: var(--btv-green); color: #000; font-weight: bold; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        .live-ticker { margin-top: 70px; width: 100%; background: #000; border-bottom: 1px solid var(--border); }
+        /* 🌈 根據 K C 要求：將 CONNECT 的連結變為粗體不同的彩虹色 */
+        /* 第一個：紅/橙色 */
+        .rainbow-link-1 { font-weight: 900 !important; color: #ff5e3a !important; text-transform: uppercase; }
+        /* 第二個：黃/綠色 */
+        .rainbow-link-2 { font-weight: 900 !important; color: #fdfc47 !important; text-transform: uppercase; }
+        /* 第三個：藍/紫色 */
+        .rainbow-link-3 { font-weight: 900 !important; color: #32fff8 !important; text-transform: uppercase; }
 
+        .live-ticker { margin-top: 75px; width: 100%; background: #000; border-bottom: 1px solid var(--border); }
+
+        /* Hero 展示區 */
         .hero { 
             height: 55vh; display: flex; flex-direction: column; justify-content: center; 
             align-items: center; text-align: center; padding: 0 20px;
             background: radial-gradient(circle at center, #112211 0%, #050505 100%);
             border-bottom: 1px solid var(--border);
         }
-        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); margin: 0; font-weight: 900; letter-spacing: -3px; }
+        
+        /* 大標題：K C 黐埋一齊，'VISION' 變綠色 (根據 K C 要求執行) */
+        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); margin: 0; font-weight: 900; letter-spacing: -3px; color: #fff; }
+        .hero h1 .v-color { color: var(--btv-green); }
+        
+        /* 金句：根據 K C 要求，只保留英文 */
         .hero p { font-size: clamp(1rem, 4vw, 1.5rem); color: var(--btv-green); max-width: 900px; margin: 15px 0; font-weight: 700; }
         .hero .sub-p { font-size: 0.9rem; color: #888; margin: 0; letter-spacing: 1px; }
 
-        /* 雙列佈局響應式 */
+        /* 雙列佈局智庫版面 */
         .main-wrapper {
             max-width: 1300px; margin: auto; padding: 40px 20px;
             display: grid; grid-template-columns: 1fr 380px; gap: 40px;
@@ -76,7 +92,7 @@
         .content-body { font-size: 1.1rem; color: #ccc; }
         .highlight { color: #fff; font-weight: bold; border-bottom: 2px solid var(--btv-green); }
 
-        /* 📺 電視機框側欄 */
+        /* 📺 右邊：視聽側欄 */
         .sidebar { position: sticky; top: 100px; height: fit-content; }
         .sidebar-title { color: var(--btv-green); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.15); margin-bottom: 25px; transition: 0.3s; }
@@ -84,6 +100,7 @@
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .video-desc { font-size: 0.85rem; color: #aaa; margin-top: 8px; }
 
+        /* 底部行情 Widget */
         .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); }
         footer { padding: 60px 20px 140px; text-align: center; color: #444; font-size: 0.8rem; }
     </style>
@@ -91,7 +108,7 @@
 <body>
 
     <nav>
-        <div class="logo">KC<span>VISION</span></div>
+        <div class="logo">KC</div>
         <div class="menu">
             <div class="dropdown">
                 <button class="dropbtn">STRATEGY 戰略評核 ▾</button>
@@ -102,18 +119,18 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropbtn">MARKETS 市場 ▾</button>
+                <button class="dropbtn">MARKETS 全球市場 ▾</button>
                 <div class="dropdown-content">
-                    <a href="#equities">EQUITIES 科技美股 (MSTR)</a>
+                    <a href="#equities">EQUITIES 科技美股</a>
                     <a href="#commodities">HARD ASSETS 金銀原油</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">CONNECT 社交媒體 ▾</button>
                 <div class="dropdown-content">
-                    <a href="https://twitter.com/KCVisionGo" target="_blank">X @KCVisionGo</a>
-                    <a href="https://twitter.com/magotalk" target="_blank">MAGO TALK @magotalk</a>
-                    <a href="https://ABABNews.com" target="_blank">ABAB NEWS</a>
+                    <a href="https://twitter.com/KCVisionGo" target="_blank" class="rainbow-link-1">X (TWITTER) @KCVisionGo</a>
+                    <a href="https://twitter.com/magotalk" target="_blank" class="rainbow-link-2">MAGO TALK @magotalk</a>
+                    <a href="https://ABABNews.com" target="_blank" class="rainbow-link-3">ABAB NEWS (Expert Articles)</a>
                 </div>
             </div>
         </div>
@@ -131,8 +148,7 @@
                 {"proName": "BINANCE:LTCUSDT", "description": "LTC"},
                 {"proName": "BINANCE:ZECUSDT", "description": "ZEC"},
                 {"proName": "BINANCE:ALGOUSDT", "description": "ALGO"},
-                {"proName": "MEXC:KASUSDT", "description": "KAS"},
-                {"proName": "MEXC:NITEUSDT", "description": "NIGHT"}
+                {"proName": "MEXC:KASUSDT", "description": "KAS"}
             ],
             "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "zh_TW"
             }
@@ -141,9 +157,8 @@
     </div>
 
     <div class="hero">
-        <h1>KCVISION<span>.</span></h1>
+        <h1>KC<span class="v-color">VISION</span></h1>
         <p>"In a world of noise, we provide clarity."</p>
-        <div class="sub-p">「在喧囂的世界中，我們提供清晰的見解。」</div>
     </div>
 
     <div class="main-wrapper">
@@ -161,7 +176,7 @@
                 <span class="label">Expert Review 02</span>
                 <h2>ADA 生態與治理觀點：去中心化的科學與藝術</h2>
                 <div class="content-body">
-                    <p>K C 對於 <strong>Cardano (ADA)</strong> 的執著源於其科學開發流程。生態中的龍頭項目 <strong>SNEK</strong> 與隱私側鏈 <strong>Midnight (NIGHT)</strong> 代表了社群力量與商業隱私的結合。K C 強調，投資 ADA 是買入一個全球金融作業系統的未來入場券。</p>
+                    <p>K C 對於 <strong>Cardano (ADA)</strong> 的執著源於其科學開發流程。生態中的龍頭項目 <strong>SNEK</strong> 代表了社群力量。K C 強調，投資 ADA 是買入一個全球金融作業系統的未來入場券。</p>
                 </div>
             </section>
 
@@ -169,7 +184,7 @@
                 <span class="label">Expert Review 03</span>
                 <h2>隱私資產的主權未來：守護數位時代的人權</h2>
                 <div class="content-body">
-                    <p>K C 認為，隱私是為了保護個人的數位財富主權。隨着監管步步進逼，<strong>ZEC</strong> 等隱私協議將成為最後的防線。未來的投資組合中，具備強大隱私屬性的資產是個人資產安全的最後一道防線。</p>
+                    <p>隨着監管步步進逼，<strong>ZEC</strong> 等隱私協議將成為最後的防線。未來的投資組合中，具備強大隱私屬性的資產是個人資產安全的最後一道防線。保護個人的數位財富主權。</p>
                 </div>
             </section>
         </div>
@@ -193,7 +208,7 @@
     </div>
 
     <footer>
-        <p>© 2026 KCVISION.SPACE | 專業戰略情報 | 內容由 K C 觀點整理</p>
+        <p>© 2026 KCVISION.SPACE | 專業策略情報 | 內容由 K C 觀點整理</p>
     </footer>
 
     <div class="footer-widget">
@@ -208,7 +223,10 @@
                 {"proName": "OANDA:XAUUSD", "description": "黃金 GOLD"},
                 {"proName": "OANDA:XAGUSD", "description": "白銀 SILVER"},
                 {"proName": "TVC:UKOIL", "description": "原油 OIL"},
-                {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE"}
+                {"proName": "NASDAQ:GOOGL", "description": "GOOGL"},
+                {"proName": "NASDAQ:AMZN", "description": "AMZN"},
+                {"proName": "CURRENCYCOM:USDC", "description": "USDC"},
+                {"proName": "CRCL", "description": "Circle (CRCL)"}
             ],
             "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": false, "displayMode": "adaptive", "locale": "zh_TW"
             }
