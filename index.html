@@ -3,70 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KC Vision | Bitcoin & ADA Insights</title>
+    <title>KCVision | Crypto & Equity Strategic Intelligence</title>
     <style>
-        /* 🎨 顏色控制中心 - K C 你可以在這裡改背景色 */
         :root {
-            --bg-color: #1a1c2c; /* 深藍色背景，不再是全黑 */
-            --card-bg: #2d3436;  /* 鋼鐵灰卡片 */
-            --accent: #00d2ff;   /* 天藍色重點 */
-            --text: #dfe6e9;
+            --bg-black: #0a0a0a;
+            --btv-green: #a3ff12; /* BTV 招牌螢光綠 */
+            --dark-gray: #1a1a1a;
+            --text-white: #ffffff;
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text); margin: 0; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); padding: 80px 20px; text-align: center; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-black); color: var(--text-white); margin: 0; overflow-x: hidden; }
+
+        /* 頂部走馬燈 */
+        .ticker-wrap {
+            width: 100%; overflow: hidden; background: rgba(163, 255, 18, 0.1);
+            border-bottom: 1px solid var(--btv-green); height: 40px; display: flex; align-items: center;
+        }
+        .ticker { display: flex; white-space: nowrap; animation: marquee 30s linear infinite; }
+        .ticker-item { padding: 0 20px; font-size: 0.85rem; color: var(--btv-green); font-weight: bold; }
+
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* 導航欄 */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: rgba(0,0,0,0.8); sticky: top; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-white); }
+        .logo span { color: var(--btv-green); }
         
-        /* 名字黐埋一齊 */
-        h1 { color: #ffffff; font-size: 3.5rem; margin: 0; letter-spacing: -2px; text-transform: uppercase; }
-        
-        .tagline { color: var(--accent); font-size: 1.2rem; margin-top: 10px; }
-        .container { max-width: 800px; margin: auto; padding: 40px 20px; }
-        .grid { display: grid; gap: 25px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; border-bottom: 4px solid var(--accent); }
-        .card h3 { color: var(--accent); margin-top: 0; }
-        
-        /* 按鈕樣式 */
-        .btn-group { margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { background: var(--accent); color: #000; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .btn:hover { opacity: 0.8; }
-        
-        footer { text-align: center; padding: 50px; color: #636e72; font-size: 0.8rem; }
-        .highlight { color: #fab1a0; font-weight: bold; }
+        .menu { display: flex; gap: 30px; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { color: white; background: none; border: none; font-size: 1rem; cursor: pointer; font-weight: 500; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: var(--dark-gray);
+            min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.5); z-index: 1;
+        }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.9rem; }
+        .dropdown-content a:hover { background-color: var(--btv-green); color: black; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* 英雄區 */
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #1a3a1a 0%, #0a0a0a 100%); }
+        .hero h1 { font-size: 4rem; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero p { font-size: 1.2rem; color: #888; max-width: 700px; }
+        .cta-btn { margin-top: 30px; padding: 15px 40px; background: var(--btv-green); color: black; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; }
+        .cta-btn:hover { background: white; transform: translateY(-3px); }
+
+        /* 使命與願景 */
+        .section { padding: 80px 50px; max-width: 1200px; margin: auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .card { background: var(--dark-gray); padding: 40px; border-left: 5px solid var(--btv-green); }
+        .card h2 { color: var(--btv-green); margin-top: 0; }
+
+        /* 底部走馬燈 */
+        .footer-ticker { position: fixed; bottom: 0; width: 100%; }
+
+        footer { padding: 60px 50px; text-align: center; color: #555; border-top: 1px solid #222; margin-bottom: 40px; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>KCVision</h1>
-    <p class="tagline">專注比特幣與 ADA 的數位價值探索</p>
-</header>
-
-<div class="container">
-    <div class="grid">
-        <div class="card">
-            <h3>🔗 快速連結</h3>
-            <div class="btn-group">
-                <a href="https://twitter.com/YourXAccount" class="btn">X (Twitter) 帳戶</a>
-                <a href="https://ABABNews.com" class="btn">ABAB News</a>
-                <a href="#" class="btn">Mago Talk Space</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>📈 核心熱愛：Bitcoin & ADA</h3>
-            <p>對於 <span class="highlight">Bitcoin (BTC)</span> 與 <span class="highlight">Cardano (ADA)</span> 擁有極高的熱忱與長期信心。我相信這兩者代表了去中心化未來的技術與價值頂峰。</p>
-        </div>
-
-        <div class="card">
-            <h3>🎙️ Space Talk & 觀點</h3>
-            <p>在數位空間分享對市場的獨到觀察。雖然對隱私幣保持觀察興趣，但目前的戰略重點始終圍繞在主流價值幣的生態建設。</p>
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">BTC $69,420 (+2.4%)</div>
+            <div class="ticker-item">ETH $3,512 (+1.8%)</div>
+            <div class="ticker-item">ADA $0.45 (+5.2%)</div>
+            <div class="ticker-item">SOL $145.2 (-0.5%)</div>
+            <div class="ticker-item">XRP $0.62 (+0.1%)</div>
+            <div class="ticker-item">DOT $7.2 (+3.1%)</div>
+            <div class="ticker-item">LINK $18.5 (+4.5%)</div>
+            <div class="ticker-item">AVAX $35.8 (+2.2%)</div>
+            <div class="ticker-item">DOGE $0.16 (-1.2%)</div>
+            <div class="ticker-item">MATIC $0.72 (+0.8%)</div>
+            <div class="ticker-item">BTC $69,420 (+2.4%)</div>
+            <div class="ticker-item">ETH $3,512 (+1.8%)</div>
+            <div class="ticker-item">ADA $0.45 (+5.2%)</div>
         </div>
     </div>
-</div>
 
-<footer>
-    &copy; 2026 KCVision.space | 內容純屬個人觀點，不構成投資建議。
-</footer>
+    <nav>
+        <div class="logo">KC<span>Vision</span></div>
+        <div class="menu">
+            <div class="dropdown">
+                <button class="dropbtn">STRATEGY ▾</button>
+                <div class="dropdown-content">
+                    <a href="#">Bitcoin Core</a>
+                    <a href="#">Cardano Ecosystem</a>
+                    <a href="#">Equity Analysis</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">MEDIA ▾</button>
+                <div class="dropdown-content">
+                    <a href="https://twitter.com/KCVisionGo">X (Twitter)</a>
+                    <a href="https://ABABNews.com">ABAB News</a>
+                    <a href="#">Mago Talk Space</a>
+                </div>
+            </div>
+            <a href="#" style="color:white; text-decoration:none; font-weight:500;">ABOUT</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>INTELLIGENCE BEYOND<span>.</span></h1>
+        <p>提供全球加密資產與頂尖科技股的深度戰略分析，為 Web3 時代的價值投資者導航。</p>
+        <a href="https://twitter.com/KCVisionGo" class="cta-btn">FOLLOW KCVision ON X</a>
+    </div>
+
+    <div class="section">
+        <div class="grid">
+            <div class="card">
+                <h2>Our Mission</h2>
+                <p>我們致力於打破傳統金融與去中心化經濟的資訊壁壘。通過對 Bitcoin 與 Cardano 生態的深度解構，以及對 Tesla、Nvidia 等改變世界企業的追蹤，協助投資者在波動中識別真正的長期價值。</p>
+            </div>
+            <div class="card">
+                <h2>Our Vision</h2>
+                <p>成為 Web3 時代最受信任的戰略智庫，將數據轉化為洞察，將洞察轉化為決策。在跨鏈、跨資產的未來，KCVision 是您最穩定的羅盤。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 KCVision.space - 跨越數位資產與實體科技的邊界</p>
+    </footer>
+
+    <div class="ticker-wrap footer-ticker" style="background: rgba(255,255,255,0.05); border-top: 1px solid #333; border-bottom: none;">
+        <div class="ticker" style="animation-duration: 40s;">
+            <div class="ticker-item" style="color: #fff;">TSLA $175.2 (-1.2%)</div>
+            <div class="ticker-item" style="color: #fff;">NVDA $890.5 (+3.5%)</div>
+            <div class="ticker-item" style="color: #fff;">AMZN $180.2 (+0.8%)</div>
+            <div class="ticker-item" style="color: #fff;">GOOGL $152.3 (+1.1%)</div>
+            <div class="ticker-item" style="color: #fff;">CIRCLE (USDC) Stable</div>
+            <div class="ticker-item" style="color: #fff;">TSLA $175.2 (-1.2%)</div>
+            <div class="ticker-item" style="color: #fff;">NVDA $890.5 (+3.5%)</div>
+        </div>
+    </div>
 
 </body>
 </html>
