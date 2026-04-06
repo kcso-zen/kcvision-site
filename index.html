@@ -7,133 +7,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-black: #050505;
+            --bg-black: #0a0a0a;
+            --card-bg: #1a1a1a;
             --btv-green: #a3ff12; 
-            --dark-gray: #111;
+            --text-gray: #aaa;
             --border: #222;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; line-height: 1.6; padding-bottom: 60px; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; padding-bottom: 80px; }
 
-        /* 導航欄優化：確保全系統不掉字 */
+        /* 導航欄 - 模仿 Mago Talk 佈局 */
         nav { 
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 30px; background: rgba(5,5,5,0.98); border-bottom: 1px solid var(--border);
+            padding: 15px 40px; background: rgba(10,10,10,0.98); border-bottom: 1px solid var(--border);
         }
-        .logo { font-size: 1.8rem; font-weight: 900; color: var(--btv-green); letter-spacing: -1.5px; flex-shrink: 0; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--btv-green); letter-spacing: -1.5px; cursor: pointer; }
         
-        .menu { display: flex; gap: 15px; flex-shrink: 1; }
-        .dropdown { position: relative; display: inline-block; }
-        .dropbtn { color: #fff; background: none; border: none; font-size: 0.75rem; cursor: pointer; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
-        
-        .dropdown-content {
-            display: none; position: absolute; background-color: var(--dark-gray);
-            min-width: 250px; border: 1px solid var(--border); z-index: 100; right: 0;
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { 
+            color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; 
+            padding: 5px 10px; transition: 0.3s;
         }
-        .dropdown-content a { padding: 12px 20px; text-decoration: none; display: block; font-size: 0.8rem; }
-        .dropdown:hover .dropdown-content { display: block; }
+        .nav-links a:hover, .nav-links a.active { color: var(--btv-green); border-bottom: 2px solid var(--btv-green); }
 
-        /* 🌈 彩虹粗體連結 */
-        .rainbow-1 { font-weight: 900 !important; color: #ff5e3a !important; }
-        .rainbow-2 { font-weight: 900 !important; color: #fdfc47 !important; }
-        .rainbow-3 { font-weight: 900 !important; color: #32fff8 !important; }
+        /* 實時行情條 */
+        .live-ticker { margin-top: 75px; width: 100%; border-bottom: 1px solid var(--border); }
 
-        /* 行情條容器：加入硬體加速解決 Android 不轉問題 */
-        .live-ticker { 
-            margin-top: 75px; width: 100%; background: #000; border-bottom: 1px solid var(--border);
-            transform: translateZ(0); /* 強制開啟 GPU 加速 */
-            -webkit-transform: translateZ(0);
+        /* 頁面容器 */
+        .page-content { display: none; padding-top: 20px; }
+        .page-content.active { display: block; animation: fadeIn 0.5s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* 模仿 Mago Talk 嘅紅/黑 Header */
+        .header-banner {
+            background: linear-gradient(to bottom, #111, #000);
+            padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
         }
+        .header-banner h1 { font-size: 3.5rem; margin: 0; font-weight: 900; }
+        .header-banner h1 span { color: var(--btv-green); }
+        .header-banner p { color: var(--btv-green); font-size: 1.2rem; font-weight: 700; margin-top: 10px; }
 
-        /* Hero 視覺 */
-        .hero { 
-            padding: 50px 20px; text-align: center;
-            background: radial-gradient(circle at center, #112211 0%, #050505 100%);
-            border-bottom: 1px solid var(--border);
-        }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; font-weight: 900; letter-spacing: -2px; }
-        .hero h1 .v-green { color: var(--btv-green); }
-        .hero .slogan { font-size: clamp(1rem, 3vw, 1.2rem); color: var(--btv-green); margin: 10px 0 25px 0; font-weight: 700; }
+        /* 卡片佈局 */
+        .main-container { max-width: 1200px; margin: auto; display: grid; grid-template-columns: 1fr 380px; gap: 40px; padding: 0 20px; }
+        @media (max-width: 1000px) { .main-container { grid-template-columns: 1fr; } }
 
-        /* Mission & Vision */
-        .mv-container {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-            max-width: 900px; margin: auto; text-align: left;
-        }
-        .mv-box { background: rgba(255,255,255,0.03); padding: 20px; border-left: 3px solid var(--btv-green); }
-        .mv-box h3 { color: var(--btv-green); margin: 0 0 10px 0; font-size: 1rem; text-transform: uppercase; }
-        .mv-box p { font-size: 0.9rem; color: #bbb; margin: 0; line-height: 1.5; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 35px; margin-bottom: 30px; border: 1px solid var(--border); }
+        .card h2 { color: var(--btv-green); font-size: 1.8rem; margin-top: 0; }
+        .card p { line-height: 1.8; color: #ccc; font-size: 1.05rem; }
 
-        @media (max-width: 800px) {
-            .mv-container { grid-template-columns: 1fr; }
-            nav { padding: 15px 15px; }
-            .logo { font-size: 1.4rem; }
-            .menu { gap: 8px; }
-            .dropbtn { font-size: 0.7rem; }
-        }
+        /* About Us 特色樣式 */
+        .about-section h3 { color: #fff; border-left: 4px solid var(--btv-green); padding-left: 15px; margin-top: 30px; }
 
-        /* 主佈局 */
-        .main-wrapper {
-            max-width: 1300px; margin: auto; padding: 40px 20px;
-            display: grid; grid-template-columns: 1fr 380px; gap: 40px;
-        }
+        /* Contact 樣式 */
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .contact-icon { background: var(--border); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--btv-green); }
 
-        @media (max-width: 1100px) {
-            .main-wrapper { grid-template-columns: 1fr; }
-        }
-
-        .content-area section { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 1px solid var(--border); }
-        .label { color: var(--btv-green); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        h2 { font-size: 2rem; margin: 0 0 15px 0; letter-spacing: -1.5px; }
-        .content-body { font-size: 1rem; color: #ccc; }
-        .highlight { color: #fff; font-weight: bold; border-bottom: 2px solid var(--btv-green); }
-
-        /* 視聽側欄 */
+        /* 📺 視聽側欄 */
         .sidebar { position: sticky; top: 100px; height: fit-content; }
-        .sidebar-title { color: var(--btv-green); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.15); margin-bottom: 20px; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; background: #000; }
+        .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.15); margin-bottom: 25px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .video-desc { font-size: 0.8rem; color: #aaa; margin-top: 8px; }
 
-        /* 底部行情 Widget：同樣加入加速 */
-        .footer-widget { 
-            position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); 
-            transform: translateZ(0); -webkit-transform: translateZ(0);
-        }
-        footer { padding: 40px 20px 120px; text-align: center; color: #444; font-size: 0.8rem; }
+        /* 底部 */
+        .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">KC</div>
-        <div class="menu">
-            <div class="dropdown">
-                <button class="dropbtn">STRATEGY 戰略評核 ▾</button>
-                <div class="dropdown-content">
-                    <a href="#macro">【深度】宏觀資產佈局評核</a>
-                    <a href="#ada">【深度】ADA 生態與治理觀點</a>
-                    <a href="#privacy">【深度】隱私資產的主權未來</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">MARKETS 市場 ▾</button>
-                <div class="dropdown-content">
-                    <a href="#macro">EQUITIES 科技美股 (MSTR)</a>
-                    <a href="#macro">HARD ASSETS 金銀原油</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">CONNECT 社交媒體 ▾</button>
-                <div class="dropdown-content">
-                    <a href="https://twitter.com/KCVisionGo" target="_blank" class="rainbow-1">X (TWITTER) @KCVisionGo</a>
-                    <a href="https://twitter.com/magotalk" target="_blank" class="rainbow-2">MAGO TALK @magotalk</a>
-                    <a href="https://ABABNews.com" target="_blank" class="rainbow-3">ABAB NEWS (Expert Articles)</a>
-                </div>
-            </div>
+        <div class="logo" onclick="showPage('home')">KC</div>
+        <div class="nav-links">
+            <a href="javascript:void(0)" id="link-home" class="active" onclick="showPage('home')">Home</a>
+            <a href="javascript:void(0)" id="link-strategy" onclick="showPage('strategy')">Strategy</a>
+            <a href="javascript:void(0)" id="link-about" onclick="showPage('about')">About Us</a>
+            <a href="javascript:void(0)" id="link-contact" onclick="showPage('contact')">Contact</a>
         </div>
     </nav>
 
@@ -151,76 +102,122 @@
                 {"proName": "BINANCE:ALGOUSDT", "description": "ALGO"},
                 {"proName": "MEXC:KASUSDT", "description": "KAS"}
             ],
-            "showSymbolLogo": true,
-            "colorTheme": "dark",
-            "isTransparent": true,
-            "displayMode": "adaptive",
-            "locale": "zh_TW"
+            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "zh_TW"
             }
             </script>
         </div>
     </div>
 
-    <div class="hero">
-        <h1>KC<span class="v-green">VISION</span></h1>
-        <p class="slogan">"In a world of noise, we provide clarity."</p>
-        
-        <div class="mv-container">
-            <div class="mv-box">
-                <h3>Our Mission 使命</h3>
-                <p>致力於消除數位資產與傳統金融之間的資訊鴻溝。透過深度數據解構，協助投資者從「投機者」轉變為「價值佈局者」。</p>
+    <div id="home" class="page-content active">
+        <div class="header-banner">
+            <h1>KC<span>VISION</span></h1>
+            <p>"In a world of noise, we provide clarity."</p>
+        </div>
+        <div class="main-container">
+            <div class="content">
+                <div class="card">
+                    <h2>Latest Insights 戰略評核</h2>
+                    <p>歡迎來到 KCVision。我們致力於解構複雜的宏觀經濟與 Web3 技術共振。在這裡，你可以找到關於 Bitcoin 本位、ADA 生態治理以及全球科技資產的深度觀點。</p>
+                    <p style="color:var(--btv-green); font-weight:bold; cursor:pointer;" onclick="showPage('strategy')">查看全部戰略文章 →</p>
+                </div>
             </div>
-            <div class="mv-box">
-                <h3>Our Vision 願景</h3>
-                <p>成為 Web3 時代最具影響力的策略智庫。見證數位資產與傳統硬資產的深度融合，將數據轉化為洞察，將洞察轉化為決策。</p>
+            <aside class="sidebar">
+                <div class="tv-frame">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/BL5vUVQvmX4" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="tv-frame">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/obD6NlxjopE" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div id="strategy" class="page-content">
+        <div class="header-banner">
+            <h1>Expert <span>Strategy</span></h1>
+            <p>深度戰略分析報告</p>
+        </div>
+        <div class="main-container">
+            <div class="content">
+                <div class="card">
+                    <h2>宏觀資產佈局評核</h2>
+                    <p>比特幣已演變為宏觀避險的「數位黃金」。K C 指出，BTC 的稀缺性邏輯將與 Nvidia、Tesla 等生產力巨頭產生共鳴。理解 MSTR 的資產負債表革命，是掌握未來價值的關鍵。</p>
+                </div>
+                <div class="card">
+                    <h2>ADA 生態與治理觀點</h2>
+                    <p>Cardano (ADA) 代表了去中心化的科學實踐。生態中的 SNEK 代表了社群力量的崛起。投資 ADA 係買入一個全球金融作業系統嘅未來入場券。</p>
+                </div>
+            </div>
+            <aside class="sidebar">
+                <div class="card" style="padding:20px;">
+                    <h3 style="color:var(--btv-green); margin-top:0;">Connect with K C</h3>
+                    <p style="font-size:0.9rem;">追蹤最新 X Space 語音直播與 Mago Talk 觀點。</p>
+                    <a href="https://twitter.com/KCVisionGo" target="_blank" style="color:#fff; text-decoration:none; font-weight:bold;">@KCVisionGo →</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div id="about" class="page-content">
+        <div class="header-banner">
+            <h1>About <span>Us</span></h1>
+            <p>了解 KCVision 的核心價值</p>
+        </div>
+        <div class="main-container">
+            <div class="content">
+                <div class="card about-section">
+                    <h2>Our Vision 願景</h2>
+                    <p>KCVision 致力於成為 Web3 社群最值得信賴的導航者。我們策劃可靠的區塊鏈與金融知識，讓讀者在快速變革的科技創新浪潮中保持領先。</p>
+                    <p>我們視教育與資訊透明為去中心化發展的核心驅動力。我們的平台匯集多元視角，記錄區塊鏈世界的不斷演進。</p>
+                    
+                    <h3>Our Mission 使命</h3>
+                    <p>透過深度數據解構，協助投資者從「投機者」轉變為「價值佈局者」。我們涵蓋從加密資產、DeFi 系統到 NFT 運動與治理實驗的多元話題，建立連接今日構思與未來數位社會的對話空間。</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="main-wrapper">
-        <div class="content-area">
-            <section id="macro">
-                <span class="label">Expert Review 01</span>
-                <h2>宏觀資產佈局：比特幣本位時代</h2>
-                <div class="content-body">
-                    <p>比特幣已演變為宏觀避險的「數位黃金」。K C 指出，<span class="highlight">BTC 的稀缺性邏輯將與 Nvidia、Tesla 等生產力巨頭產生共鳴</span>。只有理解了 MSTR 的資產負債表革命，才能真正洞察比特幣本位時代的到來。</p>
-                </div>
-            </section>
-            <section id="ada">
-                <span class="label">Expert Review 02</span>
-                <h2>ADA 生態：去中心化的科學實踐</h2>
-                <div class="content-body">
-                    <p>Cardano (ADA) 的價值源於其嚴謹的科學開發流程。生態龍頭 <strong>SNEK</strong> 代表了社群力量的崛起。投資 ADA 是買入一個全球金融作業系統的未來入場券。</p>
-                </div>
-            </section>
-            <section id="privacy">
-                <span class="label">Expert Review 03</span>
-                <h2>隱私資產：守護個人的數位財富主權</h2>
-                <div class="content-body">
-                    <p>隨着監管步步進逼，<strong>ZEC</strong> 等隱私協議將成為最後防線。隱私是數位時代的基本人權，必須包含在專業投資組合之中。</p>
-                </div>
-            </section>
+    <div id="contact" class="page-content">
+        <div class="header-banner">
+            <h1>Contact <span>Us</span></h1>
+            <p>與我們建立連結</p>
         </div>
-
-        <aside class="sidebar">
-            <div class="sidebar-title"><span>📺</span> KCVISION 視聽智庫</div>
-            <div class="tv-frame">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/BL5vUVQvmX4" title="什麼是比特幣?" allowfullscreen></iframe>
+        <div class="main-container">
+            <div class="content">
+                <div class="card">
+                    <h2>Get in Touch</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <span style="color:#888;">kcvision.info@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">𝕏</div>
+                        <div>
+                            <strong>X (Twitter)</strong><br>
+                            <a href="https://twitter.com/KCVisionGo" target="_blank" style="color:var(--btv-green); text-decoration:none;">@KCVisionGo</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎙</div>
+                        <div>
+                            <strong>Mago Talk</strong><br>
+                            <a href="https://twitter.com/magotalk" target="_blank" style="color:var(--btv-green); text-decoration:none;">@MagoTalk Space</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-desc"><strong>戰略基礎：</strong> 深度理解比特幣價值。</div>
             </div>
-            <div class="tv-frame">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/obD6NlxjopE" title="Bitcoin shorts" allowfullscreen></iframe>
-                </div>
-                <div class="video-desc"><strong>即時情報：</strong> 快速了解市場動態。</div>
-            </div>
-        </aside>
+        </div>
     </div>
 
-    <footer>
-        <p>© 2026 KCVISION.SPACE | 專業戰略智庫 | 內容由 K C 觀點整理</p>
+    <footer style="padding: 40px 20px 140px; text-align: center; color: #444; font-size: 0.8rem;">
+        <p>© 2026 KCVISION.SPACE | 專業戰略智庫 | 投資涉及風險</p>
     </footer>
 
     <div class="footer-widget">
@@ -237,15 +234,30 @@
                 {"proName": "TVC:UKOIL", "description": "原油 OIL"},
                 {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE (USDC)"}
             ],
-            "showSymbolLogo": true,
-            "colorTheme": "dark",
-            "isTransparent": false,
-            "displayMode": "adaptive",
-            "locale": "zh_TW"
+            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": false, "displayMode": "adaptive", "locale": "zh_TW"
             }
             </script>
         </div>
     </div>
+
+    <script>
+        function showPage(pageId) {
+            // 隱藏所有頁面
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // 顯示目標頁面
+            document.getElementById(pageId).classList.add('active');
+            
+            // 更新導航欄樣式
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => link.classList.remove('active'));
+            document.getElementById('link-' + pageId).classList.add('active');
+            
+            // 捲動回頂部
+            window.scrollTo(0, 0);
+        }
+    </script>
 
 </body>
 </html>
