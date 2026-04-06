@@ -3,169 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KCVision | Macro Strategy & Digital Gold</title>
+    <title>KCVision | 專業戰略與全球宏觀資產</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-black: #0a0a0a;
-            --btv-green: #a3ff12; /* BTV 招牌螢光綠 */
-            --dark-gray: #141414;
-            --text-white: #ffffff;
+            --bg-black: #050505;
+            --btv-green: #a3ff12; /* BTV 螢光綠 */
+            --dark-gray: #111;
+            --border: #222;
         }
 
-        body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-            background-color: var(--bg-black); 
-            color: var(--text-white); 
-            margin: 0; 
-            overflow-x: hidden; 
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; line-height: 1.6; }
 
-        /* 🚀 頂部動態數據流 (Crypto Portfolio) */
-        .ticker-wrap {
-            width: 100%; overflow: hidden; background: rgba(163, 255, 18, 0.05);
-            border-bottom: 1px solid rgba(163, 255, 18, 0.3); height: 45px; display: flex; align-items: center;
-        }
-        .ticker { display: flex; white-space: nowrap; animation: marquee 45s linear infinite; }
-        .ticker-item { padding: 0 30px; font-size: 0.9rem; color: var(--btv-green); font-family: monospace; font-weight: bold; }
-        .ticker-item span { color: #fff; margin-right: 8px; }
-
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* 🧭 導航欄 */
+        /* 導航欄 */
         nav { 
+            position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 25px 60px; background: rgba(0,0,0,0.9); border-bottom: 1px solid #222;
+            padding: 15px 50px; background: rgba(5,5,5,0.95); border-bottom: 1px solid var(--border);
         }
-        .logo { font-size: 2.2rem; font-weight: 900; color: #fff; letter-spacing: -2px; }
+        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: -2px; }
         .logo span { color: var(--btv-green); }
         
-        .menu { display: flex; gap: 40px; }
+        .menu { display: flex; gap: 30px; }
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { color: white; background: none; border: none; font-size: 0.95rem; cursor: pointer; font-weight: 600; letter-spacing: 1px; }
+        .dropbtn { color: #fff; background: none; border: none; font-size: 0.85rem; cursor: pointer; font-weight: 700; }
         .dropdown-content {
             display: none; position: absolute; background-color: var(--dark-gray);
-            min-width: 200px; box-shadow: 0px 10px 30px rgba(0,0,0,0.8); z-index: 100; border: 1px solid #333;
+            min-width: 200px; border: 1px solid var(--border); z-index: 100;
         }
-        .dropdown-content a { color: #bbb; padding: 15px 20px; text-decoration: none; display: block; font-size: 0.85rem; transition: 0.2s; }
-        .dropdown-content a:hover { background-color: var(--btv-green); color: black; font-weight: bold; }
+        .dropdown-content a { color: #888; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.8rem; }
+        .dropdown-content a:hover { background-color: var(--btv-green); color: #000; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* 🌌 Hero 區域 */
+        /* 實時行情插件 */
+        .live-ticker { margin-top: 75px; width: 100%; background: #000; border-bottom: 1px solid var(--border); }
+
+        /* Hero 核心區域 */
         .hero { 
             height: 70vh; display: flex; flex-direction: column; justify-content: center; 
-            align-items: center; text-align: center; 
-            background: radial-gradient(circle at 50% 40%, #1a2e1a 0%, #0a0a0a 100%);
-            padding: 0 20px;
+            align-items: center; text-align: center; padding: 0 20px;
+            background: radial-gradient(circle at center, #112211 0%, #050505 100%);
         }
-        .hero h1 { font-size: 5.5rem; margin-bottom: 10px; font-weight: 900; letter-spacing: -4px; line-height: 1; }
-        .hero p { font-size: 1.4rem; color: #aaa; max-width: 850px; line-height: 1.6; }
-        .cta-btn { 
-            margin-top: 40px; padding: 18px 45px; background: var(--btv-green); color: black; 
-            text-decoration: none; font-weight: bold; border-radius: 4px; transition: 0.3s;
-        }
-        .cta-btn:hover { background: white; transform: scale(1.05); }
+        .hero h1 { font-size: 5rem; margin: 0; font-weight: 900; letter-spacing: -3px; }
+        .hero p { font-size: 1.4rem; color: #888; max-width: 800px; margin: 20px 0; }
 
-        /* 🏛️ 核心宣言 */
-        .content-section { padding: 100px 60px; max-width: 1200px; margin: auto; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .vision-card { background: var(--dark-gray); padding: 50px; border: 1px solid #222; }
-        .vision-card h3 { color: var(--btv-green); font-size: 1.8rem; margin-top: 0; }
-        .vision-card p { color: #ccc; font-size: 1.1rem; line-height: 1.8; }
+        /* 內容區塊樣式 */
+        .container { max-width: 1100px; margin: auto; padding: 100px 20px; }
+        section { margin-bottom: 120px; padding-top: 100px; border-bottom: 1px solid var(--border); padding-bottom: 80px; }
+        .label { color: var(--btv-green); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        h2 { font-size: 3.2rem; margin: 0 0 30px 0; letter-spacing: -2px; }
+        h3 { color: var(--btv-green); font-size: 1.5rem; margin-top: 40px; }
+        .content-body { font-size: 1.15rem; color: #ccc; max-width: 900px; }
+        .highlight { color: #fff; font-weight: bold; border-bottom: 2px solid var(--btv-green); }
 
-        /* 📉 底部數據流 (Equities & Commodities) */
-        .footer-ticker { position: fixed; bottom: 0; width: 100%; z-index: 99; }
-
-        footer { padding: 80px 60px 140px; text-align: center; color: #444; border-top: 1px solid #111; }
+        /* 底部固定 Widget */
+        .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; }
+        footer { padding: 100px 50px 180px; text-align: center; color: #444; }
     </style>
 </head>
 <body>
 
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item"><span>BTC</span> $69,420 ▲</div>
-            <div class="ticker-item"><span>ADA</span> $0.452 ▲</div>
-            <div class="ticker-item"><span>SNEK</span> $0.0012 ▲</div>
-            <div class="ticker-item"><span>ETH</span> $3,512 ▲</div>
-            <div class="ticker-item"><span>LTC</span> $85.40 ▲</div>
-            <div class="ticker-item"><span>XMR</span> $142.10 ▲</div>
-            <div class="ticker-item"><span>ZEC</span> $28.50 ▲</div>
-            <div class="ticker-item"><span>ALGO</span> $0.185 ▲</div>
-            <div class="ticker-item"><span>SATS</span> $0.0000005 ▲</div>
-            <div class="ticker-item"><span>BGB</span> $1.05 ▲</div>
-            <div class="ticker-item"><span>KAS</span> $0.154 ▲</div>
-            <div class="ticker-item"><span>BTC</span> $69,420 ▲</div>
-            <div class="ticker-item"><span>ADA</span> $0.452 ▲</div>
-            <div class="ticker-item"><span>SNEK</span> $0.0012 ▲</div>
-            <div class="ticker-item"><span>XMR</span> $142.10 ▲</div>
-        </div>
-    </div>
-
     <nav>
-        <div class="logo">KC<span>Vision</span></div>
+        <div class="logo">KC<span>VISION</span></div>
         <div class="menu">
             <div class="dropdown">
-                <button class="dropbtn">STRATEGY ▾</button>
+                <button class="dropbtn">STRATEGY 投資策略 ▾</button>
                 <div class="dropdown-content">
-                    <a href="#">BITCOIN & HARD MONEY</a>
-                    <a href="#">CARDANO ECOSYSTEM</a>
-                    <a href="#">PRIVACY ASSETS</a>
+                    <a href="#vision">VISION & MISSION 宗旨</a>
+                    <a href="#bitcoin">BITCOIN 數位黃金</a>
+                    <a href="#ada">CARDANO / SNEK 生態</a>
+                    <a href="#privacy">PRIVACY 隱私資產</a>
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropbtn">MEDIA ▾</button>
+                <button class="dropbtn">GLOBAL MARKETS 市場 ▾</button>
                 <div class="dropdown-content">
-                    <a href="https://twitter.com/KCVisionGo" target="_blank">X (TWITTER)</a>
+                    <a href="#equities">EQUITIES 科技美股 (MSTR/NVDA)</a>
+                    <a href="#commodities">COMMODITIES 金銀原油</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">CONNECT 社交媒體 ▾</button>
+                <div class="dropdown-content">
+                    <a href="https://twitter.com/KCVisionGo" target="_blank">FOLLOW X (TWITTER)</a>
                     <a href="https://ABABNews.com" target="_blank">ABAB NEWS</a>
-                    <a href="#">MAGO TALK SPACE</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">GLOBAL MARKETS ▾</button>
-                <div class="dropdown-content">
-                    <a href="#">EQUITIES (TSLA/NVDA)</a>
-                    <a href="#">COMMODITIES (GOLD)</a>
-                    <a href="#">ENERGY (OIL)</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="hero">
-        <h1>HARD ASSETS<span>.</span> STRATEGIC MIND<span>.</span></h1>
-        <p>從 Bitcoin 的數位稀缺到 Cardano 的技術革新。KCVision 專注於真正具備生存能力的資產——無論是區塊鏈上的隱私協議，還是實體經濟中的科技巨頭與大宗商品。</p>
-        <a href="https://twitter.com/KCVisionGo" target="_blank" class="cta-btn">FOLLOW @KCVisionGo</a>
-    </div>
-
-    <div class="content-section">
-        <div class="grid">
-            <div class="vision-card">
-                <h3>Our Vision</h3>
-                <p>我們預見一個數位資產與傳統硬資產（黃金、原油）深度融合的未來。KCVision 的願景是成為 Web3 時代的戰略智庫，將最前沿的 <strong>ADA / SNEK</strong> 生態與 <strong>MSTR / Nvidia</strong> 等宏觀標竿結合，為精英投資者提供洞察。</p>
-            </div>
-            <div class="vision-card">
-                <h3>Our Mission</h3>
-                <p>使命在於保護價值。透過對 <strong>XMR / ZEC</strong> 的隱私研究，以及對 <strong>BTC / LTC</strong> 貨幣屬性的堅持，我們為社群提供一套不受通膨與雜訊干擾的專業導航體系。</p>
-            </div>
+    <div class="live-ticker">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+                {"proName": "BINANCE:BTCUSDT", "description": "BTC"},
+                {"proName": "BINANCE:ADAUSDT", "description": "ADA"},
+                {"proName": "MEXC:SNEKUSDT", "description": "SNEK"},
+                {"proName": "BINANCE:LTCUSDT", "description": "LTC"},
+                {"proName": "BINANCE:XMRUSDT", "description": "XMR"},
+                {"proName": "BINANCE:ZECUSDT", "description": "ZEC"},
+                {"proName": "BINANCE:ALGOUSDT", "description": "ALGO"},
+                {"proName": "BYBIT:BGBUSDT", "description": "BGB"},
+                {"proName": "MEXC:KASUSDT", "description": "KAS"}
+            ],
+            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "zh_TW"
+            }
+            </script>
         </div>
     </div>
 
+    <div class="hero">
+        <h1>KCVISION<span>.</span></h1>
+        <p>「在雜訊中尋找真實。」提供加密資產與頂尖科技股的深度戰略分析。</p>
+    </div>
+
+    <div class="container">
+        
+        <section id="vision">
+            <span class="label">Our Foundation</span>
+            <h2>網站宗旨與核心宣言</h2>
+            <div class="content-body">
+                <h3>1. 網站宗旨 (Our Purpose)</h3>
+                <p>「在雜訊中尋找真實。」KCVision 不只關注價格，我們關注的是<span class="highlight">改變世界的技術共振</span>。我們將數位資產的「去中心化信仰」與實體科技股的「AI 生產力」結合，建立一套專家級的價值視角。</p>
+                
+                <h3>2. 核心宣言 (Our Mission)</h3>
+                <p>• <span class="highlight">BTC & ADA 深度研究</span>：專注於 Bitcoin 的數位黃金屬性與 Cardano 的層次化技術發展，協助投資者掌握區塊鏈最穩健的增長路徑。</p>
+                <p>• <span class="highlight">跨界戰略分析</span>：橫跨比特幣與 Tesla、Nvidia、Amazon 等改變人類未來的標桿企業，分析數位稀缺性與科技爆炸的交匯點。</p>
+                <p>• <span class="highlight">專業社群共建</span>：從 X (Twitter) 到 Mago Talk，建立一個基於理性與數據的精英投資者社群。</p>
+            </div>
+        </section>
+
+        <section id="bitcoin">
+            <span class="label">Strategy One</span>
+            <h2>BITCOIN & HARD MONEY</h2>
+            <div class="content-body">
+                <p>我們將 <strong>Bitcoin (BTC)</strong> 視為全球主權級別的數位結算資產。除了 BTC，我們同樣重視具備貨幣歷史屬性的 <strong>Litecoin (LTC)</strong> 以及近期備受矚目的 <strong>KAS (Kaspa)</strong> 與 <strong>SATS (銘文生態)</strong>。我們的策略是：在極度不確定的法幣體系下，尋求技術性的確定性。</p>
+            </div>
+        </section>
+
+        <section id="ada">
+            <span class="label">Strategy Two</span>
+            <h2>CARDANO & SNEK ECOSYSTEM</h2>
+            <div class="content-body">
+                <p><strong>ADA (Cardano)</strong> 代表了區塊鏈行業最高的科學嚴謹性。我們深入研究其 eUTXO 模型與去中心化治理結構。同時，我們看好其生態內的標竿項目如 <strong>SNEK</strong>，這是社群力量與代幣經濟學結合的範例。</p>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <span class="label">Strategy Three</span>
+            <h2>PRIVACY ASSETS</h2>
+            <div class="content-body">
+                <p>在未來的數位監管環境下，<strong>XMR (Monero)</strong> 與 <strong>ZEC (Zcash)</strong> 將成為保護個人財富主權的最後屏障。KCVision 致力於研究隱私技術的合規與生存空間。</p>
+            </div>
+        </section>
+
+        <section id="equities">
+            <span class="label">Market Insight</span>
+            <h2>科技美股與宏觀資產</h2>
+            <div class="content-body">
+                <p><strong>MSTR (MicroStrategy)</strong> 是我們最核心的追蹤標的，它是企業實踐比特幣本位的先驅。我們同樣重倉關注 <strong>NVDA (英偉達)</strong> 的 AI 硬體壟斷力、<strong>TSLA (特斯拉)</strong> 的能源革命以及 <strong>Amazon / Google</strong> 的平台經濟力。</p>
+            </div>
+        </section>
+
+        <section id="commodities">
+            <span class="label">Commodities</span>
+            <h2>金銀原油與傳統避險</h2>
+            <div class="content-body">
+                <p>數位資產需要 <strong>Gold (黃金)</strong> 與 <strong>Silver (白銀)</strong> 作為宏觀參照系。同時，我們將 <strong>Oil (原油)</strong> 視為全球流動性與能源通脹的溫度計。真正的專家應具備全方位的資產視野。</p>
+            </div>
+        </section>
+
+    </div>
+
     <footer>
-        <p>© 2026 KCVision - All Insights Reserved.</p>
+        <p>© 2026 KCVISION.SPACE | 專業戰略智庫 | 內容不構成投資建議</p>
     </footer>
 
-    <div class="ticker-wrap footer-ticker" style="background: #111; border-top: 1px solid #333; border-bottom: none;">
-        <div class="ticker" style="animation-duration: 35s;">
-            <div class="ticker-item" style="color: #fff;"><span>MSTR</span> $1,520.10 ▲</div>
-            <div class="ticker-item" style="color: #fff;"><span>TSLA</span> $175.22 ▼</div>
-            <div class="ticker-item" style="color: #fff;"><span>NVDA</span> $890.45 ▲</div>
-            <div class="ticker-item" style="color: #fff;"><span>AMZN</span> $180.12 ▲</div>
-            <div class="ticker-item" style="color: #fff;"><span>GOOGL</span> $152.28 ▲</div>
-            <div class="ticker-item" style="color: #ffd700;"><span>GOLD</span> $2,350.50 ▲</div>
-            <div class="ticker-item" style="color: #c0c0c0;"><span>SILVER</span> $28.25 ▲</div>
-            <div class="ticker-item" style="color: #ffaa00;"><span>OIL</span> $85.12 ▲</div>
-            <div class="ticker-item" style="color: #fff;"><span>CRCL</span> (CIRCLE) STABLE</div>
-            <div class="ticker-item" style="color: #fff;"><span>MSTR</span> $1,520.10 ▲</div>
-            <div class="ticker-item" style="color: #ffd700;"><span>GOLD</span> $2,350.50 ▲</div>
+    <div class="footer-widget">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+                {"proName": "NASDAQ:MSTR", "description": "MSTR"},
+                {"proName": "NASDAQ:NVDA", "description": "NVDA"},
+                {"proName": "NASDAQ:TSLA", "description": "TSLA"},
+                {"proName": "OANDA:XAUUSD", "description": "黃金"},
+                {"proName": "OANDA:XAGUSD", "description": "白銀"},
+                {"proName": "TVC:UKOIL", "description": "原油"},
+                {"proName": "NASDAQ:AMZN", "description": "AMZN"},
+                {"proName": "NASDAQ:GOOGL", "description": "GOOGL"},
+                {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE"}
+            ],
+            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": false, "displayMode": "adaptive", "locale": "zh_TW"
+            }
+            </script>
         </div>
     </div>
 
