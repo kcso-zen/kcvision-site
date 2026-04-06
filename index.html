@@ -8,15 +8,14 @@
     <style>
         :root {
             --bg-black: #050505;
-            --btv-green: #a3ff12; /* BTV 螢光綠 */
+            --btv-green: #a3ff12; 
             --dark-gray: #111;
             --border: #222;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; line-height: 1.6; padding-bottom: 60px; /* 為底部 Widget 留位 */ }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; line-height: 1.8; padding-bottom: 60px; }
 
-        /* 導航欄 */
         nav { 
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center; 
@@ -30,18 +29,16 @@
         .dropbtn { color: #fff; background: none; border: none; font-size: 0.85rem; cursor: pointer; font-weight: 700; text-transform: uppercase; }
         .dropdown-content {
             display: none; position: absolute; background-color: var(--dark-gray);
-            min-width: 200px; border: 1px solid var(--border); z-index: 100;
+            min-width: 250px; border: 1px solid var(--border); z-index: 100;
         }
         .dropdown-content a { color: #888; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.8rem; }
         .dropdown-content a:hover { background-color: var(--btv-green); color: #000; font-weight: bold; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* 實時報價插件 */
         .live-ticker { margin-top: 75px; width: 100%; background: #000; border-bottom: 1px solid var(--border); }
 
-        /* Hero 核心區域 */
         .hero { 
-            height: 60vh; display: flex; flex-direction: column; justify-content: center; 
+            height: 55vh; display: flex; flex-direction: column; justify-content: center; 
             align-items: center; text-align: center; padding: 0 20px;
             background: radial-gradient(circle at center, #112211 0%, #050505 100%);
             border-bottom: 1px solid var(--border);
@@ -50,87 +47,38 @@
         .hero p { font-size: 1.5rem; color: var(--btv-green); max-width: 900px; margin: 15px 0; font-weight: 700; }
         .hero .sub-p { font-size: 1.1rem; color: #888; margin: 0; letter-spacing: 1px; }
 
-        /* 🛠️ 排版改革：雙列佈局 */
+        /* 雙列佈局 */
         .main-wrapper {
-            max-width: 1300px; /* 加寬以容納側欄 */
+            max-width: 1300px;
             margin: auto;
             padding: 60px 20px;
             display: grid;
-            grid-template-columns: 1fr 380px; /* 左邊內容，右邊 380px 側欄 */
+            grid-template-columns: 1fr 380px;
             gap: 50px;
         }
 
-        /* Responsive: 手機版自動變回單列 */
         @media (max-width: 1000px) {
             .main-wrapper { grid-template-columns: 1fr; }
-            nav { padding: 15px 20px; }
         }
 
-        /* 側欄 Sidebar 樣式 */
-        .sidebar {
-            position: sticky; top: 100px; /* 滑動時固定喺右邊 */
-            height: fit-content;
-        }
-        .sidebar-title {
-            color: var(--btv-green);
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-            display: flex; align-items: center; gap: 10px;
-        }
-
-        /* 📺 電視機框 (TV Frame) 樣式 */
-        .tv-frame {
-            background: #1a1a1a; /* 電視外框色 */
-            border: 8px solid #333; /* 邊框 */
-            border-radius: 15px;
-            padding: 10px;
-            box-shadow: 0 0 20px rgba(163, 255, 18, 0.15); /* 螢光綠陰影 */
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-        .tv-frame:hover {
-            box-shadow: 0 0 30px rgba(163, 255, 18, 0.3);
-            transform: translateY(-5px);
-        }
-        
-        /* 保持影片 16:9 比例 */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 5px;
-            background: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border: 0;
-        }
-        
-        .video-desc {
-            font-size: 0.9rem;
-            color: #aaa;
-            margin-top: 10px;
-            padding: 0 5px;
-            line-height: 1.4;
-        }
-
-        /* 左邊內容區塊 */
-        section { margin-bottom: 80px; padding-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 60px; }
+        /* 左邊內容區 */
+        .content-area section { margin-bottom: 100px; padding-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 80px; }
         .label { color: var(--btv-green); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        h2 { font-size: 3rem; margin: 0 0 30px 0; letter-spacing: -2px; }
-        h3 { color: var(--btv-green); font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px; }
-        .content-body { font-size: 1.1rem; color: #ccc; max-width: 800px; }
+        h2 { font-size: 3rem; margin: 0 0 30px 0; letter-spacing: -2px; line-height: 1.1; }
+        h3 { color: var(--btv-green); font-size: 1.4rem; margin-top: 40px; margin-bottom: 15px; }
+        .content-body { font-size: 1.1rem; color: #ccc; }
         .highlight { color: #fff; font-weight: bold; border-bottom: 2px solid var(--btv-green); }
 
-        /* 底部行情 Widget */
+        /* 右邊側欄 */
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-title { color: var(--btv-green); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .tv-frame { background: #1a1a1a; border: 8px solid #333; border-radius: 15px; padding: 10px; box-shadow: 0 0 20px rgba(163, 255, 18, 0.15); margin-bottom: 30px; transition: 0.3s; }
+        .tv-frame:hover { transform: translateY(-5px); box-shadow: 0 0 30px rgba(163, 255, 18, 0.3); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; background: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-desc { font-size: 0.9rem; color: #aaa; margin-top: 10px; }
+
+        /* 底部行情 */
         .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); }
         footer { padding: 60px 50px 140px; text-align: center; color: #444; font-size: 0.9rem; }
     </style>
@@ -141,25 +89,25 @@
         <div class="logo">KC<span>VISION</span></div>
         <div class="menu">
             <div class="dropdown">
-                <button class="dropbtn">STRATEGY 投資策略 ▾</button>
+                <button class="dropbtn">STRATEGY 戰略評核 ▾</button>
                 <div class="dropdown-content">
-                    <a href="#vision">VISION & MISSION 宗旨</a>
-                    <a href="#bitcoin">BITCOIN & LTC 貨幣體系</a>
-                    <a href="#ada">ADA 生態 (SNEK / NIGHT)</a>
-                    <a href="#privacy">PRIVACY & IHT 資產研究</a>
+                    <a href="#macro-review">【深度】宏觀資產佈局評核</a>
+                    <a href="#ada-review">【深度】ADA 生態與治理觀點</a>
+                    <a href="#privacy-review">【深度】隱私資產的主權未來</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">MARKETS 全球市場 ▾</button>
                 <div class="dropdown-content">
-                    <a href="#equities">EQUITIES 科技美股</a>
+                    <a href="#equities">EQUITIES 科技美股 (MSTR)</a>
                     <a href="#commodities">HARD ASSETS 金銀原油</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">CONNECT 社交媒體 ▾</button>
                 <div class="dropdown-content">
-                    <a href="https://twitter.com/KCVisionGo" target="_blank">X (TWITTER)</a>
+                    <a href="https://twitter.com/KCVisionGo" target="_blank">X (TWITTER) @KCVisionGo</a>
+                    <a href="https://twitter.com/magotalk" target="_blank">MAGO TALK @magotalk</a>
                     <a href="https://ABABNews.com" target="_blank">ABAB NEWS</a>
                 </div>
             </div>
@@ -178,9 +126,6 @@
                 {"proName": "BINANCE:LTCUSDT", "description": "LTC"},
                 {"proName": "BINANCE:ZECUSDT", "description": "ZEC"},
                 {"proName": "BINANCE:ALGOUSDT", "description": "ALGO"},
-                {"proName": "MEXC:NITEUSDT", "description": "NIGHT"},
-                {"proName": "BYBIT:IHTUSDT", "description": "IHT"},
-                {"proName": "BYBIT:BGBUSDT", "description": "BGB"},
                 {"proName": "MEXC:KASUSDT", "description": "KAS"}
             ],
             "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "zh_TW"
@@ -198,90 +143,53 @@
     <div class="main-wrapper">
         
         <div class="content-area">
-            <section id="vision">
-                <span class="label">Strategic Foundation</span>
-                <h2>網站宗旨與核心宣言</h2>
+            
+            <section id="macro-review">
+                <span class="label">Expert Review 01</span>
+                <h2>宏觀資產佈局評核：比特幣本位下的價值重構</h2>
                 <div class="content-body">
-                    <h3>1. 網站宗旨 (Our Purpose)</h3>
-                    <p>「在雜訊中尋找真實。」KCVision 不只關注價格，我們關注的是<span class="highlight">改變世界的技術共振</span>。我們將數位資產的「去中心化信仰」與實體科技股的「AI 生產力」結合，建立一套專家級的價值視角。</p>
-                    
-                    <h3>2. 核心宣言 (Our Mission)</h3>
-                    <p>• <span class="highlight">BTC & ADA 深度研究</span>：專注於 Bitcoin 的數位黃金屬性與 Cardano 的層次化技術發展，協助投資者掌握區塊鏈最穩健的增長路徑。</p>
-                    <p>• <span class="highlight">跨界戰略分析</span>：橫跨比特幣與 Tesla、Nvidia、Amazon 等標桿企業，分析數位稀缺性與科技爆炸的交匯點。</p>
+                    <p>根據 K C 在 X 平台上的深度分享，我們正處於一個全球流動性轉折的關鍵點。比特幣不再僅僅是一種高風險資產，而是逐漸演變為宏觀避險的「數位黃金」。K C 指出，當法幣系統面臨結構性通膨壓力時，<span class="highlight">BTC 的稀缺性邏輯將與 Nvidia、Tesla 等生產力巨頭產生共鳴</span>。這種跨資產的聯動分析，是 KCVision 核心戰略的基石。我們不應孤立地看加密貨幣，而應將其置於全球主權資產的天平上衡量。只有理解了 MSTR 的資產負債表革命，才能真正洞察比特幣本位時代的到來。這份評核旨在提醒投資者，在雜訊紛擾的市場中，抓住「數位硬資產」這一主線，才是應對未來不確定性的最優路徑。</p>
                 </div>
             </section>
 
-            <section id="bitcoin">
-                <span class="label">Macro Currency</span>
-                <h2>BITCOIN & 貨幣主權</h2>
+            <section id="ada-review">
+                <span class="label">Expert Review 02</span>
+                <h2>ADA 生態與治理觀點：去中心化的科學與藝術</h2>
                 <div class="content-body">
-                    <p><strong>Bitcoin (BTC)</strong> 是數位的終極結算層。除此之外，我們持續關注 <strong>Litecoin (LTC)</strong>、<strong>KAS</strong> 以及 <strong>SATS</strong> 等資產。在宏觀不確定的年代，這些 PoW 資產代表了技術的確定性。</p>
+                    <p>K C 對於 <strong>Cardano (ADA)</strong> 的熱愛源於其對「科學開發流程」的執著。在 X 的文章中，K C 深入探討了 ADA 的去中心化治理結構（如 Chang 硬分叉後的治理模型）。他認為，不同於其他追求短暫熱度的鏈，Cardano 追求的是數十年的穩定性。生態中的龍頭項目 <strong>SNEK</strong> 與隱私側鏈 <strong>Midnight (NIGHT)</strong>，代表了社群力量與商業隱私的結合。K C 強調，投資 ADA 不僅是買入代幣，更是買入一個全球金融作業系統的未來入場券。我們關注 eUTXO 模型的技術優勢，因為它是支撐大規模金融應用落地的核心。對於長期佈局者而言，Cardano 的價值在於其不可被摧毀的社會契約與技術護城河。</p>
                 </div>
             </section>
 
-            <section id="ada">
-                <span class="label">Cardano Ecosystem</span>
-                <h2>ADA & MIDNIGHT 側鏈研究</h2>
+            <section id="privacy-review">
+                <span class="label">Expert Review 03</span>
+                <h2>隱私資產的主權未來：在監管縫隙中尋找自由</h2>
                 <div class="content-body">
-                    <p>Cardano 生態正處於爆發前夜。除了核心資產 <strong>ADA</strong>，我們重點追蹤隱私側鏈 <strong>Midnight (NIGHT)</strong> 以及社群龍頭 <strong>SNEK</strong>。Midnight 將為 Cardano 帶來前所未有的商業隱私與合規能力。</p>
+                    <p>關於隱私，K C 的觀點非常鮮明：隱私不是為了隱藏罪惡，而是為了保護個人的數位財富主權。在 X 的系列文章中，K C 剖析了 <strong>ZEC</strong> 等隱私協議在 Web3 生態中的必要性。隨著 CBDC 與中心化監管的步步進逼，個人財務數據的「可見度」過高將成為未來的巨大風險。KCVision 致力於研究如何透過隱私技術（如零知識證明）在合規與自由之間取得平衡。K C 認為，資產的流動性與隱私性同等重要，未來的投資組合中必須包含一部分具備強大隱私屬性的資產，作為個人資產安全的最後一道防線。這不只是投資，更是對數位時代基本人權的守護與實踐。</p>
                 </div>
             </section>
 
-            <section id=" privacy">
-                <span class="label">Niche Assets</span>
-                <h2>隱私主權與 IHT 協議</h2>
-                <div class="content-body">
-                    <p>我們保留對 <strong>ZEC</strong> 的戰略觀察，並加入對 <strong>IHT</strong> 等資產協議的研究。KCVision 致力於在 Web3 的隱私保護與資產通證化賽道中，直擊核心價值。</p>
-                </div>
-            </section>
-
-            <section id="equities">
-                <span class="label">Equity Intelligence</span>
-                <h2>科技美股與 MSTR 智庫</h2>
-                <div class="content-body">
-                    <p>我們將 <strong>MicroStrategy (MSTR)</strong> 視為比特幣本位的先驅。同時追蹤 <strong>NVDA (英偉達)</strong> 的算力護城河、<strong>TSLA (特斯拉)</strong> 的自動化未來。</p>
-                </div>
-            </section>
         </div>
 
         <aside class="sidebar">
-            <div class="sidebar-title">
-                <span>📺</span> KCVISION 視聽智庫
-            </div>
-
+            <div class="sidebar-title"><span>📺</span> KCVISION 視聽智庫</div>
             <div class="tv-frame">
                 <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/BL5vUVQvmX4" 
-                        title="什麼是比特幣? (精華版)" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/BL5vUVQvmX4" title="什麼是比特幣?" allowfullscreen></iframe>
                 </div>
-                <div class="video-desc">
-                    <strong>戰略基礎：</strong> 5分鐘看懂比特幣嘅底層邏輯與價值。
-                </div>
+                <div class="video-desc"><strong>戰略基礎：</strong> 理解比特幣的底層邏輯與價值。</div>
             </div>
-
             <div class="tv-frame">
                 <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/obD6NlxjopE" 
-                        title="Bitcoin shorts" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/obD6NlxjopE" title="Bitcoin shorts" allowfullscreen></iframe>
                 </div>
-                <div class="video-desc">
-                    <strong>即時情報：</strong> 快速了解比特幣嘅市場特性 (Shorts)。
-                </div>
+                <div class="video-desc"><strong>即時情報：</strong> 快速了解比特幣市場特性。</div>
             </div>
         </aside>
 
     </div>
 
     <footer>
-        <p>© 2026 KCVISION.SPACE | 專業戰略情報 | 投資涉及風險</p>
+        <p>© 2026 KCVISION.SPACE | 專業戰略情報 | 內容由 K C 觀點整理</p>
     </footer>
 
     <div class="footer-widget">
@@ -293,8 +201,6 @@
                 {"proName": "NASDAQ:MSTR", "description": "MSTR"},
                 {"proName": "NASDAQ:NVDA", "description": "NVDA"},
                 {"proName": "NASDAQ:TSLA", "description": "TSLA"},
-                {"proName": "NASDAQ:AMZN", "description": "AMZN"},
-                {"proName": "NASDAQ:GOOGL", "description": "GOOGL"},
                 {"proName": "OANDA:XAUUSD", "description": "黃金 GOLD"},
                 {"proName": "OANDA:XAGUSD", "description": "白銀 SILVER"},
                 {"proName": "TVC:UKOIL", "description": "原油 OIL"},
