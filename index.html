@@ -3,79 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KCVision | Crypto & Equity Strategic Intelligence</title>
+    <title>KCVision | Macro Strategy & Digital Gold</title>
     <style>
         :root {
             --bg-black: #0a0a0a;
             --btv-green: #a3ff12; /* BTV 招牌螢光綠 */
-            --dark-gray: #1a1a1a;
+            --dark-gray: #141414;
             --text-white: #ffffff;
         }
 
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-black); color: var(--text-white); margin: 0; overflow-x: hidden; }
-
-        /* 頂部走馬燈 */
-        .ticker-wrap {
-            width: 100%; overflow: hidden; background: rgba(163, 255, 18, 0.1);
-            border-bottom: 1px solid var(--btv-green); height: 40px; display: flex; align-items: center;
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background-color: var(--bg-black); 
+            color: var(--text-white); 
+            margin: 0; 
+            overflow-x: hidden; 
         }
-        .ticker { display: flex; white-space: nowrap; animation: marquee 30s linear infinite; }
-        .ticker-item { padding: 0 20px; font-size: 0.85rem; color: var(--btv-green); font-weight: bold; }
+
+        /* 🚀 頂部動態數據流 (Crypto Portfolio) */
+        .ticker-wrap {
+            width: 100%; overflow: hidden; background: rgba(163, 255, 18, 0.05);
+            border-bottom: 1px solid rgba(163, 255, 18, 0.3); height: 45px; display: flex; align-items: center;
+        }
+        .ticker { display: flex; white-space: nowrap; animation: marquee 45s linear infinite; }
+        .ticker-item { padding: 0 30px; font-size: 0.9rem; color: var(--btv-green); font-family: monospace; font-weight: bold; }
+        .ticker-item span { color: #fff; margin-right: 8px; }
 
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* 導航欄 */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: rgba(0,0,0,0.8); sticky: top; }
-        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-white); }
+        /* 🧭 導航欄 */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 25px 60px; background: rgba(0,0,0,0.9); border-bottom: 1px solid #222;
+        }
+        .logo { font-size: 2.2rem; font-weight: 900; color: #fff; letter-spacing: -2px; }
         .logo span { color: var(--btv-green); }
         
-        .menu { display: flex; gap: 30px; }
+        .menu { display: flex; gap: 40px; }
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { color: white; background: none; border: none; font-size: 1rem; cursor: pointer; font-weight: 500; }
+        .dropbtn { color: white; background: none; border: none; font-size: 0.95rem; cursor: pointer; font-weight: 600; letter-spacing: 1px; }
         .dropdown-content {
             display: none; position: absolute; background-color: var(--dark-gray);
-            min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.5); z-index: 1;
+            min-width: 200px; box-shadow: 0px 10px 30px rgba(0,0,0,0.8); z-index: 100; border: 1px solid #333;
         }
-        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.9rem; }
-        .dropdown-content a:hover { background-color: var(--btv-green); color: black; }
+        .dropdown-content a { color: #bbb; padding: 15px 20px; text-decoration: none; display: block; font-size: 0.85rem; transition: 0.2s; }
+        .dropdown-content a:hover { background-color: var(--btv-green); color: black; font-weight: bold; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* 英雄區 */
-        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #1a3a1a 0%, #0a0a0a 100%); }
-        .hero h1 { font-size: 4rem; margin-bottom: 10px; letter-spacing: -2px; }
-        .hero p { font-size: 1.2rem; color: #888; max-width: 700px; }
-        .cta-btn { margin-top: 30px; padding: 15px 40px; background: var(--btv-green); color: black; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; }
-        .cta-btn:hover { background: white; transform: translateY(-3px); }
+        /* 🌌 Hero 區域 */
+        .hero { 
+            height: 70vh; display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; 
+            background: radial-gradient(circle at 50% 40%, #1a2e1a 0%, #0a0a0a 100%);
+            padding: 0 20px;
+        }
+        .hero h1 { font-size: 5.5rem; margin-bottom: 10px; font-weight: 900; letter-spacing: -4px; line-height: 1; }
+        .hero p { font-size: 1.4rem; color: #aaa; max-width: 850px; line-height: 1.6; }
+        .cta-btn { 
+            margin-top: 40px; padding: 18px 45px; background: var(--btv-green); color: black; 
+            text-decoration: none; font-weight: bold; border-radius: 4px; transition: 0.3s;
+        }
+        .cta-btn:hover { background: white; transform: scale(1.05); }
 
-        /* 使命與願景 */
-        .section { padding: 80px 50px; max-width: 1200px; margin: auto; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .card { background: var(--dark-gray); padding: 40px; border-left: 5px solid var(--btv-green); }
-        .card h2 { color: var(--btv-green); margin-top: 0; }
+        /* 🏛️ 核心宣言 */
+        .content-section { padding: 100px 60px; max-width: 1200px; margin: auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .vision-card { background: var(--dark-gray); padding: 50px; border: 1px solid #222; }
+        .vision-card h3 { color: var(--btv-green); font-size: 1.8rem; margin-top: 0; }
+        .vision-card p { color: #ccc; font-size: 1.1rem; line-height: 1.8; }
 
-        /* 底部走馬燈 */
-        .footer-ticker { position: fixed; bottom: 0; width: 100%; }
+        /* 📉 底部數據流 (Equities & Commodities) */
+        .footer-ticker { position: fixed; bottom: 0; width: 100%; z-index: 99; }
 
-        footer { padding: 60px 50px; text-align: center; color: #555; border-top: 1px solid #222; margin-bottom: 40px; }
+        footer { padding: 80px 60px 140px; text-align: center; color: #444; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
     <div class="ticker-wrap">
         <div class="ticker">
-            <div class="ticker-item">BTC $69,420 (+2.4%)</div>
-            <div class="ticker-item">ETH $3,512 (+1.8%)</div>
-            <div class="ticker-item">ADA $0.45 (+5.2%)</div>
-            <div class="ticker-item">SOL $145.2 (-0.5%)</div>
-            <div class="ticker-item">XRP $0.62 (+0.1%)</div>
-            <div class="ticker-item">DOT $7.2 (+3.1%)</div>
-            <div class="ticker-item">LINK $18.5 (+4.5%)</div>
-            <div class="ticker-item">AVAX $35.8 (+2.2%)</div>
-            <div class="ticker-item">DOGE $0.16 (-1.2%)</div>
-            <div class="ticker-item">MATIC $0.72 (+0.8%)</div>
-            <div class="ticker-item">BTC $69,420 (+2.4%)</div>
-            <div class="ticker-item">ETH $3,512 (+1.8%)</div>
-            <div class="ticker-item">ADA $0.45 (+5.2%)</div>
+            <div class="ticker-item"><span>BTC</span> $69,420 ▲</div>
+            <div class="ticker-item"><span>ADA</span> $0.452 ▲</div>
+            <div class="ticker-item"><span>SNEK</span> $0.0012 ▲</div>
+            <div class="ticker-item"><span>ETH</span> $3,512 ▲</div>
+            <div class="ticker-item"><span>LTC</span> $85.40 ▲</div>
+            <div class="ticker-item"><span>XMR</span> $142.10 ▲</div>
+            <div class="ticker-item"><span>ZEC</span> $28.50 ▲</div>
+            <div class="ticker-item"><span>ALGO</span> $0.185 ▲</div>
+            <div class="ticker-item"><span>SATS</span> $0.0000005 ▲</div>
+            <div class="ticker-item"><span>BGB</span> $1.05 ▲</div>
+            <div class="ticker-item"><span>KAS</span> $0.154 ▲</div>
+            <div class="ticker-item"><span>BTC</span> $69,420 ▲</div>
+            <div class="ticker-item"><span>ADA</span> $0.452 ▲</div>
+            <div class="ticker-item"><span>SNEK</span> $0.0012 ▲</div>
+            <div class="ticker-item"><span>XMR</span> $142.10 ▲</div>
         </div>
     </div>
 
@@ -85,55 +106,66 @@
             <div class="dropdown">
                 <button class="dropbtn">STRATEGY ▾</button>
                 <div class="dropdown-content">
-                    <a href="#">Bitcoin Core</a>
-                    <a href="#">Cardano Ecosystem</a>
-                    <a href="#">Equity Analysis</a>
+                    <a href="#">BITCOIN & HARD MONEY</a>
+                    <a href="#">CARDANO ECOSYSTEM</a>
+                    <a href="#">PRIVACY ASSETS</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">MEDIA ▾</button>
                 <div class="dropdown-content">
-                    <a href="https://twitter.com/KCVisionGo">X (Twitter)</a>
-                    <a href="https://ABABNews.com">ABAB News</a>
-                    <a href="#">Mago Talk Space</a>
+                    <a href="https://twitter.com/KCVisionGo" target="_blank">X (TWITTER)</a>
+                    <a href="https://ABABNews.com" target="_blank">ABAB NEWS</a>
+                    <a href="#">MAGO TALK SPACE</a>
                 </div>
             </div>
-            <a href="#" style="color:white; text-decoration:none; font-weight:500;">ABOUT</a>
+            <div class="dropdown">
+                <button class="dropbtn">GLOBAL MARKETS ▾</button>
+                <div class="dropdown-content">
+                    <a href="#">EQUITIES (TSLA/NVDA)</a>
+                    <a href="#">COMMODITIES (GOLD)</a>
+                    <a href="#">ENERGY (OIL)</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <div class="hero">
-        <h1>INTELLIGENCE BEYOND<span>.</span></h1>
-        <p>提供全球加密資產與頂尖科技股的深度戰略分析，為 Web3 時代的價值投資者導航。</p>
-        <a href="https://twitter.com/KCVisionGo" class="cta-btn">FOLLOW KCVision ON X</a>
+        <h1>HARD ASSETS<span>.</span> STRATEGIC MIND<span>.</span></h1>
+        <p>從 Bitcoin 的數位稀缺到 Cardano 的技術革新。KCVision 專注於真正具備生存能力的資產——無論是區塊鏈上的隱私協議，還是實體經濟中的科技巨頭與大宗商品。</p>
+        <a href="https://twitter.com/KCVisionGo" target="_blank" class="cta-btn">FOLLOW @KCVisionGo</a>
     </div>
 
-    <div class="section">
+    <div class="content-section">
         <div class="grid">
-            <div class="card">
-                <h2>Our Mission</h2>
-                <p>我們致力於打破傳統金融與去中心化經濟的資訊壁壘。通過對 Bitcoin 與 Cardano 生態的深度解構，以及對 Tesla、Nvidia 等改變世界企業的追蹤，協助投資者在波動中識別真正的長期價值。</p>
+            <div class="vision-card">
+                <h3>Our Vision</h3>
+                <p>我們預見一個數位資產與傳統硬資產（黃金、原油）深度融合的未來。KCVision 的願景是成為 Web3 時代的戰略智庫，將最前沿的 <strong>ADA / SNEK</strong> 生態與 <strong>MSTR / Nvidia</strong> 等宏觀標竿結合，為精英投資者提供洞察。</p>
             </div>
-            <div class="card">
-                <h2>Our Vision</h2>
-                <p>成為 Web3 時代最受信任的戰略智庫，將數據轉化為洞察，將洞察轉化為決策。在跨鏈、跨資產的未來，KCVision 是您最穩定的羅盤。</p>
+            <div class="vision-card">
+                <h3>Our Mission</h3>
+                <p>使命在於保護價值。透過對 <strong>XMR / ZEC</strong> 的隱私研究，以及對 <strong>BTC / LTC</strong> 貨幣屬性的堅持，我們為社群提供一套不受通膨與雜訊干擾的專業導航體系。</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 KCVision.space - 跨越數位資產與實體科技的邊界</p>
+        <p>© 2026 KCVision - All Insights Reserved.</p>
     </footer>
 
-    <div class="ticker-wrap footer-ticker" style="background: rgba(255,255,255,0.05); border-top: 1px solid #333; border-bottom: none;">
-        <div class="ticker" style="animation-duration: 40s;">
-            <div class="ticker-item" style="color: #fff;">TSLA $175.2 (-1.2%)</div>
-            <div class="ticker-item" style="color: #fff;">NVDA $890.5 (+3.5%)</div>
-            <div class="ticker-item" style="color: #fff;">AMZN $180.2 (+0.8%)</div>
-            <div class="ticker-item" style="color: #fff;">GOOGL $152.3 (+1.1%)</div>
-            <div class="ticker-item" style="color: #fff;">CIRCLE (USDC) Stable</div>
-            <div class="ticker-item" style="color: #fff;">TSLA $175.2 (-1.2%)</div>
-            <div class="ticker-item" style="color: #fff;">NVDA $890.5 (+3.5%)</div>
+    <div class="ticker-wrap footer-ticker" style="background: #111; border-top: 1px solid #333; border-bottom: none;">
+        <div class="ticker" style="animation-duration: 35s;">
+            <div class="ticker-item" style="color: #fff;"><span>MSTR</span> $1,520.10 ▲</div>
+            <div class="ticker-item" style="color: #fff;"><span>TSLA</span> $175.22 ▼</div>
+            <div class="ticker-item" style="color: #fff;"><span>NVDA</span> $890.45 ▲</div>
+            <div class="ticker-item" style="color: #fff;"><span>AMZN</span> $180.12 ▲</div>
+            <div class="ticker-item" style="color: #fff;"><span>GOOGL</span> $152.28 ▲</div>
+            <div class="ticker-item" style="color: #ffd700;"><span>GOLD</span> $2,350.50 ▲</div>
+            <div class="ticker-item" style="color: #c0c0c0;"><span>SILVER</span> $28.25 ▲</div>
+            <div class="ticker-item" style="color: #ffaa00;"><span>OIL</span> $85.12 ▲</div>
+            <div class="ticker-item" style="color: #fff;"><span>CRCL</span> (CIRCLE) STABLE</div>
+            <div class="ticker-item" style="color: #fff;"><span>MSTR</span> $1,520.10 ▲</div>
+            <div class="ticker-item" style="color: #ffd700;"><span>GOLD</span> $2,350.50 ▲</div>
         </div>
     </div>
 
