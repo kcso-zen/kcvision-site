@@ -11,10 +11,12 @@
             --card-bg: #1a1a1a;
             --btv-green: #a3ff12; 
             --border: #222;
+            --base-font-size: 16px;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; padding-bottom: 80px; }
+        html { font-size: var(--base-font-size); }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; padding-bottom: 80px; transition: font-size 0.2s ease; }
 
         /* 🛠️ 全置中導航欄 */
         nav { 
@@ -24,65 +26,54 @@
         }
         .logo { font-size: 1.5rem; font-weight: 900; color: var(--btv-green); letter-spacing: -1px; margin-bottom: 5px; cursor: pointer; }
         
-        .nav-links { display: flex; gap: 15px; justify-content: center; width: 100%; flex-wrap: wrap; }
-        .nav-links a, .dropbtn { 
-            color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; 
-            padding: 5px 8px; transition: 0.3s; white-space: nowrap; background: none; border: none; cursor: pointer;
-        }
+        .nav-links { display: flex; gap: 15px; justify-content: center; width: 100%; flex-wrap: wrap; margin-bottom: 5px; }
+        .nav-links a, .dropbtn { color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; padding: 5px 8px; transition: 0.3s; white-space: nowrap; background: none; border: none; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active { color: var(--btv-green); border-bottom: 2px solid var(--btv-green); }
 
         /* 下拉選單 */
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: var(--card-bg);
-            min-width: 220px; border: 1px solid var(--border); z-index: 100; left: 50%; transform: translateX(-50%);
-        }
+        .dropdown-content { display: none; position: absolute; background-color: var(--card-bg); min-width: 220px; border: 1px solid var(--border); z-index: 100; left: 50%; transform: translateX(-50%); }
         .dropdown-content a { display: block; padding: 12px 20px; text-align: left; border-bottom: 1px solid #222; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* 🌈 彩虹粗體連結樣式 */
-        .rainbow-1 { font-weight: 900 !important; color: #ff5e3a !important; } /* 紅/橙 */
-        .rainbow-2 { font-weight: 900 !important; color: #fdfc47 !important; } /* 黃/綠 */
-        .rainbow-3 { font-weight: 900 !important; color: #32fff8 !important; } /* 藍/靛 */
+        /* 🌈 彩虹粗體連結 */
+        .rainbow-1 { font-weight: 900 !important; color: #ff5e3a !important; }
+        .rainbow-2 { font-weight: 900 !important; color: #fdfc47 !important; }
+        .rainbow-3 { font-weight: 900 !important; color: #32fff8 !important; }
 
-        @media (max-width: 600px) {
-            .nav-links { gap: 5px; }
-            .nav-links a, .dropbtn { font-size: 0.75rem; padding: 5px 3px; }
-        }
+        /* 🔍 字體縮放控制 */
+        .font-controls { display: flex; gap: 10px; background: #222; padding: 2px 10px; border-radius: 20px; margin-top: 5px; }
+        .font-btn { background: none; border: none; color: #888; font-weight: 900; cursor: pointer; padding: 5px; transition: 0.3s; font-size: 0.8rem; }
+        .font-btn:hover, .font-btn.active { color: var(--btv-green); }
 
-        /* 實時行情條 */
-        .live-ticker { margin-top: 100px; width: 100%; border-bottom: 1px solid var(--border); }
+        .live-ticker { margin-top: 130px; width: 100%; border-bottom: 1px solid var(--border); transform: translateZ(0); }
 
-        /* 頁面內容樣式 */
+        /* 內容頁面控制 */
         .page-content { display: none; }
         .page-content.active { display: block; animation: fadeIn 0.4s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .header-banner {
-            background: linear-gradient(to bottom, #111, #000);
-            padding: 50px 20px; text-align: center; border-bottom: 1px solid var(--border);
-            margin-bottom: 30px;
-        }
+        .header-banner { background: linear-gradient(to bottom, #111, #000); padding: 50px 20px; text-align: center; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
         .header-banner h1 { font-size: 3rem; margin: 0; font-weight: 900; }
         .header-banner h1 span { color: var(--btv-green); }
         .header-banner p { color: var(--btv-green); font-size: 1.1rem; font-weight: 700; margin-top: 10px; }
 
-        /* 卡片佈局 */
+        /* 佈局容器 */
         .main-container { max-width: 1200px; margin: auto; display: grid; grid-template-columns: 1fr 380px; gap: 40px; padding: 0 20px; }
-        @media (max-width: 1000px) { .main-container { grid-template-columns: 1fr; } }
+        @media (max-width: 1100px) { .main-container { grid-template-columns: 1fr; } }
 
         .card { background: var(--card-bg); border-radius: 12px; padding: 30px; margin-bottom: 25px; border: 1px solid var(--border); }
-        .card h2 { color: var(--btv-green); font-size: 1.6rem; margin-top: 0; }
-        .card p { line-height: 1.7; color: #ccc; font-size: 1rem; }
+        .card h2 { color: var(--btv-green); font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .card p { line-height: 1.8; color: #ccc; font-size: 1rem; }
+        .highlight { color: var(--btv-green); font-weight: bold; }
 
         /* 側欄影片 */
-        .sidebar { position: sticky; top: 120px; height: fit-content; }
+        .sidebar { position: sticky; top: 150px; height: fit-content; }
         .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.1); margin-bottom: 20px; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* 底部行情 */
-        .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); }
+        .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); transform: translateZ(0); }
         footer { padding: 30px 20px 130px; text-align: center; color: #444; font-size: 0.8rem; }
     </style>
 </head>
@@ -94,7 +85,6 @@
             <a href="javascript:void(0)" id="link-home" class="active" onclick="showPage('home')">Home</a>
             <a href="javascript:void(0)" id="link-about" onclick="showPage('about')">About Us</a>
             <a href="javascript:void(0)" id="link-strategy" onclick="showPage('strategy')">Strategy</a>
-            
             <div class="dropdown">
                 <button class="dropbtn">Connect Media ▾</button>
                 <div class="dropdown-content">
@@ -103,8 +93,12 @@
                     <a href="https://Magotalk.com" target="_blank" class="rainbow-3">2. Magotalk.com</a>
                 </div>
             </div>
-
             <a href="javascript:void(0)" id="link-contact" onclick="showPage('contact')">Contact</a>
+        </div>
+        <div class="font-controls">
+            <button class="font-btn" onclick="changeFontSize(14, this)">A- 小</button>
+            <button class="font-btn active" onclick="changeFontSize(16, this)">A 中</button>
+            <button class="font-btn" onclick="changeFontSize(20, this)">A+ 大</button>
         </div>
     </nav>
 
@@ -137,7 +131,7 @@
             <div class="content">
                 <div class="card">
                     <h2>Latest Insights 戰略智庫</h2>
-                    <p>歡迎來到 KCVision。我們致力於解構複雜的宏觀經濟與 Web3 技術。在這裡，你可以找到關於 Bitcoin 本位、ADA 生態治理以及全球科技資產的深度評核。</p>
+                    <p>歡迎來到 KCVision。我們致力於解構複雜的宏觀經濟與 Web3 技術。在這裡，你可以找到關於 Bitcoin 本位、ADA 生態治理以及全球科技資產的深度評核報告。</p>
                 </div>
             </div>
             <aside class="sidebar">
@@ -155,8 +149,12 @@
         <div class="main-container">
             <div class="content">
                 <div class="card">
-                    <h2>Our Vision & Mission</h2>
-                    <p>KCVision 致力於成為 Web3 社群最值得信賴的導航者。透過深度數據解構，協助投資者從「投機者」轉變為「價值佈局者」。</p>
+                    <h2>Our Vision 願景</h2>
+                    <p>KCVision 致力於成為 Web3 社群最值得信賴的導航者。透過深度數據解構，為專業投資者提供清晰的技術路徑與宏觀視野。</p>
+                </div>
+                <div class="card">
+                    <h2>Our Mission 使命</h2>
+                    <p>我們的使命是消除數位資產與傳統金融之間的資訊鴻溝，協助投資者從「投機者」轉變為具備戰略眼光的「價值佈局者」。</p>
                 </div>
             </div>
         </div>
@@ -165,15 +163,54 @@
     <div id="strategy" class="page-content">
         <div class="header-banner">
             <h1>Expert <span>Strategy</span></h1>
-            <p>深度戰略分析觀點</p>
+            <p>深度戰略分析觀點集錦</p>
         </div>
         <div class="main-container">
             <div class="content">
                 <div class="card">
-                    <h2>宏觀資產佈局評核</h2>
-                    <p>比特幣已演變為宏觀避險的「數位黃金」。K C 指出，BTC 的稀缺性邏輯將與 Nvidia、Tesla 等生產力巨頭產生共鳴。</p>
+                    <h2>01. 比特幣本位：宏觀流動性的終極避險</h2>
+                    <p>比特幣不再僅僅是風險資產，它是對沖法幣系統性貶值的<span class="highlight">「數位硬通貨」</span>。當全球央行重啟印鈔機，BTC 的絕對稀缺性將使其成為主權級別的結算資產。</p>
+                </div>
+                <div class="card">
+                    <h2>02. MSTR 策略：企業財政的範式轉移</h2>
+                    <p>Michael Saylor 的 MicroStrategy 模式證明了將比特幣作為儲備資產的優越性。這不只是投機，這是<span class="highlight">資本配置的革命</span>，將傳統企業轉化為比特幣本位的引擎。</p>
+                </div>
+                <div class="card">
+                    <h2>03. Cardano (ADA) 的科學哲學與韌性</h2>
+                    <p>不同於追求極速但頻頻宕機的鏈，Cardano 選擇了嚴謹的學術同行評審。Chang 硬分叉標誌著<span class="highlight">完全去中心化治理</span>的到來，這是區塊鏈主權的最高實踐。</p>
+                </div>
+                <div class="card">
+                    <h2>04. SNEK 與社群驅動的社交層邏輯</h2>
+                    <p>Memecoin 唔單止係公仔，SNEK 係 Cardano 生態中最強大的<span class="highlight">文化共識與社群黏合劑</span>。佢代表咗 Web3 時代由下而上嘅品牌力量。</p>
+                </div>
+                <div class="card">
+                    <h2>05. Midnight (NIGHT)：合規隱私的平衡點</h2>
+                    <p>數據主權係未來十年嘅核心課題。Midnight 作為 ADA 側鏈，通過零知識證明（ZKP）實現了<span class="highlight">「有選擇的透明」</span>，解決了商業隱私與監管合規的矛盾。</p>
+                </div>
+                <div class="card">
+                    <h2>06. PoW 資產的價值回歸：KAS 與 LTC</h2>
+                    <p>工作量證明（PoW）保證了資產的物理成本底線。KAS 的 BlockDAG 技術與 LTC 的穩定支付屬性，是追求<span class="highlight">底層技術確定性</span>投資者的重要選擇。</p>
+                </div>
+                <div class="card">
+                    <h2>07. NVDA 與 TSLA：生產力與數位稀缺的共鳴</h2>
+                    <p>Nvidia 的算力壟斷與 Tesla 的自動化願景，正與比特幣形成的數位基礎設施產生共鳴。投資者應關注<span class="highlight">算力資本與貨幣資本</span>的合流。</p>
+                </div>
+                <div class="card">
+                    <h2>08. 隱私資產 (ZEC) 與財務主權的最後防線</h2>
+                    <p>在監管步步進逼的年代，財務隱私就是自由。ZEC 代表了數位資產最後的<span class="highlight">不可追蹤性</span>，是保護個人財產主權不被侵犯的關鍵防禦工事。</p>
+                </div>
+                <div class="card">
+                    <h2>09. 全球宏觀錨點：金銀油的週期參照</h2>
+                    <p>數位資產唔係孤島。黃金、白銀與原油的流動性週期，是我們評估加密資產估值的<span class="highlight">現實世界座標系</span>。真正的專家必須具備跨市場視野。</p>
+                </div>
+                <div class="card">
+                    <h2>10. 戰略智慧：在雜訊中過濾真實</h2>
+                    <p>KCVision 的存在不是為了提供買賣訊號，而是為了建立<span class="highlight">深度邏輯架構</span>。真正的獲利來自於對技術原教旨主義的堅持與對宏觀週期的冷靜剖析。</p>
                 </div>
             </div>
+            <aside class="sidebar">
+                <div class="tv-frame"><div class="video-container"><iframe src="https://www.youtube.com/embed/BL5vUVQvmX4" allowfullscreen></iframe></div></div>
+            </aside>
         </div>
     </div>
 
@@ -186,8 +223,8 @@
             <div class="content">
                 <div class="card">
                     <h2>Get in Touch</h2>
-                    <p>Email: kcvision.info@gmail.com</p>
-                    <p>Twitter: @KCVisionGo</p>
+                    <p><strong>Email:</strong> kcvision.info@gmail.com</p>
+                    <p><strong>Twitter:</strong> @KCVisionGo</p>
                 </div>
             </div>
         </div>
@@ -226,6 +263,13 @@
             const activeLink = document.getElementById('link-' + pageId);
             if(activeLink) activeLink.classList.add('active');
             window.scrollTo(0, 0);
+        }
+
+        function changeFontSize(size, btn) {
+            document.documentElement.style.setProperty('--base-font-size', size + 'px');
+            const btns = document.querySelectorAll('.font-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         }
     </script>
 </body>
