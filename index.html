@@ -18,7 +18,7 @@
         html { font-size: var(--base-font-size); }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; padding-bottom: 80px; transition: font-size 0.2s ease; }
 
-        /* 🛠️ 全置中導航欄 */
+        /* 導航欄 - 全置中設計 */
         nav { 
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; flex-direction: column; align-items: center; 
@@ -30,7 +30,7 @@
         .nav-links a, .dropbtn { color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; padding: 5px 8px; transition: 0.3s; white-space: nowrap; background: none; border: none; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active { color: var(--btv-green); border-bottom: 2px solid var(--btv-green); }
 
-        /* 彩虹連結 */
+        /* 下拉選單 */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 220px; border: 1px solid var(--border); z-index: 100; left: 50%; transform: translateX(-50%); }
         .dropdown-content a { display: block; padding: 12px 20px; text-align: left; border-bottom: 1px solid #222; }
@@ -39,14 +39,14 @@
         .rainbow-2 { font-weight: 900 !important; color: #fdfc47 !important; }
         .rainbow-3 { font-weight: 900 !important; color: #32fff8 !important; }
 
-        /* 🔍 字體縮放 */
+        /* 字體縮放按鈕 */
         .font-controls { display: flex; gap: 10px; background: #222; padding: 2px 10px; border-radius: 20px; margin-top: 5px; }
         .font-btn { background: none; border: none; color: #888; font-weight: 900; cursor: pointer; padding: 5px; transition: 0.3s; font-size: 0.8rem; }
         .font-btn:hover, .font-btn.active { color: var(--btv-green); }
 
         .live-ticker { margin-top: 130px; width: 100%; border-bottom: 1px solid var(--border); transform: translateZ(0); }
 
-        /* 頁面切換控制 */
+        /* 頁面內容控制 */
         .page-content { display: none; }
         .page-content.active { display: block; animation: fadeIn 0.4s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -62,15 +62,16 @@
 
         /* 戰略智庫卡片樣式 */
         .card { background: var(--card-bg); border-radius: 12px; padding: 45px; margin-bottom: 40px; border: 1px solid var(--border); line-height: 1.8; }
-        .card h2 { color: var(--btv-green); font-size: 1.6rem; margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px; letter-spacing: -0.5px; }
+        .card h2 { color: var(--btv-green); font-size: 1.6rem; margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .intro-text { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
         .lang-section { margin-bottom: 35px; }
-        .zh-content { font-size: 1.05rem; color: #eee; margin-bottom: 15px; }
-        .en-content { color: #888; font-style: italic; font-size: 0.95rem; border-left: 3px solid var(--btv-green); padding-left: 20px; }
-        .highlight { color: var(--btv-green); font-weight: 700; }
+        .zh-content { font-size: 1.1rem; color: #eee; margin-bottom: 15px; }
+        .en-content { color: #888; font-style: italic; font-size: 1rem; border-left: 3px solid var(--btv-green); padding-left: 20px; }
+        .highlight { color: var(--btv-green); font-weight: 800; }
 
-        /* 📺 視聽側欄 */
+        /* 側欄 */
         .sidebar { position: sticky; top: 150px; height: fit-content; }
-        .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.1); margin-bottom: 25px; }
+        .tv-frame { background: #1a1a1a; border: 6px solid #333; border-radius: 12px; padding: 8px; box-shadow: 0 0 15px rgba(163, 255, 18, 0.15); margin-bottom: 25px; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
@@ -123,6 +124,7 @@
         </div>
     </div>
 
+    <!-- 🏠 HOME PAGE -->
     <div id="home" class="page-content active">
         <div class="header-banner">
             <h1>KC<span class="v-green">VISION</span></h1>
@@ -132,7 +134,7 @@
             <div class="content">
                 <div class="card">
                     <h2>Latest Insights 戰略智庫</h2>
-                    <p>歡迎來到 KCVision 戰略智庫。在這裡，我們解構 Web3 底層邏輯與全球宏觀週期，為價值佈局者提供最純粹的戰略導航。請點擊上方 Strategy 選單進入千字深度研究報告。</p>
+                    <div class="zh-content">歡迎來到 KCVision 戰略智庫。在這裡，我們解構 Web3 底層邏輯與全球宏觀週期，為價值佈局者提供最純粹的戰略導航。請點擊上方 Strategy 選單進入千字深度研究報告。</div>
                 </div>
             </div>
             <aside class="sidebar">
@@ -141,113 +143,88 @@
         </div>
     </div>
 
-    <div id="about" class="page-content">
-        <div class="header-banner">
-            <h1>About <span>Us</span></h1>
-            <p>Our Vision & Mission | 使命與願景</p>
-        </div>
-        <div class="main-container">
-            <div class="content">
-                <div class="card">
-                    <h2>Our Vision 願景</h2>
-                    <div class="zh-content">成為 Web3 社群最值得信賴的導航者。透過深度數據解構與跨資產戰略分析，為專業投資者提供清晰的技術路徑與宏觀視野，在科技浪潮中保持領先地位。</div>
-                    <div class="en-content">To be the most trusted navigator for the Web3 community. Through deep data deconstruction and cross-asset strategic analysis, we provide professional investors with a clear technical roadmap and macro perspective to stay ahead in the technological tide.</div>
-                </div>
-                <div class="card">
-                    <h2>Our Mission 使命</h2>
-                    <div class="zh-content">我們的使命是消除數位資產與傳統金融之間的資訊鴻溝。協助投資者從盲目的「投機者」轉變為具備深厚戰略眼光的「價值佈局者」，守護數位時代的財務主權。</div>
-                    <div class="en-content">Our mission is to bridge the information gap between digital assets and traditional finance, empowering investors to transform from blind "speculators" into "value strategists" with profound strategic vision, safeguarding financial sovereignty in the digital age.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- 📊 STRATEGY PAGE (根據最新要求深度重寫) -->
     <div id="strategy" class="page-content">
         <div class="header-banner">
             <h1>Expert <span>Strategy</span></h1>
-            <p>Intelligence Beyond the Noise | 跨越噪音的深度戰略觀點</p>
+            <p>Distilling Truth from Noise | 在雜訊中萃取真實</p>
         </div>
         <div class="main-container">
             <div class="content">
                 
+                <!-- 總綱導讀 -->
                 <div class="card">
-                    <h2>01. 比特幣本位：數位文明的度量衡 | The Bitcoin Standard as a Digital Metric</h2>
+                    <div class="intro-text">歡迎來到 KCVision 戰略智庫。</div>
                     <div class="lang-section">
-                        <div class="zh-content">在現有的法幣信用體系面臨結構性債務危機的背景下，比特幣（Bitcoin）已經超越了單純的資產類別，轉化為一種全球最終結算的<span class="highlight">「數位度量衡」</span>。K C 指出，比特幣的絕對稀缺性是數位文明的物理基礎。當全球主權信用面臨無限稀釋時，BTC 作為唯一無對手方風險、不可篡改且具備硬性供應上限的資產，其戰略地位等同於 21 世紀的「數位主權領土」。投資比特幣不是在賭博，而是在為未來的數位生存空間購買保險。</div>
-                        <div class="en-content">Under the context of structural debt crises in the current fiat credit system, Bitcoin has transcended simple asset classification to become a global "Digital Metric" for final settlement. K C emphasizes that the absolute scarcity of Bitcoin is the physical foundation of digital civilization. As global sovereign credit faces infinite dilution, BTC—as the only asset with zero counterparty risk, immutability, and a hard supply cap—holds a strategic position equivalent to "Digital Sovereign Territory" in the 21st century. Investing in Bitcoin is not gambling; it is purchasing insurance for future digital survival space.</div>
+                        <div class="zh-content">在這個資訊爆炸、雜訊震耳欲聾的時代，真正的價值往往隱藏在波段的震盪與表象的狂熱之下。我們不追求短期的市場情緒，我們追求的是底層邏輯的真實與宏觀週期的必然。</div>
+                        <div class="en-content">Welcome to the KCVision Strategic Think Tank. In an era of information explosion and deafening noise, true value is often concealed beneath market volatility and superficial hype. We do not chase short-term sentiment; instead, we seek the truth of underlying logic and the inevitability of macro cycles.</div>
                     </div>
                 </div>
 
+                <!-- 願景 -->
                 <div class="card">
-                    <h2>02. MSTR 效應：企業財務的範式轉移 | The MSTR Effect: A Corporate Paradigm Shift</h2>
+                    <h2>一、 我們的核心願景：在雜訊中尋找清晰 | I. Core Vision: Finding Clarity</h2>
                     <div class="lang-section">
-                        <div class="zh-content">MicroStrategy 的案例證明了「比特幣本位」在企業治理中的強大生命力。透過將資產負債表轉化為比特幣引擎，企業從原本被動對抗通膨，轉化為主動捕捉全球貨幣流動性的放大器。這標誌著一種<span class="highlight">範式轉移</span>：優質企業不再僅僅依賴於產品銷售的現金流，而是透過持有「數位稀缺性」來實現資本的跨維度增長。這種將比特幣作為儲備資產的策略，將成為未來十年企業應對法幣波動的標配。</div>
-                        <div class="en-content">The Case of MicroStrategy proves the immense vitality of the "Bitcoin Standard" in corporate governance. By transforming the balance sheet into a Bitcoin engine, corporations shift from passively hedging against inflation to actively capturing global currency liquidity as amplifiers. This marks a paradigm shift: high-quality enterprises no longer rely solely on cash flow from product sales but achieve cross-dimensional capital growth by holding "Digital Scarcity." This strategy of using Bitcoin as a reserve asset will become a standard for corporations navigating fiat volatility over the next decade.</div>
+                        <div class="zh-content"><span class="highlight">「In a world of noise, we provide clarity.」</span> 這不僅僅是一句口號，更是我們研究的基準。</div>
+                        <div class="en-content">"In a world of noise, we provide clarity." This is not just a slogan; it is the benchmark of our research.</div>
+                    </div>
+                    <div class="lang-section">
+                        <div class="zh-content"><strong>1. 解構 Web3 的底層邏輯：</strong>多數人看到的是代幣價格的起伏，而我們看到的是去中心化協議對傳統金融架構的重塑。從共識機制到代幣經濟學（Tokenomics），我們深入挖掘技術背後的權力分配與價值流向。</div>
+                        <div class="en-content"><strong>1. Deconstructing Web3 Fundamentals:</strong> While most witness the fluctuation of token prices, we observe the reshaping of traditional financial structures by decentralized protocols. We delve deep into the distribution of power and value flow behind the technology.</div>
+                    </div>
+                    <div class="lang-section">
+                        <div class="zh-content"><strong>2. 洞察全球宏觀週期：</strong>加密資產不再是孤島。聯準會的貨幣政策、全球流動性拐點以及地緣政治風險，皆是左右市場的關鍵變量。我們將 Web3 納入全球宏觀金融框架進行多維度分析。</div>
+                        <div class="en-content"><strong>2. Insights into Global Macro Cycles:</strong> Crypto-assets are no longer isolated islands. Federal Reserve monetary policies, global liquidity pivot points, and geopolitical risks are key variables swaying the market. We integrate Web3 into the global macro-financial framework.</div>
                     </div>
                 </div>
 
+                <!-- 導航 -->
                 <div class="card">
-                    <h2>03. Cardano (ADA)：科學原教旨主義與治理革命 | Cardano's Scientific Rigor & Governance</h2>
+                    <h2>二、 價值佈局者的戰略導航 | II. Strategic Navigation for Value Allocators</h2>
                     <div class="lang-section">
-                        <div class="zh-content">不同於市場對短線投機與所謂「高 TPS」的盲目崇拜，Cardano 選擇了一條極致嚴謹的學術同行評審路徑。eUTXO 模型與 Chang 硬分叉後的治理模型，體現了去中心化治理的最高實踐。對 K C 而言，ADA 不僅是代幣，它是一個<span class="highlight">全球金融作業系統</span>的哲學實踐，旨在解決信任、安全與可擴展性的「不可能三角」。在混亂的區塊鏈底層競賽中，Cardano 的韌性來自於其深厚的科學底層與社群共同治理的社會契約。</div>
-                        <div class="en-content">Unlike the market's blind worship of short-term speculation and so-called "High TPS," Cardano has chosen a path of extreme academic rigor through peer-reviewed research. The eUTXO model and the post-Chang hardfork governance represent the pinnacle of decentralized governance practice. For K C, ADA is more than just a token; it is the philosophical execution of a Global Financial Operating System designed to solve the trilemma of trust, security, and scalability. In the chaotic race for blockchain layer-1 dominance, Cardano’s resilience stems from its deep scientific foundation and the social contract of community co-governance.</div>
+                        <div class="zh-content">為價值佈局者（Value Allocators）提供「最純粹」的導航，意味著我們拒絕平庸的資訊二次加工。</div>
+                        <div class="en-content">Providing "pure" navigation for Value Allocators means we reject mediocre, rehashed information processing.</div>
+                    </div>
+                    <div class="lang-section">
+                        <div class="zh-content"><strong>• 深度研究報告：</strong>我們的報告涵蓋項目基本面、競爭格局分析、鏈上數據追蹤及潛在風險評估。</div>
+                        <div class="en-content"><strong>• In-depth Research Reports:</strong> Our reports cover project fundamentals, competitive landscape analysis, on-chain data tracking, and risk assessments.</div>
+                    </div>
+                    <div class="lang-section">
+                        <div class="zh-content"><strong>• 跨週期戰略：</strong>我們協助投資者識別「結構性機會」而非「週期性投機」。在熊市中佈局建設者，在牛市中保持理性的退出機制。</div>
+                        <div class="en-content"><strong>• Cross-cycle Strategies:</strong> We assist investors in identifying "structural opportunities" rather than "cyclical speculation"—positioning with builders during bear markets and maintaining rational exit strategies.</div>
                     </div>
                 </div>
 
+                <!-- 核心觀點深度剖析 (10 大主題) -->
                 <div class="card">
-                    <h2>04. SNEK：由下而上的文化主權與社群黏合 | SNEK: Bottom-Up Cultural Sovereignty</h2>
+                    <h2>三、 核心戰略觀點深度評核 | III. Deep Strategic Thesis Review</h2>
+                    
                     <div class="lang-section">
-                        <div class="zh-content">Memecoin 在 Web3 生態中扮演著關鍵的社交與流動性角色。SNEK 在 Cardano 生態中的崛起，證明了強大的<span class="highlight">社群共識</span>可以轉化為真實的經濟價值。它不僅僅是一個符號，它是對中心化行銷體系的挑戰。透過公平的分發機制與社群驅動的敘事，SNEK 成功建立了超越交易行為的文化認同。在 Web3 時代，誰掌握了社群的專注力，誰就掌握了未來的流動性定價權。</div>
-                        <div class="en-content">Memecoins play a pivotal social and liquidity role within the Web3 ecosystem. The rise of SNEK within Cardano proves that powerful community consensus can translate into real economic value. It is not merely a symbol; it is a challenge to centralized marketing systems. Through fair distribution mechanisms and community-driven narratives, SNEK has successfully built a cultural identity that transcends mere trading. In the Web3 era, whoever captures community attention captures the future power of liquidity pricing.</div>
+                        <div class="zh-content"><strong>01. 比特幣本位：數位主權與終極結算層</strong><br>比特幣已從「數位黃金」進化為全球最終結算的「數位度量衡」。它是法幣信用無限攤薄時代下，唯一的物理級別防護。</div>
+                        <div class="en-content"><strong>01. The Bitcoin Standard: Digital Sovereignty</strong><br>Bitcoin has evolved into a global "Digital Metric" for final settlement—the only physical-grade protection in an era of infinite fiat debasement.</div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <h2>05. Midnight (NIGHT)：隱私與合規的商業邊界 | The Commercial Frontier of Privacy</h2>
                     <div class="lang-section">
-                        <div class="zh-content">數據主權是數位時代最神聖的財產權。Midnight 作為 Cardano 側鏈，通過零知識證明（ZKP）實現了<span class="highlight">「有選擇的透明」</span>。它解決了傳統區塊鏈在商業應用中的最大痛點：如何既能滿足監管要求的審計性，又能保護企業核心經營數據不被公開洩露。K C 認為，Midnight 將開啟商業區塊鏈應用的新時代，讓 Web3 技術真正步入實體經濟的深水區。</div>
-                        <div class="en-content">Data sovereignty is the most sacred property right of the digital age. Midnight, as a Cardano sidechain, achieves "Selective Transparency" via Zero-Knowledge Proofs (ZKP). It addresses the greatest pain point of traditional blockchain in commercial applications: how to satisfy regulatory auditing requirements while protecting core corporate data from public exposure. K C believes Midnight will usher in a new era of enterprise blockchain adoption, allowing Web3 technology to truly enter the deep-water zones of the real economy.</div>
+                        <div class="zh-content"><strong>02. Cardano (ADA) 的科學實踐與韌性</strong><br>Cardano 代表了區塊鏈最高的科學嚴謹性。eUTXO 模型與 Chang 硬分叉標誌著去中心化治理的最高實踐，它是未來全球金融作業系統的哲學底層。</div>
+                        <div class="en-content"><strong>02. Cardano's Scientific Rigor and Resilience</strong><br>Cardano represents the peak of academic rigor. The eUTXO model and post-Chang hardfork mark the ultimate practice in decentralized governance.</div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <h2>06. 工作量證明（PoW）的底層物理學：LTC 與 KAS | The Physics of PoW: LTC & KAS</h2>
                     <div class="lang-section">
-                        <div class="zh-content">在權益證明（PoS）大行其道的年代，工作量證明（PoW）所具備的物理能量消耗，提供了不可被「政治手段」或「代幣集中化」所操縱的安全底線。Litecoin（LTC）的長期穩定性與 Kaspa（KAS）在 BlockDAG 技術上的突破，代表了對<span class="highlight">技術確定性</span>的終極追求。K C 強調，PoW 是數位資產與實體物理世界之間最後的聯繫紐帶，保證了網路的公正性與防護力。</div>
-                        <div class="en-content">In an era where Proof of Stake (PoS) dominates, the physical energy consumption of Proof of Work (PoW) provides a security baseline that cannot be manipulated by "political maneuvers" or "token centralization." The long-term stability of Litecoin (LTC) and Kaspa’s (KAS) breakthroughs in BlockDAG technology represent the ultimate pursuit of technical certainty. K C emphasizes that PoW is the last link between digital assets and the physical world, ensuring the fairness and robustness of the network.</div>
+                        <div class="zh-content"><strong>03. MSTR 革命：企業財務的範式轉移</strong><br>Michael Saylor 證明了比特幣可以成為企業資產負債表的引擎。這將引發全球企業的範式轉移，將生產力與數位稀缺性完美合流。</div>
+                        <div class="en-content"><strong>03. The MSTR Revolution: Corporate Paradigm Shift</strong><br>MicroStrategy proves that BTC can power corporate balance sheets, triggering a global paradigm shift merging productivity with digital scarcity.</div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <h2>07. NVDA 與 TSLA：算力、能源與數位資產的共振 | Computing, Energy & Digital Resonance</h2>
                     <div class="lang-section">
-                        <div class="zh-content">Nvidia（NVDA）的算力壟斷與 Tesla（TSLA）的能源自動化願景，正與比特幣所代表的數位基礎設施產生強烈的共鳴。我們正處於一個「算力資本」與「貨幣資本」合流的奇點。Nvidia 提供的 AI 硬體防護了生產力，而比特幣保護了生產力所產出的價值不被侵蝕。投資者應從<span class="highlight">跨資產鏈接</span>的角度，觀察算力大國如何透過數位資產實現財富的二次分配。</div>
-                        <div class="en-content">Nvidia’s compute monopoly and Tesla’s vision for automated energy are generating strong resonance with the digital infrastructure represented by Bitcoin. We are at a singularity where "Compute Capital" and "Currency Capital" converge. Nvidia’s AI hardware safeguards productivity, while Bitcoin protects the value generated by that productivity from erosion. Investors should observe how compute superpowers utilize digital assets for wealth redistribution through a lens of cross-asset linkage.</div>
+                        <div class="zh-content"><strong>04. 數據主權與 Midnight (NIGHT)</strong><br>隱私是數位時代的基本人權。Midnight 通過零知識證明技術，在滿足合規的同時保護隱私，這是 Web3 步入實體經濟的必然橋樑。</div>
+                        <div class="en-content"><strong>04. Data Sovereignty and Midnight (NIGHT)</strong><br>Privacy is a human right. Midnight utilizes ZK-Proofs to protect privacy while ensuring compliance, bridging Web3 with the real economy.</div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <h2>08. ZEC 與不可被追蹤的財務自由 | ZEC & Untraceable Financial Freedom</h2>
                     <div class="lang-section">
-                        <div class="zh-content">財務隱私不是為了隱藏罪惡，而是為了保護自由。在 CBDC 與中心化監管步步進逼的年代，Zcash（ZEC）等具備強大隱私技術的資產，將成為保護個人權益的<span class="highlight">最後堡壘</span>。K C 指出，當數據成為一種武器，保持「不可見」就是保護資產免受掠奪的最佳防禦。隱私技術將從邊緣賽道演變為精英資產配置中的核心組件。</div>
-                        <div class="en-content">Financial privacy is not for hiding guilt; it is for protecting liberty. In an age of encroaching CBDCs and centralized surveillance, assets like Zcash (ZEC) with robust privacy technology will become the last bastions for individual rights. K C points out that when data is weaponized, remaining "invisible" is the best defense against asset predation. Privacy technology will evolve from a niche sector into a core component of elite asset allocation.</div>
+                        <div class="zh-content"><strong>05. PoW 的技術確定性：KAS 與 LTC</strong><br>在 PoS 趨於集中的環境下，PoW 提供了物理能量的確定性。Kaspa 與 Litecoin 代表了技術底層的純粹性與安全性。</div>
+                        <div class="en-content"><strong>05. Technical Certainty of PoW: KAS & LTC</strong><br>Amidst PoS centralization, PoW provides physical certainty. Kaspa and Litecoin represent purity and security at the technical base layer.</div>
                     </div>
-                </div>
-
-                <div class="card">
-                    <h2>09. 全球宏觀錨點：黃金、白銀與原油的對照 | Macro Anchors: Gold, Silver & Oil</h2>
-                    <div class="lang-section">
-                        <div class="zh-content">數位資產絕非孤島，它必須放在全球流動性的大背景下進行評估。我們監測黃金、白銀與原油的走勢，是為了在數位波動中尋找現實世界的座標系。黃金是時間的敵人，白銀是工業的支點，原油是流動性的溫度計。透過對這些<span class="highlight">硬資產</span>的長期追蹤，KCVision 確保了在評估比特幣與加密市場估值時，擁有最冷靜且具備深度的宏觀視角。</div>
-                        <div class="en-content">Digital assets are by no means islands; they must be evaluated within the broader context of global liquidity. We monitor the trends of Gold, Silver, and Oil to find real-world coordinates amidst digital volatility. Gold is the enemy of time, Silver is the fulcrum of industry, and Oil is the thermometer of liquidity. By tracking these hard assets, KCVision ensures the coolest and deepest macro perspective when evaluating Bitcoin and crypto market valuations.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>10. 結語：在雜訊中萃取真實 | Conclusion: Distilling Truth from Noise</h2>
-                    <div class="lang-section">
-                        <div class="zh-content">KCVision 的存在不是為了提供短期的買賣信號，而是為了協助讀者建立一套長效、自洽且具備韌性的<span class="highlight">邏輯框架</span>。我們深信，真正的獲利來自於對技術原教旨主義的堅持，以及對全球宏觀週期的冷靜剖析。在喧囂的世界中，我們將持續與讀者一同跨越雜訊，尋找那些具備生存能力的價值核心。</div>
-                        <div class="en-content">The existence of KCVision is not to provide short-term trading signals, but to assist readers in building a long-term, self-consistent, and resilient logical framework. We firmly believe that true profit comes from adhering to technical fundamentalism and the calm dissection of global macro cycles. In a world of noise, we will continue to help our readers look beyond the static to find the value cores that possess the ultimate will to survive.</div>
-                    </div>
+                    
+                    <div class="zh-content" style="border-top:1px solid #333; padding-top:20px;">這僅僅是我們戰略版圖的一部分。KCVision 將持續分析 <strong>Nvidia (算力資本)</strong>、<strong>Tesla (能源革命)</strong> 與 <strong>Gold (傳統錨點)</strong> 之間的共鳴，為社群過濾雜訊，尋找真實。</div>
                 </div>
 
             </div>
@@ -258,15 +235,27 @@
         </div>
     </div>
 
-    <div id="contact" class="page-content">
-        <div class="header-banner"><h1>Contact <span>Us</span></h1><p>與專家建立專業連結</p></div>
+    <!-- ABOUT / CONTACT 保持專業架構 -->
+    <div id="about" class="page-content">
+        <div class="header-banner"><h1>About <span>Us</span></h1><p>使命與願景</p></div>
         <div class="main-container">
-            <div class="content"><div class="card"><h2>Get in Touch</h2><p><strong>Email:</strong> kcvision.info@gmail.com</p><p><strong>Twitter:</strong> @KCVisionGo</p></div></div>
+            <div class="content">
+                <div class="card"><h2>Our Vision 願景</h2><p>成為 Web3 社群最信賴的導航者。</p></div>
+                <div class="card"><h2>Our Mission 使命</h2><p>協助投資者從「投機者」轉變為「價值佈局者」。</p></div>
+            </div>
         </div>
     </div>
 
-    <footer><p>© 2026 KCVISION.SPACE | 專業戰略智庫 | 內容由 K C 深度觀點撰寫</p></footer>
+    <div id="contact" class="page-content">
+        <div class="header-banner"><h1>Contact <span>Us</span></h1><p>建立專業連結</p></div>
+        <div class="main-container">
+            <div class="content"><div class="card"><h2>Get in Touch</h2><p>Email: kcvision.info@gmail.com</p><p>Twitter: @KCVisionGo</p></div></div>
+        </div>
+    </div>
 
+    <footer><p>© 2026 KCVISION.SPACE | 專業戰略智庫</p></footer>
+
+    <!-- 底部行情 -->
     <div class="footer-widget">
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
@@ -278,7 +267,6 @@
                 {"proName": "NASDAQ:TSLA", "description": "TSLA"},
                 {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE (USDC)"},
                 {"proName": "OANDA:XAUUSD", "description": "黃金 GOLD"},
-                {"proName": "OANDA:XAGUSD", "description": "白銀 SILVER"},
                 {"proName": "TVC:UKOIL", "description": "原油 OIL"}
             ],
             "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": false, "displayMode": "adaptive", "locale": "zh_TW"
