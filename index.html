@@ -3,57 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KCVISION.space | Crypto, Privacy & Space Talk</title>
+    <title>KC Vision | Bitcoin & ADA Insights</title>
     <style>
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #050505; color: #e5e7eb; margin: 0; line-height: 1.6; }
-        header { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80'); background-size: cover; padding: 100px 20px; text-align: center; border-bottom: 1px solid #333; }
-        h1 { color: #ffffff; font-size: 3rem; margin: 0; letter-spacing: 4px; text-transform: uppercase; }
-        .tagline { color: #38bdf8; font-size: 1.3rem; margin-top: 15px; font-weight: 300; }
-        .container { max-width: 800px; margin: auto; padding: 60px 20px; }
-        .grid { display: grid; gap: 30px; }
-        .card { background: #111; padding: 30px; border-radius: 4px; border: 1px solid #222; transition: 0.3s; }
-        .card:hover { border-color: #38bdf8; background: #161616; }
-        .card h3 { color: #38bdf8; margin-top: 0; font-size: 1.5rem; }
-        .card p { color: #9ca3af; }
-        .social-link { display: inline-block; margin-top: 20px; color: #fff; text-decoration: none; border-bottom: 1px dashed #38bdf8; padding-bottom: 2px; }
-        footer { text-align: center; padding: 60px; color: #4b5563; font-size: 0.85rem; border-top: 1px solid #222; }
-        .accent { color: #38bdf8; }
+        /* 🎨 顏色控制中心 - K C 你可以在這裡改背景色 */
+        :root {
+            --bg-color: #1a1c2c; /* 深藍色背景，不再是全黑 */
+            --card-bg: #2d3436;  /* 鋼鐵灰卡片 */
+            --accent: #00d2ff;   /* 天藍色重點 */
+            --text: #dfe6e9;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text); margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); padding: 80px 20px; text-align: center; }
+        
+        /* 名字黐埋一齊 */
+        h1 { color: #ffffff; font-size: 3.5rem; margin: 0; letter-spacing: -2px; text-transform: uppercase; }
+        
+        .tagline { color: var(--accent); font-size: 1.2rem; margin-top: 10px; }
+        .container { max-width: 800px; margin: auto; padding: 40px 20px; }
+        .grid { display: grid; gap: 25px; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; border-bottom: 4px solid var(--accent); }
+        .card h3 { color: var(--accent); margin-top: 0; }
+        
+        /* 按鈕樣式 */
+        .btn-group { margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn { background: var(--accent); color: #000; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .btn:hover { opacity: 0.8; }
+        
+        footer { text-align: center; padding: 50px; color: #636e72; font-size: 0.8rem; }
+        .highlight { color: #fab1a0; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>K C Vision</h1>
-    <p class="tagline">探索去中心化未來與數位資產價值</p>
+    <h1>KCVision</h1>
+    <p class="tagline">專注比特幣與 ADA 的數位價值探索</p>
 </header>
 
 <div class="container">
     <div class="grid">
         <div class="card">
-            <h3>🎙️ Mago Talk Space</h3>
-            <p>在 X (Twitter) 平台上主持的語音系列，深入探討比特幣減半、隱私幣發展以及宏觀經濟對加密市場的影響。</p>
-            <a href="#" class="social-link">追蹤我的最新 Space 錄音 →</a>
+            <h3>🔗 快速連結</h3>
+            <div class="btn-group">
+                <a href="https://twitter.com/YourXAccount" class="btn">X (Twitter) 帳戶</a>
+                <a href="https://ABABNews.com" class="btn">ABAB News</a>
+                <a href="#" class="btn">Mago Talk Space</a>
+            </div>
         </div>
 
         <div class="card">
-            <h3>🛡️ 隱私與自由</h3>
-            <p>專注於 <span class="accent">Monero (XMR)</span> 與 <span class="accent">Zcash (ZEC)</span> 等隱私技術的應用。我們相信金融隱私是 Web3 時代的核心基石。</p>
+            <h3>📈 核心熱愛：Bitcoin & ADA</h3>
+            <p>對於 <span class="highlight">Bitcoin (BTC)</span> 與 <span class="highlight">Cardano (ADA)</span> 擁有極高的熱忱與長期信心。我相信這兩者代表了去中心化未來的技術與價值頂峰。</p>
         </div>
 
         <div class="card">
-            <h3>🎨 數位資產收藏</h3>
-            <p>致力於優質 NFT 項目的長期價值挖掘，包括 <span class="accent">Mutant Ape Yacht Club (MAYC)</span> 與 <span class="accent">Lil Pudgy</span>。結合數位藝術與社區共識的投資美學。</p>
-        </div>
-
-        <div class="card">
-            <h3>📈 投資哲學</h3>
-            <p>深受 Michael Saylor、Grant Cardone 等投資領袖啟發，堅持長期持有比特幣並尋找具備非對稱回報的機會。</p>
+            <h3>🎙️ Space Talk & 觀點</h3>
+            <p>在數位空間分享對市場的獨到觀察。雖然對隱私幣保持觀察興趣，但目前的戰略重點始終圍繞在主流價值幣的生態建設。</p>
         </div>
     </div>
 </div>
 
 <footer>
-    &copy; 2026 KCVISION.space | 全力推動 Web3 與加密教育
+    &copy; 2026 KCVision.space | 內容純屬個人觀點，不構成投資建議。
 </footer>
 
 </body>
