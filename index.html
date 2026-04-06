@@ -18,7 +18,7 @@
         html { font-size: var(--base-font-size); }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; padding-bottom: 80px; transition: font-size 0.2s ease; }
 
-        /* 導航欄 */
+        /* 🛠️ 全置中導航欄 */
         nav { 
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; flex-direction: column; align-items: center; 
@@ -30,7 +30,7 @@
         .nav-links a, .dropbtn { color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; padding: 5px 8px; transition: 0.3s; white-space: nowrap; background: none; border: none; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active { color: var(--btv-green); border-bottom: 2px solid var(--btv-green); }
 
-        /* 彩虹連結 */
+        /* 下拉選單與彩虹色 */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 220px; border: 1px solid var(--border); z-index: 100; left: 50%; transform: translateX(-50%); }
         .dropdown-content a { display: block; padding: 12px 20px; text-align: left; border-bottom: 1px solid #222; }
@@ -39,7 +39,7 @@
         .rainbow-2 { font-weight: 900 !important; color: #fdfc47 !important; }
         .rainbow-3 { font-weight: 900 !important; color: #32fff8 !important; }
 
-        /* 字體縮放 */
+        /* 🔍 字體縮放控制 */
         .font-controls { display: flex; gap: 10px; background: #222; padding: 2px 10px; border-radius: 20px; margin-top: 5px; }
         .font-btn { background: none; border: none; color: #888; font-weight: 900; cursor: pointer; padding: 5px; transition: 0.3s; font-size: 0.8rem; }
         .font-btn:hover, .font-btn.active { color: var(--btv-green); }
@@ -60,11 +60,10 @@
         .main-container { max-width: 1200px; margin: auto; display: grid; grid-template-columns: 1fr 380px; gap: 40px; padding: 0 20px; }
         @media (max-width: 1000px) { .main-container { grid-template-columns: 1fr; } }
 
-        /* 戰略智庫卡片樣式 */
+        /* 卡片與雙語樣式 */
         .card { background: var(--card-bg); border-radius: 12px; padding: 40px; margin-bottom: 30px; border: 1px solid var(--border); line-height: 1.8; }
-        .card h2 { color: var(--btv-green); font-size: 1.5rem; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .lang-block { margin-bottom: 30px; }
-        .en-text { color: #888; font-style: italic; font-size: 0.95rem; margin-top: 10px; border-left: 2px solid #333; padding-left: 15px; }
+        .card h2 { color: var(--btv-green); font-size: 1.6rem; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .en-text { color: #888; font-style: italic; font-size: 0.95rem; margin-top: 15px; border-left: 2px solid #333; padding-left: 15px; }
         .highlight { color: var(--btv-green); font-weight: 700; }
 
         /* 電視框 */
@@ -73,7 +72,7 @@
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 5px; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); }
+        .footer-widget { position: fixed; bottom: 0; width: 100%; z-index: 1000; background: #000; border-top: 1px solid var(--border); transform: translateZ(0); }
         footer { padding: 30px 20px 130px; text-align: center; color: #444; font-size: 0.8rem; }
     </style>
 </head>
@@ -131,12 +130,34 @@
             <div class="content">
                 <div class="card">
                     <h2>Latest Insights 戰略智庫</h2>
-                    <p>歡迎來到 KCVision 戰略智庫。在這裡，我們不預測風向，我們解構風向。透過對比特幣本位、ADA 生態與全球科技巨頭的深度觀察，為價值佈局者提供最純粹的邏輯導航。</p>
+                    <p>歡迎來到 KCVision 戰略智庫。在這裡，我們解構 Web3 底層邏輯與全球宏觀週期，為價值佈局者提供最純粹的戰略導航。</p>
                 </div>
             </div>
             <aside class="sidebar">
                 <div class="tv-frame"><div class="video-container"><iframe src="https://www.youtube.com/embed/BL5vUVQvmX4" allowfullscreen></iframe></div></div>
             </aside>
+        </div>
+    </div>
+
+    <div id="about" class="page-content">
+        <div class="header-banner">
+            <h1>About <span>Us</span></h1>
+            <p>Our Vision & Mission | 使命與願景</p>
+        </div>
+        <div class="main-container">
+            <div class="content">
+                <div class="card">
+                    <h2>Our Vision 願景</h2>
+                    <p>成為 Web3 社群最值得信賴的導航者。透過深度數據解構與跨資產戰略分析，為專業投資者與社群成員提供清晰的技術路徑與宏觀視野，在科技浪潮中保持領先地位。</p>
+                    <div class="en-text">To be the most trusted navigator for the Web3 community. Through deep data deconstruction and cross-asset strategic analysis, we provide professional investors and community members with a clear technical roadmap and macro perspective to stay ahead in the technological tide.</div>
+                </div>
+
+                <div class="card">
+                    <h2>Our Mission 使命</h2>
+                    <p>我們的使命是消除數位資產與傳統金融之間的資訊鴻溝。透過專業、理性且具前瞻性的評核，協助投資者從盲目的「投機者」轉變為具備深厚戰略眼光的「價值佈局者」，守護數位時代的財務主權。</p>
+                    <div class="en-text">Our mission is to bridge the information gap between digital assets and traditional finance. Through professional, rational, and forward-looking assessments, we empower investors to transform from blind "speculators" into "value strategists" with profound strategic vision, safeguarding financial sovereignty in the digital age.</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -147,101 +168,21 @@
         </div>
         <div class="main-container">
             <div class="content">
-                
                 <div class="card">
                     <h2>01. 比特幣本位與數位主權 | The Bitcoin Standard</h2>
-                    <div class="lang-block">
-                        <p>在法幣系統結構性衰退的背景下，比特幣已超越資產範疇，進化為全球最終結算的「數位度量衡」。K C 指出，比特幣的絕對稀缺性是數位文明的物理基礎。當全球主權信用面臨稀釋，BTC 作為無對手方風險的資產，其地位等同於 21 世紀的「數位土地」。</p>
-                        <div class="en-text">Amidst the structural decay of the fiat system, Bitcoin has transcended asset classification to become the "Digital Metric" for global settlement. The absolute scarcity of BTC serves as the physical foundation of digital civilization. As global sovereign credit faces dilution, BTC acts as an asset with zero counterparty risk, equivalent to "Digital Land" in the 21st century.</div>
-                    </div>
+                    <p>在法幣系統結構性衰退的背景下，比特幣已超越資產範疇，進化為全球最終結算的「數位度量衡」。K C 指出，比特幣的絕對稀缺性是數位文明的物理基礎。</p>
+                    <div class="en-text">Amidst the structural decay of the fiat system, Bitcoin has transcended asset classification to become the "Digital Metric" for global settlement. The absolute scarcity of BTC serves as the physical foundation of digital civilization.</div>
                 </div>
-
                 <div class="card">
                     <h2>02. MSTR 效應：企業財務的範式轉移 | The MSTR Effect</h2>
-                    <div class="lang-block">
-                        <p>MicroStrategy 的成功證明了「比特幣本位」在企業治理中的可行性。透過將資產負債表轉化為比特幣引擎，企業從被動對抗通膨轉為主動捕捉貨幣流動性。這不只是投機，這是生產力與稀缺資產的終極合流，將企業轉化為永久性的資本放大器。</p>
-                        <div class="en-text">MicroStrategy’s success validates the viability of the "Bitcoin Standard" in corporate governance. By transforming the balance sheet into a Bitcoin engine, corporations shift from passive inflation hedging to active liquidity capture. This is a paradigm shift where productivity converges with scarcity, turning entities into perpetual capital amplifiers.</div>
-                    </div>
+                    <p>MicroStrategy 的成功證明了「比特幣本位」在企業治理中的可行性。透過將資產負債表轉化為比特幣引擎，企業從被動對抗通膨轉為主動捕捉貨幣流動性。</p>
+                    <div class="en-text">MicroStrategy’s success validates the viability of the "Bitcoin Standard" in corporate governance. By transforming the balance sheet into a Bitcoin engine, corporations shift from passive inflation hedging to active liquidity capture.</div>
                 </div>
-
                 <div class="card">
                     <h2>03. Cardano (ADA) 的科學原教旨主義 | Cardano's Scientific Rigor</h2>
-                    <div class="lang-block">
-                        <p>不同於市場對速度的盲目追求，Cardano 選擇了極致的學術嚴謹性。eUTXO 模型與 Chang 硬分叉後的治理模型，體現了區塊鏈主權的科學實踐。對於 K C 而言，ADA 不僅是代幣，更是全球金融作業系統的哲學底層，旨在建立一個不依賴信任的公平體系。</p>
-                        <div class="en-text">Unlike the market's blind pursuit of speed, Cardano prioritizes extreme academic rigor. The eUTXO model and post-Chang hardfork governance embody the scientific practice of blockchain sovereignty. For K C, ADA is more than a token; it is the philosophical bedrock of a global financial operating system designed for trustless fairness.</div>
-                    </div>
+                    <p>不同於市場對速度的盲目追求，Cardano 選擇了極致的學術嚴謹性。eUTXO 模型與 Chang 硬分叉標誌著完全去中心化治理的實踐。</p>
+                    <div class="en-text">Unlike the market's pursuit of speed, Cardano prioritizes academic rigor. The eUTXO model and Chang hardfork mark the practice of fully decentralized governance.</div>
                 </div>
-
-                <div class="card">
-                    <h2>04. SNEK 與社群共識的社交層邏輯 | SNEK & Community Synergy</h2>
-                    <div class="lang-block">
-                        <p>Memecoin 是 Web3 文化的最高形式。SNEK 在 Cardano 生態中扮演了超越交易工具的角色，它是社群凝聚力與去中心化行銷的實驗場。透過強大的文化認同，SNEK 證明了由下而上的品牌力量可以挑戰傳統的機構定義價值。</p>
-                        <div class="en-text">Memecoins represent the highest form of Web3 culture. Within the Cardano ecosystem, SNEK serves as an experimental hub for community cohesion and decentralized marketing. Through strong cultural identity, SNEK proves that bottom-up branding can challenge traditional institutionally defined value.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>05. Midnight (NIGHT)：隱私與合規的終極平衡 | The NIGHT Balance</h2>
-                    <div class="lang-block">
-                        <p>數據隱私是數位時代的基本人權。Midnight 作為隱私側鏈，解決了商業數據保護與監管合規之間的矛盾。透過零知識證明技術，它允許用戶在不洩露核心機密的情況下證明事實，這是未來商業區塊鏈應用的必然路徑。</p>
-                        <div class="en-text">Data privacy is a fundamental human right in the digital age. Midnight, as a privacy sidechain, resolves the conflict between commercial data protection and regulatory compliance. Utilizing zero-knowledge proofs (ZKP), it allows users to prove facts without disclosing core secrets, a mandatory path for future enterprise blockchain adoption.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>06. PoW 的技術原教旨：LTC 與 KAS | The PoW Resurgence</h2>
-                    <div class="lang-block">
-                        <p>工作量證明 (PoW) 提供了一種將能源轉化為安全性的物理錨點。Litecoin 的穩定性與 Kaspa 的 BlockDAG 創新，代表了對底層技術確定性的追求。K C 強調，PoW 資產是應對「算法操縱」的最強盾牌。</p>
-                        <div class="en-text">Proof of Work (PoW) provides a physical anchor for converting energy into security. Litecoin’s stability and Kaspa’s BlockDAG innovation represent the pursuit of technical certainty. K C emphasizes that PoW assets are the ultimate shield against algorithmic manipulation.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>07. NVDA, TSLA 與數位資產的共振 | Tech Giant Convergence</h2>
-                    <div class="lang-block">
-                        <p>Nvidia 的算力供給與 Tesla 的能源革命，是數位資產增長的硬體支撐。我們觀察到「數位生產力」正在向「數位資產」遷移。Nvidia 的 AI 護城河正是在構建一個由數據驅動的新世界，這與比特幣的去中心化網路效應完美契合。</p>
-                        <div class="en-text">Nvidia’s compute supply and Tesla’s energy revolution are the hardware backbone of digital asset growth. We observe "Digital Productivity" migrating toward "Digital Assets." Nvidia’s AI moat is building a data-driven world that fits perfectly with Bitcoin’s decentralized network effects.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>08. ZEC 與不可被追蹤的財務自由 | ZEC & Financial Freedom</h2>
-                    <div class="lang-block">
-                        <p>在監管趨嚴的未來，隱私資產將成為避風港。Zcash (ZEC) 的數學結構保證了交易的不可追蹤性。K C 認為，未來的資產配置中，隱私資產不是選項，而是對個人財富主權的最後一道防線。</p>
-                        <div class="en-text">In an increasingly regulated future, privacy assets will become the ultimate sanctuaries. Zcash (ZEC) guarantees transaction untraceability through mathematical structures. K C believes privacy assets are not optional but are the last line of defense for personal wealth sovereignty.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>09. 全球宏觀錨點：金銀油的座標系 | Global Macro Anchors</h2>
-                    <div class="lang-block">
-                        <p>數位資產不能孤立存在。我們監測黃金、白銀與原油的流動性週期，將其視為法幣信用的「真實溫度計」。KCVision 的分析始終立足於宏觀大局，確保在資產波動中保持冷靜的座標感。</p>
-                        <div class="en-text">Digital assets do not exist in a vacuum. We monitor Gold, Silver, and Oil liquidity cycles as the "True Thermometer" of fiat credit. KCVision's analysis remains rooted in the macro picture, ensuring a steady sense of orientation amidst asset volatility.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>10. 結語：在雜訊中過濾真實 | Finding Clarity</h2>
-                    <div class="lang-block">
-                        <p>KCVision 致力於在雜訊中過濾真實。我們不提供短線交易建議，而是構建長期的戰略邏輯。透過對技術的熱愛與對市場的敬畏，我們與社群一同見證 Web3 與全球宏觀資產的深度交匯。</p>
-                        <div class="en-text">KCVision is dedicated to distilling truth from noise. We do not provide short-term signals; we build long-term strategic logic. Through a passion for technology and respect for the market, we witness the convergence of Web3 and macro-assets alongside our community.</div>
-                    </div>
-                </div>
-
-            </div>
-            <aside class="sidebar">
-                <div class="tv-frame"><div class="video-container"><iframe src="https://www.youtube.com/embed/BL5vUVQvmX4" allowfullscreen></iframe></div></div>
-                <div class="tv-frame"><div class="video-container"><iframe src="https://www.youtube.com/embed/obD6NlxjopE" allowfullscreen></iframe></div></div>
-            </aside>
-        </div>
-    </div>
-
-    <div id="about" class="page-content">
-        <div class="header-banner"><h1>About <span>Us</span></h1><p>使命與願景</p></div>
-        <div class="main-container">
-            <div class="content">
-                <div class="card"><h2>Our Vision 願景</h2><p>成為 Web3 社群最信賴的導航者，在科技浪潮中保持領先。</p></div>
-                <div class="card"><h2>Our Mission 使命</h2><p>協助投資者從「投機者」轉變為具備戰略眼光的「價值佈局者」。</p></div>
             </div>
         </div>
     </div>
@@ -253,7 +194,7 @@
         </div>
     </div>
 
-    <footer><p>© 2026 KCVISION.SPACE | 專業戰略智庫 | 投資涉及風險</p></footer>
+    <footer><p>© 2026 KCVISION.SPACE | 專業戰略智庫</p></footer>
 
     <div class="footer-widget">
         <div class="tradingview-widget-container">
@@ -264,10 +205,9 @@
                 {"proName": "NASDAQ:MSTR", "description": "MSTR"},
                 {"proName": "NASDAQ:NVDA", "description": "NVDA"},
                 {"proName": "NASDAQ:TSLA", "description": "TSLA"},
-                {"proName": "OANDA:XAUUSD", "description": "黃金 GOLD"},
-                {"proName": "OANDA:XAGUSD", "description": "白銀 SILVER"},
-                {"proName": "TVC:UKOIL", "description": "原油 OIL"},
-                {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE (USDC)"}
+                {"proName": "CURRENCYCOM:USDC", "description": "CIRCLE (USDC)"},
+                {"proName": "OANDA:XAUUSD", "description": "GOLD"},
+                {"proName": "TVC:UKOIL", "description": "OIL"}
             ],
             "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": false, "displayMode": "adaptive", "locale": "zh_TW"
             }
