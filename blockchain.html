@@ -8,8 +8,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ticker.css">
+<meta name="color-scheme" content="light only">
 </head>
 <body>
+<!-- TOP TICKER BAR -->
+<div class="tv-ticker-wrap" id="tickerWrap">
+  <div class="fallback-ticker"><div class="fallback-track"><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">ZEC</span><span class="price">$42.30</span><span class="change up">▲ 3.12%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">SUI</span><span class="price">$3.45</span><span class="change dn">▼ 1.23%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span><span class="tick-item"><span class="sym">ADA</span><span class="price">$0.682</span><span class="change up">▲ 2.11%</span></span><span class="tick-item"><span class="sym">S&amp;P 500</span><span class="price">5,842</span><span class="change up">▲ 0.52%</span></span><span class="tick-item"><span class="sym">NASDAQ</span><span class="price">18,965</span><span class="change up">▲ 0.78%</span></span><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span></div></div>
+  <div class="tradingview-widget-container" id="tv-ticker"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S<body>P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
+  </script></div>
+</div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -112,6 +121,9 @@
   </div>
 </footer>
 
+<!-- BOTTOM THEME SCROLL BAR -->
+<div class="theme-scroll"><div class="theme-scroll-track"><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span></div></div>
 <script src="app.js"></script>
+<script>setTimeout(function(){var t=document.querySelector('#tv-ticker .tradingview-widget-container__widget iframe');if(t){document.getElementById('tickerWrap').style.setProperty('--fb','none');}},4000);</script>
 </body>
 </html>
