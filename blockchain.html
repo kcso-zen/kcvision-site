@@ -1,129 +1,132 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>區塊鏈 × AI — KC Vision Space</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light only">
+<title>Blockchain × AI — KCVISION.space</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="ticker.css">
-<meta name="color-scheme" content="light only">
 </head>
 <body>
-<!-- TOP TICKER BAR -->
-<div class="tv-ticker-wrap" id="tickerWrap">
-  <div class="fallback-ticker"><div class="fallback-track"><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">ZEC</span><span class="price">$42.30</span><span class="change up">▲ 3.12%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">SUI</span><span class="price">$3.45</span><span class="change dn">▼ 1.23%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span><span class="tick-item"><span class="sym">ADA</span><span class="price">$0.682</span><span class="change up">▲ 2.11%</span></span><span class="tick-item"><span class="sym">S&amp;P 500</span><span class="price">5,842</span><span class="change up">▲ 0.52%</span></span><span class="tick-item"><span class="sym">NASDAQ</span><span class="price">18,965</span><span class="change up">▲ 0.78%</span></span><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span></div></div>
-  <div class="tradingview-widget-container" id="tv-ticker"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S<body>P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
-  </script></div>
+<div class="ticker-wrap">
+  <div class="ticker-fallback"><div class="ticker-track">
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">ZEC</span><span>$32.80</span><span class="chg up">▲3.12%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">SUI</span><span>$2.18</span><span class="chg up">▲4.56%</span></span>
+    <span class="t-item"><span class="sym">BNB</span><span>$589</span><span class="chg up">▲0.89%</span></span>
+    <span class="t-item"><span class="sym">ADA</span><span>$0.621</span><span class="chg dn">▼1.23%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+    <span class="t-item"><span class="sym">NASDAQ</span><span>16,286</span><span class="chg dn">▼0.38%</span></span>
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+  </div></div>
+  <div class="tv-widget tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S&P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
+    </script>
+  </div>
 </div>
-
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">KC Vision <span>Space</span></a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html">首頁</a></li>
-      <li><a href="about.html">關於 KC</a></li>
-      <li><a href="bitcoin.html">比特幣</a></li>
-      <li><a href="blockchain.html" class="active">區塊鏈 × AI</a></li>
-      <li><a href="privacy.html">隱私</a></li>
-      <li><a href="nft.html">NFT</a></li>
-      <li><a href="ecosystem.html">Web3 生態</a></li>
-      <li><a href="content.html">內容頻道</a></li>
-      <li><a href="contact.html">聯絡</a></li>
-    </ul>
+    <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html"><span class="en">Home</span><span class="zh">首頁</span></a></li>
+<li><a href="about.html"><span class="en">About KC</span><span class="zh">關於 KC</span></a></li>
+<li><a href="bitcoin.html"><span class="en">Bitcoin</span><span class="zh">比特幣</span></a></li>
+<li><a href="blockchain.html" class="active"><span class="en">Blockchain × AI</span><span class="zh">區塊鏈 × AI</span></a></li>
+<li><a href="privacy.html"><span class="en">Privacy</span><span class="zh">隱私</span></a></li>
+<li><a href="nft.html">NFT</a></li>
+<li><a href="ecosystem.html"><span class="en">Web3</span><span class="zh">Web3 生態</span></a></li>
+<li><a href="content.html"><span class="en">Content</span><span class="zh">內容頻道</span></a></li>
+<li><a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a></li>
+</ul>
+    <div class="nav-tools">
+      <button class="fs-btn sm" data-a="dn">A−</button>
+      <button class="fs-btn lg" data-a="up">A+</button>
+      <div class="nav-div"></div>
+      <div class="lang-wrap">
+        <button class="lang-btn active" data-l="en">EN</button>
+        <button class="lang-btn" data-l="zh">中</button>
+      </div>
+    </div>
   </div>
 </nav>
 
 <main>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-inner">
+    <span class="tag lilac"><span class="en">TECH DEEP DIVE</span><span class="zh">技術深潛</span></span>
+    <h1><span class="en">Blockchain: Redefining<br>Trust at the Base Layer</span><span class="zh">區塊鏈：<br>重新定義信任的底層革命</span></h1>
+    <p class="lede"><span class="en">Blockchain is not just the technical foundation of Bitcoin — it is a fundamental upgrade to how humanity collaborates. Three core pillars hold up the roof of the decentralised world.</span><span class="zh">區塊鏈不僅是比特幣的技術基礎，更是人類協作方式的根本性升級。三大核心支柱，撐起去中心化世界的穹頂。</span></p>
+  </div>
+</section>
 
-  <section class="container-narrow center">
-    <span class="tag lilac">技術深潛</span>
-    <h1>區塊鏈：<br>重新定義信任的底層革命</h1>
-    <p class="lede mt-m">區塊鏈不僅是比特幣的技術基礎，更是人類協作方式的根本性升級。三大核心支柱，撐起去中心化世界的穹頂。</p>
-  </section>
-
-  <section class="container">
-    <div class="card-grid" style="margin-top: 60px;">
-      <div class="card-outline">
-        <div class="icon-circle">👁️</div>
-        <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--navy); margin-top: 14px;">透明性</h3>
-        <p>所有交易公開可查，任何人可驗證，無需依賴中央機構背書。代碼即法律，規則即共識。</p>
-      </div>
-      <div class="card-outline lilac">
-        <div class="icon-circle">🔐</div>
-        <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--navy); margin-top: 14px;">不可篡改</h3>
-        <p>每個區塊以密碼學連結前一區塊，修改歷史需要超過全網 51% 算力，在實踐中幾乎不可能實現。</p>
-      </div>
-      <div class="card-outline mint">
-        <div class="icon-circle">🌐</div>
-        <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--navy); margin-top: 14px;">去中心化</h3>
-        <p>無單點故障、無單一控制者。數千個節點分散全球，任何政府或企業都無法單獨關閉這個網絡。</p>
-      </div>
+<section class="container">
+  <div class="card-grid" style="margin-top:60px;">
+    <div style="background:#fff;border:2px solid var(--c-pink);padding:40px 26px 28px;border-radius:var(--radius);position:relative;box-shadow:0 6px 20px -8px rgba(60,40,20,0.12);">
+      <div style="position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:var(--c-pink);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 14px -4px rgba(60,40,20,0.3);">👁️</div>
+      <h3 style="font-family:var(--serif);font-size:1.35rem;color:var(--navy);text-align:center;margin-top:14px;font-weight:900;"><span class="en">Transparency</span><span class="zh">透明性</span></h3>
+      <p style="text-align:center;margin-top:10px;"><span class="en">All transactions publicly verifiable by anyone, without needing a central authority's endorsement. Code is law, rules are consensus.</span><span class="zh">所有交易公開可查，任何人可驗證，無需依賴中央機構背書。代碼即法律，規則即共識。</span></p>
     </div>
-  </section>
-
-  <!-- AI x Blockchain -->
-  <section class="container">
-    <div class="section-head">
-      <span class="tag peach">技術融合</span>
-      <h2>AI × 區塊鏈：<br><span class="wine">智能去中心化新紀元</span></h2>
-      <p>當 AI 遇上區塊鏈，會發生什麼？兩種技術互補：AI 帶來效率，區塊鏈帶來信任。</p>
+    <div style="background:#fff;border:2px solid var(--c-lilac);padding:40px 26px 28px;border-radius:var(--radius);position:relative;box-shadow:0 6px 20px -8px rgba(60,40,20,0.12);">
+      <div style="position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:var(--c-lilac);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 14px -4px rgba(60,40,20,0.3);">🔐</div>
+      <h3 style="font-family:var(--serif);font-size:1.35rem;color:var(--navy);text-align:center;margin-top:14px;font-weight:900;"><span class="en">Immutability</span><span class="zh">不可篡改</span></h3>
+      <p style="text-align:center;margin-top:10px;"><span class="en">Each block cryptographically links to the previous one. Altering history requires over 51% of total network hash power — practically impossible.</span><span class="zh">每個區塊以密碼學連結前一區塊，修改歷史需要超過全網 51% 算力，在實踐中幾乎不可能。</span></p>
     </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="icon">📝</div>
-        <h3>智能合約</h3>
-        <p>自動執行、無需信任的代碼協議，消除中間人成本。</p>
-      </div>
-      <div class="card lilac">
-        <div class="icon">🤖</div>
-        <h3>去中心化 AI</h3>
-        <p>AI 模型訓練與推理去中心化，抵抗科技巨頭壟斷。</p>
-      </div>
-      <div class="card sky">
-        <div class="icon">⚡</div>
-        <h3>自動化經濟</h3>
-        <p>AI Agent 自主管理 DeFi 協議，24 小時優化收益。</p>
-      </div>
-      <div class="card peach">
-        <div class="icon">✅</div>
-        <h3>真實性驗證</h3>
-        <p>區塊鏈記錄 AI 生成內容溯源，對抗深偽與虛假信息。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-narrow center">
-    <h2 class="wine">繼續閱讀</h2>
-    <div class="btn-row">
-      <a href="privacy.html" class="btn btn-primary">下一頁：隱私</a>
-      <a href="ecosystem.html" class="btn btn-ghost">Web3 生態地圖</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">KC Vision Space</div>
-      <small>Signal before noise · 先看訊號，再拆雜音</small>
-    </div>
-    <div class="footer-links">
-      <a href="contact.html">聯絡</a>
-      <a href="index.html">首頁</a>
+    <div style="background:#fff;border:2px solid var(--c-mint);padding:40px 26px 28px;border-radius:var(--radius);position:relative;box-shadow:0 6px 20px -8px rgba(60,40,20,0.12);">
+      <div style="position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:var(--c-mint);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 14px -4px rgba(60,40,20,0.3);">🌐</div>
+      <h3 style="font-family:var(--serif);font-size:1.35rem;color:var(--navy);text-align:center;margin-top:14px;font-weight:900;"><span class="en">Decentralisation</span><span class="zh">去中心化</span></h3>
+      <p style="text-align:center;margin-top:10px;"><span class="en">No single point of failure, no single controller. Thousands of nodes scattered globally — no government or company can shut this network down alone.</span><span class="zh">無單點故障、無單一控制者。數千個節點分散全球，任何政府或企業都無法單獨關閉這個網絡。</span></p>
     </div>
   </div>
-</footer>
+</section>
 
-<!-- BOTTOM THEME SCROLL BAR -->
-<div class="theme-scroll"><div class="theme-scroll-track"><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span></div></div>
+<section class="container">
+  <div class="section-hd">
+    <span class="tag peach"><span class="en">TECH FUSION</span><span class="zh">技術融合</span></span>
+    <h2><span class="en">AI × Blockchain:<br><span class="wine">The Intelligent Decentralised Era</span></span><span class="zh">AI × 區塊鏈：<br><span class="wine">智能去中心化新紀元</span></span></h2>
+    <p><span class="en">When AI meets blockchain: AI brings efficiency, blockchain brings trust — two technologies that complement each other perfectly.</span><span class="zh">當 AI 遇上區塊鏈：AI 帶來效率，區塊鏈帶來信任 — 兩種技術完美互補。</span></p>
+  </div>
+  <div class="card-grid">
+    <div class="card"><div class="ico">📝</div><h3><span class="en">Smart Contracts</span><span class="zh">智能合約</span></h3><p><span class="en">Auto-executing, trustless code agreements — eliminating the cost of middlemen entirely.</span><span class="zh">自動執行、無需信任的代碼協議，消除中間人成本。</span></p></div>
+    <div class="card lilac"><div class="ico">🤖</div><h3><span class="en">Decentralised AI</span><span class="zh">去中心化 AI</span></h3><p><span class="en">AI model training and inference decentralised — resisting monopoly by tech giants.</span><span class="zh">AI 模型訓練與推理去中心化，抵抗科技巨頭壟斷。</span></p></div>
+    <div class="card sky"><div class="ico">⚡</div><h3><span class="en">Automated Economy</span><span class="zh">自動化經濟</span></h3><p><span class="en">AI Agents autonomously manage DeFi protocols, optimising yield 24 hours a day.</span><span class="zh">AI Agent 自主管理 DeFi 協議，24 小時優化收益。</span></p></div>
+    <div class="card peach"><div class="ico">✅</div><h3><span class="en">Authenticity Verification</span><span class="zh">真實性驗證</span></h3><p><span class="en">Blockchain records the provenance of AI-generated content, fighting deepfakes and misinformation.</span><span class="zh">區塊鏈記錄 AI 生成內容溯源，對抗深偽與虛假信息。</span></p></div>
+  </div>
+</section>
+
+<div class="container-n center">
+  <h2 class="wine"><span class="en">Continue Reading</span><span class="zh">繼續閱讀</span></h2>
+  <div class="btn-row">
+    <a href="privacy.html" class="btn btn-navy"><span class="en">Privacy</span><span class="zh">隱私</span></a>
+    <a href="ecosystem.html" class="btn btn-ghost"><span class="en">Web3 Ecosystem</span><span class="zh">Web3 生態地圖</span></a>
+  </div>
+</div>
+</main>
+<div class="theme-scroll"><div class="theme-track">
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span>
+</div></div>
+<footer class="footer"><div class="footer-in">
+  <div><div class="footer-brand">KCVISION.space</div><small>Signal before noise · <span class="zh">先看訊號，再拆雜音</span></small></div>
+  <div class="footer-links">
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a>
+    <a href="about.html"><span class="en">About</span><span class="zh">關於</span></a>
+    <a href="content.html"><span class="en">Content</span><span class="zh">內容</span></a>
+  </div>
+</div></footer>
 <script src="app.js"></script>
-<script>setTimeout(function(){var t=document.querySelector('#tv-ticker .tradingview-widget-container__widget iframe');if(t){document.getElementById('tickerWrap').style.setProperty('--fb','none');}},4000);</script>
 </body>
 </html>

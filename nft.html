@@ -1,127 +1,179 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NFT · 視覺宇宙 — KC Vision Space</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light only">
+<title>NFT — KCVISION.space</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="ticker.css">
-<meta name="color-scheme" content="light only">
 </head>
 <body>
-<!-- TOP TICKER BAR -->
-<div class="tv-ticker-wrap" id="tickerWrap">
-  <div class="fallback-ticker"><div class="fallback-track"><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">ZEC</span><span class="price">$42.30</span><span class="change up">▲ 3.12%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">SUI</span><span class="price">$3.45</span><span class="change dn">▼ 1.23%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span><span class="tick-item"><span class="sym">ADA</span><span class="price">$0.682</span><span class="change up">▲ 2.11%</span></span><span class="tick-item"><span class="sym">S&amp;P 500</span><span class="price">5,842</span><span class="change up">▲ 0.52%</span></span><span class="tick-item"><span class="sym">NASDAQ</span><span class="price">18,965</span><span class="change up">▲ 0.78%</span></span><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span></div></div>
-  <div class="tradingview-widget-container" id="tv-ticker"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S<body>P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
-  </script></div>
-</div>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">KC Vision <span>Space</span></a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html">首頁</a></li>
-      <li><a href="about.html">關於 KC</a></li>
-      <li><a href="bitcoin.html">比特幣</a></li>
-      <li><a href="blockchain.html">區塊鏈 × AI</a></li>
-      <li><a href="privacy.html">隱私</a></li>
-      <li><a href="nft.html" class="active">NFT</a></li>
-      <li><a href="ecosystem.html">Web3 生態</a></li>
-      <li><a href="content.html">內容頻道</a></li>
-      <li><a href="contact.html">聯絡</a></li>
-    </ul>
+<div class="ticker-wrap">
+  <div class="ticker-fallback"><div class="ticker-track">
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">ZEC</span><span>$32.80</span><span class="chg up">▲3.12%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">SUI</span><span>$2.18</span><span class="chg up">▲4.56%</span></span>
+    <span class="t-item"><span class="sym">BNB</span><span>$589</span><span class="chg up">▲0.89%</span></span>
+    <span class="t-item"><span class="sym">ADA</span><span>$0.621</span><span class="chg dn">▼1.23%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+    <span class="t-item"><span class="sym">NASDAQ</span><span>16,286</span><span class="chg dn">▼0.38%</span></span>
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+  </div></div>
+  <div class="tv-widget tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S&P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
+    </script>
   </div>
-</nav>
-
+</div><nav class="nav"><div class="nav-inner">
+    <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html"><span class="en">Home</span><span class="zh">首頁</span></a></li>
+<li><a href="about.html"><span class="en">About KC</span><span class="zh">關於 KC</span></a></li>
+<li><a href="bitcoin.html"><span class="en">Bitcoin</span><span class="zh">比特幣</span></a></li>
+<li><a href="blockchain.html"><span class="en">Blockchain × AI</span><span class="zh">區塊鏈 × AI</span></a></li>
+<li><a href="privacy.html"><span class="en">Privacy</span><span class="zh">隱私</span></a></li>
+<li><a href="nft.html" class="active">NFT</a></li>
+<li><a href="ecosystem.html"><span class="en">Web3</span><span class="zh">Web3 生態</span></a></li>
+<li><a href="content.html"><span class="en">Content</span><span class="zh">內容頻道</span></a></li>
+<li><a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a></li>
+</ul>
+    <div class="nav-tools">
+      <button class="fs-btn sm" data-a="dn">A−</button>
+      <button class="fs-btn lg" data-a="up">A+</button>
+      <div class="nav-div"></div>
+      <div class="lang-wrap">
+        <button class="lang-btn active" data-l="en">EN</button>
+        <button class="lang-btn" data-l="zh">中</button>
+      </div>
+    </div>
+  </div></nav>
 <main>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-inner">
+    <span class="tag"><span class="en">DIGITAL OWNERSHIP</span><span class="zh">數字所有權</span></span>
+    <h1><span class="en">NFT: Beyond the Hype,<br>Redefining Ownership</span><span class="zh">NFT：超越炒作，<br>重新定義所有權</span></h1>
+    <p class="lede"><span class="en">NFTs are not JPEGs — they are blockchain-issued, <strong>unforgeable proof of ownership</strong> for digital assets. After the bubble fades, real value emerges.</span><span class="zh">NFT 的本質不是 JPEG，而是區塊鏈賦予數字資產的<strong>不可偽造所有權證明</strong>。泡沫褪去後，真正的價值才開始顯現。</span></p>
+  </div>
+</section>
 
-  <section class="container-narrow">
-    <span class="tag">數字所有權</span>
-    <h1>NFT：超越炒作，<br>重新定義所有權</h1>
-    <p class="lede mt-m">NFT 的本質不是 JPEG，而是區塊鏈賦予數字資產的<strong>不可偽造所有權證明</strong>。泡沫褪去後，真正的價值才開始顯現。</p>
-  </section>
-
-  <section class="container">
-    <div class="card-grid">
-      <div class="card">
-        <div class="icon">🎨</div>
-        <h3>創作者經濟</h3>
-        <p>藝術家首次能直接與收藏者交易，無需畫廊或唱片公司抽成，版稅自動化永久執行。</p>
-      </div>
-      <div class="card lilac">
-        <div class="icon">🎮</div>
-        <h3>遊戲資產</h3>
-        <p>玩家真正擁有遊戲內物品，可跨平台轉移交易。虛擬土地、道具成為真實資產。</p>
-      </div>
-      <div class="card sand">
-        <div class="icon">🪪</div>
-        <h3>數字身份</h3>
-        <p>ENS 域名、靈魂綁定代幣（SBT）開創去中心化數字身份新範式，你的身份由你掌控。</p>
-      </div>
-      <div class="card mint">
-        <div class="icon">🎵</div>
-        <h3>音樂與版權</h3>
-        <p>音樂 NFT 讓歌手直接向粉絲出售作品版權份額，粉絲也能成為版稅受益人。</p>
-      </div>
+<section class="container-n">
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:50px 60px;margin-top:20px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#A8453A" stroke-width="1.5" stroke-linecap="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:900;color:var(--ink);"><span class="en">Creator Economy</span><span class="zh">創作者經濟</span></h3>
+      <p><span class="en">Artists trade directly with collectors for the first time — no gallery cuts, no label fees. Royalties auto-execute on-chain forever.</span><span class="zh">藝術家首次能直接與收藏者交易，無需畫廊或唱片公司抽成，版稅自動化永久執行。</span></p>
     </div>
-  </section>
-
-  <!-- KC Vision Gallery -->
-  <section class="container">
-    <div class="section-head">
-      <span class="tag peach">AI 藝術畫廊</span>
-      <h2>KC Vision 視覺宇宙</h2>
-      <p>每一幅作品都是 AI 生成的數字詩篇，探索加密、隱私與未來世界的邊界。</p>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#A8453A" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg>
+      <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:900;color:var(--ink);"><span class="en">Gaming Assets</span><span class="zh">遊戲資產</span></h3>
+      <p><span class="en">Players truly own in-game items, transferable across platforms. Virtual land and gear become real assets.</span><span class="zh">玩家真正擁有遊戲內物品，可跨平台轉移交易。虛擬土地、道具成為真實資產。</span></p>
     </div>
-
-    <div class="gallery">
-      <div class="gallery-item" style="background: #0E1B3D; color: #FF8A4C;">🐉</div>
-      <div class="gallery-item">👤</div>
-      <div class="gallery-item">🏙️</div>
-      <div class="gallery-item">👁️</div>
-      <div class="gallery-item">👛</div>
-      <div class="gallery-item" style="background: #12183B; color: #F7C26B;">🪐</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#A8453A" stroke-width="1.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-3-3m0 0l-3 3m3-3v12"/></svg>
+      <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:900;color:var(--ink);"><span class="en">Digital Identity</span><span class="zh">數字身份</span></h3>
+      <p><span class="en">ENS domains and Soulbound Tokens (SBT) — a new paradigm of decentralised identity owned by you alone.</span><span class="zh">ENS 域名、靈魂綁定代幣（SBT）開創去中心化數字身份新範式，你的身份由你掌控。</span></p>
     </div>
-  </section>
-
-  <section class="container-narrow">
-    <div class="card peach">
-      <h3 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--wine); margin-bottom: 10px;">KC 持有的 NFT</h3>
-      <p>作為長期主義 NFT 信徒，KC 收藏包括 <strong>MAYC (Mutant Ape Yacht Club)</strong> 與 <strong>Lil Pudgy</strong> —— 這些不是炒作，而是對 PFP 文化與社群網絡效應的長期押注。</p>
-    </div>
-  </section>
-
-  <section class="container-narrow center mt-l">
-    <h2 class="wine">繼續閱讀</h2>
-    <div class="btn-row">
-      <a href="ecosystem.html" class="btn btn-primary">Web3 生態地圖</a>
-      <a href="content.html" class="btn btn-ghost">內容頻道</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">KC Vision Space</div>
-      <small>Signal before noise · 先看訊號，再拆雜音</small>
-    </div>
-    <div class="footer-links">
-      <a href="contact.html">聯絡</a>
-      <a href="index.html">首頁</a>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#A8453A" stroke-width="1.5" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:900;color:var(--ink);"><span class="en">Music &amp; Royalties</span><span class="zh">音樂與版權</span></h3>
+      <p><span class="en">Music NFTs let artists sell royalty shares directly to fans — fans become beneficiaries.</span><span class="zh">音樂 NFT 讓歌手直接向粉絲出售作品版權份額，粉絲也能成為版稅受益人。</span></p>
     </div>
   </div>
-</footer>
+</section>
 
-<!-- BOTTOM THEME SCROLL BAR -->
-<div class="theme-scroll"><div class="theme-scroll-track"><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span></div></div>
-<script src="app.js"></script>
-<script>setTimeout(function(){var t=document.querySelector('#tv-ticker .tradingview-widget-container__widget iframe');if(t){document.getElementById('tickerWrap').style.setProperty('--fb','none');}},4000);</script>
-</body>
-</html>
+<section class="container">
+  <div class="section-hd">
+    <span class="tag peach"><span class="en">KC'S COLLECTION</span><span class="zh">KC 的 NFT 收藏</span></span>
+    <h2><span class="en">Conviction in Pixels</span><span class="zh">在像素中的信念</span></h2>
+    <p><span class="en">These are not speculations. They are long-term bets on PFP culture, community network effects, and the future of digital identity.</span><span class="zh">這些不是炒作 —— 而是對 PFP 文化、社群網絡效應、數字身份未來的長期押注。</span></p>
+  </div>
+  <div class="nft-grid">
+    <div class="nft-card">
+      <div class="nft-frame">
+        <div class="nft-img" id="nft1">
+          <img src="https://i.seadn.io/gae/lHexKRMpw-aoSyB1WdFBff5yfANLReFxHzt1DOj_sg7mS14yARpuvYcUtsyyx-Nkpk6WTcUPFoG53VnLJezYi8o_LH2FjtA-RLRXBC_g?auto=format&w=512" alt="MAYC" onerror="this.parentElement.classList.add('err')">
+          <span class="fb">🦍</span>
+        </div>
+      </div>
+      <div class="nft-meta">
+        <div class="nft-sub">Mutant Ape · Yuga Labs · 2021</div>
+        <div class="nft-name">MAYC</div>
+        <p class="nft-desc"><span class="en">Full commercial rights. The OG PFP brand — cultural milestone of crypto's social history.</span><span class="zh">完整商業使用權。PFP 文化嘅 OG 品牌 — crypto 社會歷史嘅文化里程碑。</span></p>
+      </div>
+    </div>
+    <div class="nft-card">
+      <div class="nft-frame">
+        <div class="nft-img" id="nft2">
+          <img src="https://i.seadn.io/s/raw/files/4ec1cb01b81c34dc66b60d39e6a8b83a.png?auto=format&w=512" alt="Pudgy Penguins" onerror="this.parentElement.classList.add('err')">
+          <span class="fb">🐧</span>
+        </div>
+      </div>
+      <div class="nft-meta">
+        <div class="nft-sub">Pudgy Penguins · 2021</div>
+        <div class="nft-name">PPG</div>
+        <p class="nft-desc"><span class="en">From near-death to global IP. Walmart toys, animated series — proof IP can be community-built.</span><span class="zh">由瀕死到全球 IP。Walmart 公仔、動畫系列 — 證明 IP 可以由社群打造。</span></p>
+      </div>
+    </div>
+    <div class="nft-card">
+      <div class="nft-frame">
+        <div class="nft-img" id="nft3">
+          <img src="https://i.seadn.io/gcs/files/e6ed6b75d29f30e0e0baf76b6f0a2e29.png?auto=format&w=512" alt="Lil Pudgy" onerror="this.parentElement.classList.add('err')">
+          <span class="fb">🐧</span>
+        </div>
+      </div>
+      <div class="nft-meta">
+        <div class="nft-sub">Lil Pudgy · 22,222 supply · 2023</div>
+        <div class="nft-name">Lil Pudgy</div>
+        <p class="nft-desc"><span class="en">KC's bet on the affordable entry point to the Pudgy ecosystem. Sub-collection of PPG.</span><span class="zh">KC 押注 Pudgy 生態最易入門嘅一層。PPG 嘅子系列，22,222 個總量。</span></p>
+      </div>
+    </div>
+    <div class="nft-card">
+      <div class="nft-frame">
+        <div class="nft-img" id="nft4">
+          <img src="https://i.seadn.io/gae/a_frplnavZA9g4vN3SexO5rrtaBX_cBTaJYcgrPtwQIqPhzgzUendQxiwUdr51CGPE2QyPEa1DHnkW1wLrHAv5DgfC3BP-CWpFq6BA?auto=format&w=512" alt="Milady" onerror="this.parentElement.classList.add('err')">
+          <span class="fb">👩</span>
+        </div>
+      </div>
+      <div class="nft-meta">
+        <div class="nft-sub">Milady Maker · CC0 · 2021</div>
+        <div class="nft-name">Milady</div>
+        <p class="nft-desc"><span class="en">CC0 anime aesthetic. Cult status after Musk tweet. Pure online-tribe energy. Anyone can use freely.</span><span class="zh">CC0 動漫美學。Musk 一條 tweet 之後變 cult。純粹網上部落能量，任何人可自由使用。</span></p>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,var(--c-peach),var(--c-rose));padding:36px;border-radius:18px;margin-top:40px;box-shadow:0 16px 40px -16px rgba(168,69,58,0.35);">
+    <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--wine);margin-bottom:12px;font-weight:900;">📍 <span class="en">KC's Long-Term Thesis</span><span class="zh">KC 嘅長期信念</span></h3>
+    <p style="color:var(--ink);"><span class="en">I don't flip JPEGs. I collect <strong>cultural milestones</strong>. MAYC (2021), Lil Pudgy (2023), Milady (2024) — each one represents a moment in crypto's social history. Whether they 10x or go to zero is secondary. They are my on-chain identity.</span><span class="zh">我唔係 flip JPEG，我係收集<strong>文化里程碑</strong>。MAYC（2021）、Lil Pudgy（2023）、Milady（2024）—— 每一隻都代表 crypto 社會歷史嘅一個瞬間。10x 或者歸零都係次要。佢哋係我嘅鏈上身份。</span></p>
+  </div>
+  <div class="btn-row">
+    <a href="ecosystem.html" class="btn btn-navy"><span class="en">Web3 Ecosystem</span><span class="zh">Web3 生態地圖</span></a>
+    <a href="content.html" class="btn btn-ghost"><span class="en">Content Channel</span><span class="zh">內容頻道</span></a>
+  </div>
+</section>
+</main>
+<div class="theme-scroll"><div class="theme-track">
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span>
+</div></div>
+<footer class="footer"><div class="footer-in">
+  <div><div class="footer-brand">KCVISION.space</div><small>Signal before noise · <span class="zh">先看訊號，再拆雜音</span></small></div>
+  <div class="footer-links">
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a>
+    <a href="about.html"><span class="en">About</span><span class="zh">關於</span></a>
+    <a href="content.html"><span class="en">Content</span><span class="zh">內容</span></a>
+  </div>
+</div></footer>
+<script src="app.js"></script></body></html>

@@ -1,316 +1,42 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="color-scheme" content="light only">
 <title>KCVISION.space — Crypto · Blockchain · NFT · AI · Bitcoin · Privacy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-/* ===== FORCE LIGHT MODE ===== */
-:root { color-scheme: light only; }
-html { color-scheme: light only !important; background: #FAF4EA !important; }
-@media (prefers-color-scheme: dark) {
-  html, body { background: #FAF4EA !important; color: #1E1E1E !important; }
-}
-
-/* ===== TOP TICKER ===== */
-.tv-ticker-wrap {
-  position: relative;
-  background: rgba(245,236,220,0.8);
-  border-bottom: 1px solid #E4D9C4;
-  overflow: hidden;
-  min-height: 46px;
-}
-.fallback-ticker {
-  position: absolute; inset: 0;
-  display: flex; align-items: center;
-  overflow: hidden; z-index: 1;
-  mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
-}
-.fallback-track {
-  display: flex; gap: 36px;
-  animation: tickerScroll 55s linear infinite;
-  white-space: nowrap; padding: 0 20px;
-  width: max-content;
-}
-.tick-item {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.88rem; font-weight: 600; color: #1E1E1E;
-  font-variant-numeric: tabular-nums;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-.tick-item .sym { color: #3D5A6C; font-weight: 700; font-size: 0.9rem; }
-.tick-item .change { font-size: 0.8rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
-.tick-item .change.up { color: #1B6B42; background: rgba(27,107,66,0.12); }
-.tick-item .change.dn { color: #B83B2E; background: rgba(184,59,46,0.12); }
-@keyframes tickerScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.tradingview-widget-container { position: relative; z-index: 2; min-height: 46px; }
-
-/* ===== NAV ===== */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(250,244,234,0.97);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid #E4D9C4;
-  box-shadow: 0 2px 24px -12px rgba(60,40,20,0.15);
-}
-.nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: 12px 20px;
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 16px;
-}
-
-/* KCVISION brand */
-.brand {
-  font-family: 'Cormorant Garamond', serif;
-  cursor: pointer; text-decoration: none;
-  display: flex; align-items: baseline; gap: 3px;
-  flex-shrink: 0;
-}
-.brand .kcv {
-  font-size: 1.6rem; font-weight: 900;
-  color: #A8453A; letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(168,69,58,0.2);
-}
-.brand .dot-space {
-  font-size: 0.88rem; font-weight: 600;
-  color: #3D5A6C; letter-spacing: 0.05em;
-}
-
-.nav-links { display: flex; gap: 3px; list-style: none; flex-wrap: wrap; }
-.nav-links a {
-  padding: 8px 12px; border-radius: 8px;
-  font-size: 0.85rem; color: #4A4A4A;
-  transition: all .2s; white-space: nowrap; font-weight: 500;
-  text-decoration: none;
-}
-.nav-links a:hover { background: #F5ECDC; color: #A8453A; }
-.nav-links a.active { background: #A8453A; color: #fff; font-weight: 600; box-shadow: 0 4px 14px -4px rgba(168,69,58,0.5); }
-
-/* Toolbar: font size + lang */
-.nav-toolbar {
-  display: flex; align-items: center; gap: 6px; flex-shrink: 0;
-}
-.nav-divider { width: 1px; height: 22px; background: #E4D9C4; margin: 0 2px; }
-.fs-btn {
-  width: 30px; height: 30px; border-radius: 7px;
-  border: 1.5px solid #E4D9C4; background: #FAF4EA;
-  color: #3D5A6C; font-weight: 800; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all .2s; font-family: 'Noto Sans TC', sans-serif;
-}
-.fs-btn[data-action="dn"] { font-size: 0.7rem; }
-.fs-btn[data-action="up"] { font-size: 0.95rem; }
-.fs-btn:hover { background: #F5E1DD; border-color: #A8453A; color: #A8453A; }
-
-.lang-toggle { display: flex; border: 1.5px solid #E4D9C4; border-radius: 8px; overflow: hidden; }
-.lang-btn {
-  padding: 5px 10px; font-size: 0.8rem; font-weight: 700;
-  background: #FAF4EA; color: #5A5A5A; cursor: pointer; border: none;
-  transition: all .2s; letter-spacing: 0.02em;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-.lang-btn + .lang-btn { border-left: 1.5px solid #E4D9C4; }
-.lang-btn.active { background: #A8453A; color: #fff; }
-.lang-btn:hover:not(.active) { background: #F5E1DD; color: #A8453A; }
-
-.nav-toggle {
-  display: none; width: 40px; height: 40px;
-  border-radius: 8px; color: #3D5A6C; font-size: 1.4rem;
-  background: none; border: none; cursor: pointer;
-}
-@media (max-width: 1000px) {
-  .nav-toggle { display: flex; align-items: center; justify-content: center; }
-  .nav-links {
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: #FAF4EA; flex-direction: column;
-    padding: 12px 20px 20px; gap: 4px;
-    border-bottom: 1px solid #E4D9C4;
-    max-height: 0; overflow: hidden;
-    transition: max-height 0.35s ease;
-    box-shadow: 0 10px 24px -10px rgba(0,0,0,0.2);
-  }
-  .nav-links.open { max-height: 600px; }
-  .nav-links a { padding: 12px 14px; }
-}
-
-/* ===== HERO ===== */
-.hero {
-  padding: 70px 20px 50px; text-align: center;
-  position: relative; overflow: hidden; background: #FAF4EA;
-}
-.hero-deco {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.55;
-  background:
-    radial-gradient(circle at 20% 30%, #F4D9CC 0%, transparent 28%),
-    radial-gradient(circle at 80% 20%, #E4DCEF 0%, transparent 32%),
-    radial-gradient(circle at 65% 75%, #D7E8E2 0%, transparent 32%),
-    radial-gradient(circle at 15% 80%, #F5E1DD 0%, transparent 28%);
-}
-.hero-content { position: relative; z-index: 1; }
-.hero-eyebrow {
-  font-size: 0.88rem; color: #5A5A5A;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  margin-bottom: 20px; font-weight: 600;
-}
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.6rem, 6.5vw, 4.8rem);
-  font-weight: 800; color: #A8453A;
-  text-shadow: 0 6px 36px rgba(168,69,58,0.28), 0 2px 4px rgba(168,69,58,0.15);
-  margin-bottom: 20px; line-height: 1.1;
-}
-.lede {
-  max-width: 720px; margin: 0 auto;
-  color: #2C2C2C; font-size: 1.05rem; line-height: 1.75;
-}
-.btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-.btn {
-  display: inline-block; padding: 13px 28px; border-radius: 10px;
-  font-size: 0.95rem; font-weight: 600; transition: transform .2s, box-shadow .2s;
-  cursor: pointer; letter-spacing: 0.02em; text-decoration: none;
-}
-.btn-primary { background: #3D5A6C; color: #fff; box-shadow: 0 8px 24px -8px rgba(61,90,108,0.55); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(61,90,108,0.7); }
-.btn-ghost { background: #fff; border: 2px solid #3D5A6C; color: #3D5A6C; font-weight: 700; }
-.btn-ghost:hover { background: #3D5A6C; color: #fff; transform: translateY(-2px); }
-
-/* ===== SECTIONS ===== */
-.container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
-.container-narrow { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
-.section-head { text-align: center; margin-bottom: 40px; }
-.section-head h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800; color: #3D5A6C;
-  margin-bottom: 14px;
-}
-.section-head p { max-width: 720px; margin: 0 auto; color: #4A4A4A; }
-.wine { color: #A8453A; }
-.navy { color: #3D5A6C; }
-
-/* ===== 6 CARDS GRID ===== */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px; margin-top: 36px;
-}
-@media (max-width: 900px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
-
-.card {
-  padding: 28px 26px; border-radius: 14px;
-  background: #F5E1DD;
-  transition: transform .25s, box-shadow .25s;
-  box-shadow: 0 6px 24px -10px rgba(60,40,20,0.2), 0 1px 3px rgba(60,40,20,0.06);
-}
-.card:hover { transform: translateY(-5px); box-shadow: 0 20px 44px -12px rgba(60,40,20,0.28); }
-.card h3 { font-weight: 700; margin-bottom: 10px; font-size: 1.12rem; color: #1E1E1E; }
-.card p { color: #1E1E1E; opacity: 0.82; }
-.card .icon { font-size: 1.9rem; margin-bottom: 10px; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.12)); }
-.card.lilac { background: #E4DCEF; }
-.card.mint  { background: #D7E8E2; }
-.card.peach { background: #F4D9CC; }
-.card.sand  { background: #EFE4CF; }
-.card.sky   { background: #D9E4EC; }
-
-/* ===== PAGE NAV GRID ===== */
-.page-nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px; margin-top: 40px;
-}
-.page-nav a {
-  padding: 22px; border-radius: 14px;
-  background: #F5ECDC; transition: all .25s ease;
-  border: 2px solid transparent; text-align: left;
-  box-shadow: 0 4px 16px -8px rgba(60,40,20,0.1);
-  text-decoration: none; display: block;
-}
-.page-nav a:hover { transform: translateY(-4px); background: #F5E1DD; border-color: #A8453A; box-shadow: 0 16px 32px -10px rgba(168,69,58,0.25); }
-.pn-num { font-family: 'Cormorant Garamond', serif; color: #A8453A; font-size: 0.88rem; display: block; margin-bottom: 4px; font-weight: 600; }
-.pn-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #3D5A6C; display: block; margin-bottom: 6px; font-weight: 700; }
-.pn-desc { font-size: 0.85rem; color: #4A4A4A; line-height: 1.55; }
-
-/* ===== FOOTER ===== */
-.footer { background: #F5ECDC; border-top: 1px solid #E4D9C4; padding: 36px 20px 28px; }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; }
-.footer-brand { font-family: 'Cormorant Garamond', serif; color: #A8453A; font-size: 1.1rem; margin-bottom: 4px; font-weight: 700; }
-.footer small { color: #5A5A5A; font-size: 0.82rem; }
-.footer-links { display: flex; gap: 16px; }
-.footer-links a { color: #5A5A5A; font-size: 0.88rem; transition: color .2s; text-decoration: none; }
-.footer-links a:hover { color: #A8453A; }
-@media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; text-align: center; } .footer-links { justify-content: center; } }
-
-/* ===== BOTTOM THEME SCROLL BAR ===== */
-.theme-scroll {
-  position: relative; overflow: hidden;
-  background: #F5ECDC; border-top: 1px solid #E4D9C4;
-  padding: 13px 0;
-  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
-}
-.theme-scroll-track {
-  display: flex; gap: 48px;
-  white-space: nowrap;
-  animation: scrollLeft 38s linear infinite;
-  width: max-content;
-}
-.theme-scroll-track span {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-size: 1.08rem; color: #3D5A6C;
-  letter-spacing: 0.09em; font-weight: 500;
-}
-.theme-scroll-track .dot { color: #A8453A; margin: 0 22px; opacity: 0.65; }
-@keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* ===== LANG HIDDEN ===== */
-.zh-text { display: none; }
-body.lang-zh .zh-text { display: inline; }
-body.lang-zh .en-text { display: none; }
-</style>
 </head>
 <body>
 
-<!-- ===== TOP TICKER BAR ===== -->
-<div class="tv-ticker-wrap" id="tickerWrap">
-  <div class="fallback-ticker">
-    <div class="fallback-track">
-      <span class="tick-item"><span class="sym">BTC</span><span class="price">$84,250</span><span class="change up">▲ 2.34%</span></span>
-      <span class="tick-item"><span class="sym">ETH</span><span class="price">$1,588</span><span class="change dn">▼ 1.82%</span></span>
-      <span class="tick-item"><span class="sym">XMR</span><span class="price">$216.40</span><span class="change up">▲ 0.95%</span></span>
-      <span class="tick-item"><span class="sym">ZEC</span><span class="price">$32.80</span><span class="change up">▲ 3.12%</span></span>
-      <span class="tick-item"><span class="sym">SOL</span><span class="price">$131.50</span><span class="change dn">▼ 2.11%</span></span>
-      <span class="tick-item"><span class="sym">SUI</span><span class="price">$2.18</span><span class="change up">▲ 4.56%</span></span>
-      <span class="tick-item"><span class="sym">BNB</span><span class="price">$589.20</span><span class="change up">▲ 0.89%</span></span>
-      <span class="tick-item"><span class="sym">ADA</span><span class="price">$0.621</span><span class="change dn">▼ 1.23%</span></span>
-      <span class="tick-item"><span class="sym">S&amp;P 500</span><span class="price">5,282</span><span class="change up">▲ 0.52%</span></span>
-      <span class="tick-item"><span class="sym">NASDAQ</span><span class="price">16,286</span><span class="change dn">▼ 0.38%</span></span>
-      <!-- duplicate for seamless loop -->
-      <span class="tick-item"><span class="sym">BTC</span><span class="price">$84,250</span><span class="change up">▲ 2.34%</span></span>
-      <span class="tick-item"><span class="sym">ETH</span><span class="price">$1,588</span><span class="change dn">▼ 1.82%</span></span>
-      <span class="tick-item"><span class="sym">XMR</span><span class="price">$216.40</span><span class="change up">▲ 0.95%</span></span>
-      <span class="tick-item"><span class="sym">ZEC</span><span class="price">$32.80</span><span class="change up">▲ 3.12%</span></span>
-      <span class="tick-item"><span class="sym">SOL</span><span class="price">$131.50</span><span class="change dn">▼ 2.11%</span></span>
-      <span class="tick-item"><span class="sym">SUI</span><span class="price">$2.18</span><span class="change up">▲ 4.56%</span></span>
-      <span class="tick-item"><span class="sym">BNB</span><span class="price">$589.20</span><span class="change up">▲ 0.89%</span></span>
-      <span class="tick-item"><span class="sym">ADA</span><span class="price">$0.621</span><span class="change dn">▼ 1.23%</span></span>
-      <span class="tick-item"><span class="sym">S&amp;P 500</span><span class="price">5,282</span><span class="change up">▲ 0.52%</span></span>
-      <span class="tick-item"><span class="sym">NASDAQ</span><span class="price">16,286</span><span class="change dn">▼ 0.38%</span></span>
-    </div>
-  </div>
-  <!-- TradingView live widget (overrides fallback if network available) -->
-  <div class="tradingview-widget-container" id="tv-ticker">
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-fallback"><div class="ticker-track">
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">ZEC</span><span>$32.80</span><span class="chg up">▲3.12%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">SUI</span><span>$2.18</span><span class="chg up">▲4.56%</span></span>
+    <span class="t-item"><span class="sym">BNB</span><span>$589</span><span class="chg up">▲0.89%</span></span>
+    <span class="t-item"><span class="sym">ADA</span><span>$0.621</span><span class="chg dn">▼1.23%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+    <span class="t-item"><span class="sym">NASDAQ</span><span>16,286</span><span class="chg dn">▼0.38%</span></span>
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">ZEC</span><span>$32.80</span><span class="chg up">▲3.12%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">SUI</span><span>$2.18</span><span class="chg up">▲4.56%</span></span>
+    <span class="t-item"><span class="sym">BNB</span><span>$589</span><span class="chg up">▲0.89%</span></span>
+    <span class="t-item"><span class="sym">ADA</span><span>$0.621</span><span class="chg dn">▼1.23%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+    <span class="t-item"><span class="sym">NASDAQ</span><span>16,286</span><span class="chg dn">▼0.38%</span></span>
+  </div></div>
+  <div class="tv-widget tradingview-widget-container">
     <div class="tradingview-widget-container__widget"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
     {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S&P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
@@ -318,49 +44,29 @@ body.lang-zh .en-text { display: none; }
   </div>
 </div>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <span class="kcv">KCVISION</span><span class="dot-space">.space</span>
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
+    <button class="hamburger" id="hamburger">☰</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active">
-        <span class="en-text">Home</span><span class="zh-text">首頁</span>
-      </a></li>
-      <li><a href="about.html">
-        <span class="en-text">About KC</span><span class="zh-text">關於 KC</span>
-      </a></li>
-      <li><a href="bitcoin.html">
-        <span class="en-text">Bitcoin</span><span class="zh-text">比特幣</span>
-      </a></li>
-      <li><a href="blockchain.html">
-        <span class="en-text">Blockchain × AI</span><span class="zh-text">區塊鏈 × AI</span>
-      </a></li>
-      <li><a href="privacy.html">
-        <span class="en-text">Privacy</span><span class="zh-text">隱私</span>
-      </a></li>
+      <li><a href="index.html" class="active"><span class="en">Home</span><span class="zh">首頁</span></a></li>
+      <li><a href="about.html"><span class="en">About KC</span><span class="zh">關於 KC</span></a></li>
+      <li><a href="bitcoin.html"><span class="en">Bitcoin</span><span class="zh">比特幣</span></a></li>
+      <li><a href="blockchain.html"><span class="en">Blockchain × AI</span><span class="zh">區塊鏈 × AI</span></a></li>
+      <li><a href="privacy.html"><span class="en">Privacy</span><span class="zh">隱私</span></a></li>
       <li><a href="nft.html">NFT</a></li>
-      <li><a href="ecosystem.html">
-        <span class="en-text">Web3</span><span class="zh-text">Web3 生態</span>
-      </a></li>
-      <li><a href="content.html">
-        <span class="en-text">Content</span><span class="zh-text">內容頻道</span>
-      </a></li>
-      <li><a href="contact.html">
-        <span class="en-text">Contact</span><span class="zh-text">聯絡</span>
-      </a></li>
+      <li><a href="ecosystem.html"><span class="en">Web3</span><span class="zh">Web3 生態</span></a></li>
+      <li><a href="content.html"><span class="en">Content</span><span class="zh">內容頻道</span></a></li>
+      <li><a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a></li>
     </ul>
-
-    <!-- TOOLBAR: Font size + Language -->
-    <div class="nav-toolbar">
-      <button class="fs-btn" data-action="dn" title="Smaller text">A−</button>
-      <button class="fs-btn" data-action="up" title="Larger text">A+</button>
-      <div class="nav-divider"></div>
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="zh">中</button>
+    <div class="nav-tools">
+      <button class="fs-btn sm" data-a="dn">A−</button>
+      <button class="fs-btn lg" data-a="up">A+</button>
+      <div class="nav-div"></div>
+      <div class="lang-wrap">
+        <button class="lang-btn active" data-l="en">EN</button>
+        <button class="lang-btn" data-l="zh">中</button>
       </div>
     </div>
   </div>
@@ -368,203 +74,76 @@ body.lang-zh .en-text { display: none; }
 
 <main>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-deco"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="en-text">Crypto · Blockchain · NFT · AI · Bitcoin · Privacy</span>
-      <span class="zh-text">加密 · 區塊鏈 · NFT · AI · 比特幣 · 隱私</span>
+  <div class="hero-inner">
+    <div class="hero-eye">
+      <span class="en">Crypto · Blockchain · NFT · AI · Bitcoin · Privacy</span>
+      <span class="zh">加密 · 區塊鏈 · NFT · AI · 比特幣 · 隱私</span>
     </div>
     <h1>KCVISION Space</h1>
     <p class="lede">
-      <span class="en-text">Exploring the future of the decentralised world — where AI meets blockchain, privacy becomes a human right, and Bitcoin redefines wealth.</span>
-      <span class="zh-text">探索去中心化世界的未來視野 —— 當 AI 遇上區塊鏈，當隱私成為人權，當比特幣重新定義財富。</span>
+      <span class="en">Exploring the future of the decentralised world — where AI meets blockchain, privacy becomes a human right, and Bitcoin redefines wealth.</span>
+      <span class="zh">探索去中心化世界的未來視野 —— 當 AI 遇上區塊鏈，當隱私成為人權，當比特幣重新定義財富。</span>
     </p>
     <div class="btn-row">
-      <a href="about.html" class="btn btn-primary">
-        <span class="en-text">Enter KCVISION</span>
-        <span class="zh-text">進入 KCVISION</span>
-      </a>
-      <a href="ecosystem.html" class="btn btn-ghost">
-        <span class="en-text">Learn More</span>
-        <span class="zh-text">了解更多</span>
-      </a>
+      <a href="about.html" class="btn btn-navy"><span class="en">Enter KCVISION</span><span class="zh">進入 KCVISION</span></a>
+      <a href="ecosystem.html" class="btn btn-ghost"><span class="en">Explore Web3</span><span class="zh">探索 Web3</span></a>
     </div>
   </div>
 </section>
 
-<!-- ===== 6 PILLARS ===== -->
+<!-- 6 PILLARS -->
 <section class="container">
-  <div class="section-head">
-    <h2>
-      <span class="en-text">The Future is <span class="wine">Now</span></span>
-      <span class="zh-text">未來，<span class="wine">已在此刻</span></span>
-    </h2>
-    <p>
-      <span class="en-text">KCVISION Space is your first door into this new world. Every pixel carries the wave of decentralisation.</span>
-      <span class="zh-text">KCVISION Space 是你進入這個新世界的第一扇門。每一個像素都承載著去中心化的革命浪潮。</span>
-    </p>
+  <div class="section-hd">
+    <h2><span class="en">The Future is <span class="wine">Now</span></span><span class="zh">未來，<span class="wine">已在此刻</span></span></h2>
+    <p><span class="en">KCVISION Space is your first door into the new decentralised world.</span><span class="zh">KCVISION Space 是你進入這個新世界的第一扇門。</span></p>
   </div>
-
   <div class="card-grid">
-    <div class="card">
-      <div class="icon">💰</div>
-      <h3><span class="en-text">Crypto</span><span class="zh-text">加密貨幣</span></h3>
-      <p><span class="en-text">The new financial frontier beyond borders and banks.</span><span class="zh-text">超越國界與銀行的全新金融邊疆。</span></p>
-    </div>
-    <div class="card lilac">
-      <div class="icon">🔗</div>
-      <h3><span class="en-text">Blockchain</span><span class="zh-text">區塊鏈</span></h3>
-      <p><span class="en-text">Transparent, immutable trust infrastructure.</span><span class="zh-text">透明不可篡改的信任基礎。</span></p>
-    </div>
-    <div class="card mint">
-      <div class="icon">🎨</div>
-      <h3>NFT</h3>
-      <p><span class="en-text">Digital ownership beyond hype — redefining value.</span><span class="zh-text">超越炒作的數字所有權，重新定義價值。</span></p>
-    </div>
-    <div class="card peach">
-      <div class="icon">🤖</div>
-      <h3>AI</h3>
-      <p><span class="en-text">Intelligent decentralisation — infinite possibilities.</span><span class="zh-text">智能化去中心化的無限可能。</span></p>
-    </div>
-    <div class="card sand">
-      <div class="icon">₿</div>
-      <h3>Bitcoin</h3>
-      <p><span class="en-text">Digital gold. Long-term conviction.</span><span class="zh-text">數字黃金，長期持有的信念。</span></p>
-    </div>
-    <div class="card sky">
-      <div class="icon">🔒</div>
-      <h3><span class="en-text">Privacy</span><span class="zh-text">隱私</span></h3>
-      <p><span class="en-text">Financial freedom starts with privacy protection.</span><span class="zh-text">財務自由從隱私保護開始。</span></p>
-    </div>
+    <div class="card"><div class="ico">💰</div><h3><span class="en">Crypto</span><span class="zh">加密貨幣</span></h3><p><span class="en">The new financial frontier beyond borders and banks.</span><span class="zh">超越國界與銀行的全新金融邊疆。</span></p></div>
+    <div class="card lilac"><div class="ico">🔗</div><h3><span class="en">Blockchain</span><span class="zh">區塊鏈</span></h3><p><span class="en">Transparent, immutable trust infrastructure.</span><span class="zh">透明不可篡改的信任基礎。</span></p></div>
+    <div class="card mint"><div class="ico">🎨</div><h3>NFT</h3><p><span class="en">Digital ownership beyond hype — redefining value.</span><span class="zh">超越炒作的數字所有權，重新定義價值。</span></p></div>
+    <div class="card peach"><div class="ico">🤖</div><h3>AI</h3><p><span class="en">Intelligent decentralisation — infinite possibilities.</span><span class="zh">智能化去中心化的無限可能。</span></p></div>
+    <div class="card sand"><div class="ico">₿</div><h3>Bitcoin</h3><p><span class="en">Digital gold. Long-term conviction.</span><span class="zh">數字黃金，長期持有的信念。</span></p></div>
+    <div class="card sky"><div class="ico">🔒</div><h3><span class="en">Privacy</span><span class="zh">隱私</span></h3><p><span class="en">Financial freedom starts with privacy protection.</span><span class="zh">財務自由從隱私保護開始。</span></p></div>
   </div>
 </section>
 
-<!-- ===== PAGE NAV ===== -->
+<!-- PAGE NAV -->
 <section class="container">
-  <div class="section-head">
-    <h2 class="wine">
-      <span class="en-text">Explore 9 Themes</span>
-      <span class="zh-text">探索九條主線</span>
-    </h2>
-    <p>
-      <span class="en-text">Each page is a deep dive into one theme — at your own pace.</span>
-      <span class="zh-text">每一頁都是一個獨立的主題深潛 —— 按你嘅節奏進入。</span>
-    </p>
+  <div class="section-hd">
+    <h2 class="wine"><span class="en">Explore 9 Themes</span><span class="zh">探索九條主線</span></h2>
+    <p><span class="en">Each page is a deep dive — at your own pace.</span><span class="zh">每一頁都是一個獨立的主題深潛。</span></p>
   </div>
   <div class="page-nav">
-    <a href="about.html">
-      <span class="pn-num">02 · Mission</span>
-      <span class="pn-title"><span class="en-text">About KC</span><span class="zh-text">關於 KC</span></span>
-      <span class="pn-desc"><span class="en-text">My beliefs, my universe — a digital home for independent thinkers.</span><span class="zh-text">我的信念、我的宇宙 —— 一個獨立思考者的數字家園。</span></span>
-    </a>
-    <a href="bitcoin.html">
-      <span class="pn-num">03 · Digital Gold</span>
-      <span class="pn-title">Bitcoin</span>
-      <span class="pn-desc"><span class="en-text">The hardest money in history — genesis, store of value, HODL philosophy.</span><span class="zh-text">人類史上最硬的貨幣 —— 誕生、儲值、長期持有哲學。</span></span>
-    </a>
-    <a href="blockchain.html">
-      <span class="pn-num">04 · Tech Deep Dive</span>
-      <span class="pn-title"><span class="en-text">Blockchain × AI</span><span class="zh-text">區塊鏈 × AI</span></span>
-      <span class="pn-desc"><span class="en-text">The trust revolution and the intelligent decentralised era.</span><span class="zh-text">重新定義信任的底層革命，與智能去中心化新紀元。</span></span>
-    </a>
-    <a href="privacy.html">
-      <span class="pn-num">05 · Privacy is a Right</span>
-      <span class="pn-title"><span class="en-text">Privacy</span><span class="zh-text">財務隱私</span></span>
-      <span class="pn-desc"><span class="en-text">You have the right to be unseen — XMR, ZK proofs, practical guide.</span><span class="zh-text">你有權利不被看見 —— 隱私幣、ZK 證明、實戰手冊。</span></span>
-    </a>
-    <a href="nft.html">
-      <span class="pn-num">06 · Digital Ownership</span>
-      <span class="pn-title"><span class="en-text">NFT · Visual Universe</span><span class="zh-text">NFT · 視覺宇宙</span></span>
-      <span class="pn-desc"><span class="en-text">Beyond speculation — redefining ownership. AI art boundaries.</span><span class="zh-text">超越炒作，重新定義所有權。探索 AI 生成藝術邊界。</span></span>
-    </a>
-    <a href="ecosystem.html">
-      <span class="pn-num">07 · Full Landscape</span>
-      <span class="pn-title">Web3 <span class="en-text">Ecosystem</span><span class="zh-text">生態地圖</span></span>
-      <span class="pn-desc"><span class="en-text">Projects KC believes in + crypto milestones timeline.</span><span class="zh-text">KC 相信的項目與協議，與加密貨幣重要里程碑。</span></span>
-    </a>
-    <a href="content.html">
-      <span class="pn-num">08 · Content Universe</span>
-      <span class="pn-title"><span class="en-text">Podcast · Community · FAQ</span><span class="zh-text">播客 · 社群 · FAQ</span></span>
-      <span class="pn-desc"><span class="en-text">Mago Talk, newsletter, crypto beginner Q&amp;A.</span><span class="zh-text">Mago Talk、週報訂閱、加密新手最想知道的問題。</span></span>
-    </a>
-    <a href="contact.html">
-      <span class="pn-num">09 · Connect</span>
-      <span class="pn-title"><span class="en-text">Contact KC</span><span class="zh-text">聯絡 KC</span></span>
-      <span class="pn-desc"><span class="en-text">Collaborations, speaking, community — exploring the decentralised universe together.</span><span class="zh-text">合作邀請、演講邀約、社群媒體 —— 共同探索去中心化宇宙。</span></span>
-    </a>
+    <a href="about.html"><span class="pn-num">02 · Mission</span><span class="pn-title"><span class="en">About KC</span><span class="zh">關於 KC</span></span><span class="pn-desc"><span class="en">My beliefs, my digital universe.</span><span class="zh">我的信念、我的宇宙。</span></span></a>
+    <a href="bitcoin.html"><span class="pn-num">03 · Digital Gold</span><span class="pn-title">Bitcoin</span><span class="pn-desc"><span class="en">Hardest money in history — HODL philosophy.</span><span class="zh">人類史上最硬的貨幣 — 長期持有哲學。</span></span></a>
+    <a href="blockchain.html"><span class="pn-num">04 · Tech Deep Dive</span><span class="pn-title"><span class="en">Blockchain × AI</span><span class="zh">區塊鏈 × AI</span></span><span class="pn-desc"><span class="en">Trust revolution meets intelligent decentralisation.</span><span class="zh">重新定義信任的底層革命。</span></span></a>
+    <a href="privacy.html"><span class="pn-num">05 · Privacy is a Right</span><span class="pn-title"><span class="en">Privacy</span><span class="zh">財務隱私</span></span><span class="pn-desc"><span class="en">XMR, ZK proofs, practical guide.</span><span class="zh">隱私幣、ZK 證明、實戰手冊。</span></span></a>
+    <a href="nft.html"><span class="pn-num">06 · Digital Ownership</span><span class="pn-title"><span class="en">NFT · Visual Universe</span><span class="zh">NFT · 視覺宇宙</span></span><span class="pn-desc"><span class="en">MAYC, Lil Pudgy, Milady — KC's collection.</span><span class="zh">MAYC、Lil Pudgy、Milady — KC 嘅收藏。</span></span></a>
+    <a href="ecosystem.html"><span class="pn-num">07 · Full Landscape</span><span class="pn-title"><span class="en">Web3 Ecosystem</span><span class="zh">Web3 生態地圖</span></span><span class="pn-desc"><span class="en">6 pillars of the decentralised world.</span><span class="zh">六大支柱，構成去中心化世界全景。</span></span></a>
+    <a href="content.html"><span class="pn-num">08 · Content Universe</span><span class="pn-title"><span class="en">Podcast · FAQ</span><span class="zh">播客 · FAQ</span></span><span class="pn-desc"><span class="en">Mago Talk, newsletter, crypto Q&amp;A.</span><span class="zh">Mago Talk、週報訂閱、新手 FAQ。</span></span></a>
+    <a href="contact.html"><span class="pn-num">09 · Connect</span><span class="pn-title"><span class="en">Contact KC</span><span class="zh">聯絡 KC</span></span><span class="pn-desc"><span class="en">Collaborations, speaking, community.</span><span class="zh">合作邀請、演講邀約、社群媒體。</span></span></a>
   </div>
 </section>
 
 </main>
 
-<!-- ===== BOTTOM THEME SCROLL BAR ===== -->
-<div class="theme-scroll">
-  <div class="theme-scroll-track">
-    <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
-    <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
-    <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span>
+<!-- BOTTOM BAR + FOOTER -->
+<div class="theme-scroll"><div class="theme-track">
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Podcast <span class="dot">·</span></span>
+</div></div>
+<footer class="footer"><div class="footer-in">
+  <div><div class="footer-brand">KCVISION.space</div><small>Signal before noise · <span class="zh">先看訊號，再拆雜音</span></small></div>
+  <div class="footer-links">
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a>
+    <a href="about.html"><span class="en">About</span><span class="zh">關於</span></a>
+    <a href="content.html"><span class="en">Content</span><span class="zh">內容</span></a>
   </div>
-</div>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">KCVISION.space</div>
-      <small>Signal before noise · <span class="zh-text">先看訊號，再拆雜音</span></small>
-    </div>
-    <div class="footer-links">
-      <a href="contact.html"><span class="en-text">Contact</span><span class="zh-text">聯絡</span></a>
-      <a href="about.html"><span class="en-text">About</span><span class="zh-text">關於</span></a>
-      <a href="content.html"><span class="en-text">Content</span><span class="zh-text">內容頻道</span></a>
-    </div>
-  </div>
-</footer>
-
+</div></footer>
 <script src="app.js"></script>
-<script>
-// Mobile nav
-document.getElementById('navToggle').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// Font size
-const root = document.documentElement;
-let fs = parseFloat(localStorage.getItem('kcFontSize') || 16);
-root.style.fontSize = fs + 'px';
-document.querySelectorAll('.fs-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (btn.dataset.action === 'up' && fs < 22) fs += 2;
-    if (btn.dataset.action === 'dn' && fs > 12) fs -= 2;
-    root.style.fontSize = fs + 'px';
-    localStorage.setItem('kcFontSize', fs);
-  });
-});
-
-// Language toggle
-let lang = localStorage.getItem('kcLang') || 'en';
-applyLang(lang);
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    lang = btn.dataset.lang;
-    localStorage.setItem('kcLang', lang);
-    applyLang(lang);
-  });
-});
-function applyLang(l) {
-  document.body.classList.toggle('lang-zh', l === 'zh');
-  document.querySelectorAll('.lang-btn').forEach(b =>
-    b.classList.toggle('active', b.dataset.lang === l)
-  );
-}
-
-// TradingView fallback detection
-setTimeout(() => {
-  const iframe = document.querySelector('#tv-ticker iframe');
-  if (iframe) document.querySelector('.fallback-ticker').style.display = 'none';
-}, 5000);
-</script>
 </body>
 </html>

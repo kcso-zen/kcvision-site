@@ -1,134 +1,140 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>比特幣 — KC Vision Space</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light only">
+<title>Bitcoin — KCVISION.space</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="ticker.css">
-<meta name="color-scheme" content="light only">
 </head>
 <body>
-<!-- TOP TICKER BAR -->
-<div class="tv-ticker-wrap" id="tickerWrap">
-  <div class="fallback-ticker"><div class="fallback-track"><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">ZEC</span><span class="price">$42.30</span><span class="change up">▲ 3.12%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">SUI</span><span class="price">$3.45</span><span class="change dn">▼ 1.23%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span><span class="tick-item"><span class="sym">ADA</span><span class="price">$0.682</span><span class="change up">▲ 2.11%</span></span><span class="tick-item"><span class="sym">S&amp;P 500</span><span class="price">5,842</span><span class="change up">▲ 0.52%</span></span><span class="tick-item"><span class="sym">NASDAQ</span><span class="price">18,965</span><span class="change up">▲ 0.78%</span></span><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span></div></div>
-  <div class="tradingview-widget-container" id="tv-ticker"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S<body>P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
-  </script></div>
+<div class="ticker-wrap">
+  <div class="ticker-fallback"><div class="ticker-track">
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">ZEC</span><span>$32.80</span><span class="chg up">▲3.12%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">SUI</span><span>$2.18</span><span class="chg up">▲4.56%</span></span>
+    <span class="t-item"><span class="sym">BNB</span><span>$589</span><span class="chg up">▲0.89%</span></span>
+    <span class="t-item"><span class="sym">ADA</span><span>$0.621</span><span class="chg dn">▼1.23%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+    <span class="t-item"><span class="sym">NASDAQ</span><span>16,286</span><span class="chg dn">▼0.38%</span></span>
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+  </div></div>
+  <div class="tv-widget tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S&P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
+    </script>
+  </div>
 </div>
-
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">KC Vision <span>Space</span></a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html">首頁</a></li>
-      <li><a href="about.html">關於 KC</a></li>
-      <li><a href="bitcoin.html" class="active">比特幣</a></li>
-      <li><a href="blockchain.html">區塊鏈 × AI</a></li>
-      <li><a href="privacy.html">隱私</a></li>
-      <li><a href="nft.html">NFT</a></li>
-      <li><a href="ecosystem.html">Web3 生態</a></li>
-      <li><a href="content.html">內容頻道</a></li>
-      <li><a href="contact.html">聯絡</a></li>
-    </ul>
+    <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html"><span class="en">Home</span><span class="zh">首頁</span></a></li>
+<li><a href="about.html"><span class="en">About KC</span><span class="zh">關於 KC</span></a></li>
+<li><a href="bitcoin.html" class="active"><span class="en">Bitcoin</span><span class="zh">比特幣</span></a></li>
+<li><a href="blockchain.html"><span class="en">Blockchain × AI</span><span class="zh">區塊鏈 × AI</span></a></li>
+<li><a href="privacy.html"><span class="en">Privacy</span><span class="zh">隱私</span></a></li>
+<li><a href="nft.html">NFT</a></li>
+<li><a href="ecosystem.html"><span class="en">Web3</span><span class="zh">Web3 生態</span></a></li>
+<li><a href="content.html"><span class="en">Content</span><span class="zh">內容頻道</span></a></li>
+<li><a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a></li>
+</ul>
+    <div class="nav-tools">
+      <button class="fs-btn sm" data-a="dn">A−</button>
+      <button class="fs-btn lg" data-a="up">A+</button>
+      <div class="nav-div"></div>
+      <div class="lang-wrap">
+        <button class="lang-btn active" data-l="en">EN</button>
+        <button class="lang-btn" data-l="zh">中</button>
+      </div>
+    </div>
   </div>
 </nav>
 
 <main>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-inner">
+    <span class="tag sand"><span class="en">DIGITAL GOLD</span><span class="zh">數字黃金</span></span>
+    <h1 class="navy"><span class="en">Bitcoin: The Hardest<br>Money in History</span><span class="zh">比特幣：<br>人類史上最硬的貨幣</span></h1>
+    <p class="lede"><span class="en">In 2009, Satoshi Nakamoto created Bitcoin — the first peer-to-peer electronic cash system requiring no trusted third party. It fundamentally redefined the concept of money.</span><span class="zh">2009 年，中本聰創造了比特幣，首次實現無需信任第三方的點對點電子現金系統，徹底顛覆貨幣定義。</span></p>
+  </div>
+</section>
 
-  <section class="container-narrow center">
-    <span class="tag">數字黃金</span>
-    <h1 class="navy">比特幣：<br>人類史上最硬的貨幣</h1>
-    <p class="lede mt-m">2009 年，中本聰創造了比特幣，首次實現無需信任第三方的點對點電子現金系統，徹底顛覆貨幣定義。</p>
-  </section>
+<section class="container">
+  <div class="card-grid">
+    <div class="card"><div class="ico">🎯</div><h3><span class="en">Genesis &amp; Revolution</span><span class="zh">誕生與革命</span></h3><p><span class="en">Satoshi's 9-page white paper launched the greatest monetary experiment in human history. No CEO, no head office, no permission needed.</span><span class="zh">中本聰 9 頁白皮書，啟動了人類史上最大的貨幣實驗。無 CEO、無總部、無需許可。</span></p></div>
+    <div class="card sand"><div class="ico">🏦</div><h3><span class="en">Store of Value</span><span class="zh">價值儲存</span></h3><p><span class="en">21 million hard cap, halving every 4 years — scarcity by mathematics. In an inflationary age, Bitcoin is the ultimate shield against fiat debasement.</span><span class="zh">2100 萬枚總量上限、每四年減半，稀缺性由數學保證。通膨時代，比特幣是對抗法幣貶值的終極盾牌。</span></p></div>
+    <div class="card mint"><div class="ico">⛰️</div><h3><span class="en">HODL Philosophy</span><span class="zh">長期持有哲學</span></h3><p><span class="en">HODL is not blind stubbornness — it is a rational choice after deeply understanding Bitcoin's nature. Think in years, see in decades.</span><span class="zh">HODL 不是盲目固執，而是深刻理解比特幣本質後的理性選擇。以年為單位，以十年為視野。</span></p></div>
+  </div>
+</section>
 
-  <section class="container">
-    <div class="card-grid">
-      <div class="card">
-        <div class="icon">🎯</div>
-        <h3>誕生與革命</h3>
-        <p>2009 年中本聰創造比特幣，首次實現無需信任第三方的點對點電子現金系統，徹底顛覆貨幣定義。</p>
-      </div>
-      <div class="card sand">
-        <div class="icon">🏦</div>
-        <h3>價值儲存</h3>
-        <p>2100 萬枚總量上限、每四年減半機制，賦予比特幣稀缺性。通膨時代，比特幣是對抗法幣貶值的終極盾牌。</p>
-      </div>
-      <div class="card mint">
-        <div class="icon">⛰️</div>
-        <h3>長期持有哲學</h3>
-        <p>HODL 不是盲目固執，而是深刻理解比特幣本質後的理性選擇。我的目標：以年為單位，以十年為視野。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-narrow">
-    <div class="section-head">
-      <span class="tag peach">投資哲學</span>
-      <h2>KC 的加密投資信念</h2>
-      <p>我不預測短期價格，我只研究長期趨勢。加密市場充滿雜音，唯有建立清晰的投資框架，才能在極端波動中保持冷靜。</p>
-    </div>
-
-    <div class="two-col">
-      <div>
-        <div class="card-outline">
-          <h3 class="navy" style="font-family:var(--font-serif); font-size:1.3rem;">長期主義</h3>
-          <p>以 4 年減半週期為最小時間單位，忽略日線噪音。</p>
-        </div>
-        <div class="card-outline lilac mt-m">
-          <h3 class="navy" style="font-family:var(--font-serif); font-size:1.3rem;">風險管理</h3>
-          <p>永遠只投入能接受歸零的資金，分散配置降低單點風險。</p>
-        </div>
-        <div class="card-outline mint mt-m">
-          <h3 class="navy" style="font-family:var(--font-serif); font-size:1.3rem;">反脆弱思維</h3>
-          <p>熊市是最好的買入時機，恐慌是散戶送給堅定者的禮物。</p>
-        </div>
-      </div>
-
-      <div>
-        <div class="quote">「市場短期是投票機，長期是稱重機。」<br><span style="font-style:normal; color:var(--wine); font-size:0.9rem;">— 本傑明·葛拉罕</span></div>
-
-        <h3 class="mt-l" style="color:var(--navy); font-family:var(--font-serif); font-size:1.4rem; margin-bottom: 16px;">KC 的資產配置框架</h3>
-        <ul class="list-clean">
-          <li><strong>核心倉位：</strong>比特幣 BTC（數字黃金）</li>
-          <li><strong>成長倉位：</strong>以太坊 ETH 及 Layer 2</li>
-          <li><strong>衛星倉位：</strong>精選 DeFi 與隱私幣</li>
-          <li><strong>現金緩衝：</strong>等待極端恐慌機會</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-narrow center">
-    <h2 class="wine">繼續深潛</h2>
-    <div class="btn-row">
-      <a href="blockchain.html" class="btn btn-primary">區塊鏈 × AI</a>
-      <a href="ecosystem.html" class="btn btn-ghost">Web3 生態</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
+<section class="container-n">
+  <div class="section-hd">
+    <span class="tag peach"><span class="en">INVESTMENT PHILOSOPHY</span><span class="zh">投資哲學</span></span>
+    <h2><span class="en">KC's Crypto Investment Conviction</span><span class="zh">KC 的加密投資信念</span></h2>
+    <p><span class="en">I don't predict short-term prices. I only study long-term trends. Only a clear investment framework allows you to stay calm in extreme volatility.</span><span class="zh">我不預測短期價格，我只研究長期趨勢。唯有建立清晰的投資框架，才能在極端波動中保持冷靜。</span></p>
+  </div>
+  <div class="two-col">
     <div>
-      <div class="footer-brand">KC Vision Space</div>
-      <small>Signal before noise · 先看訊號，再拆雜音</small>
+      <div style="background:#fff;border:2px solid var(--c-pink);padding:26px;border-radius:var(--radius);margin-bottom:16px;">
+        <h3 style="font-family:var(--serif);font-size:1.25rem;color:var(--navy);font-weight:900;margin-bottom:8px;"><span class="en">Long-termism</span><span class="zh">長期主義</span></h3>
+        <p><span class="en">4-year halving cycle as minimum time unit. Ignore daily candle noise.</span><span class="zh">以 4 年減半週期為最小時間單位，忽略日線噪音。</span></p>
+      </div>
+      <div style="background:#fff;border:2px solid var(--c-lilac);padding:26px;border-radius:var(--radius);margin-bottom:16px;">
+        <h3 style="font-family:var(--serif);font-size:1.25rem;color:var(--navy);font-weight:900;margin-bottom:8px;"><span class="en">Risk Management</span><span class="zh">風險管理</span></h3>
+        <p><span class="en">Only invest what you can afford to lose to zero. Diversify to reduce single-point risk.</span><span class="zh">永遠只投入能接受歸零的資金，分散配置降低單點風險。</span></p>
+      </div>
+      <div style="background:#fff;border:2px solid var(--c-mint);padding:26px;border-radius:var(--radius);">
+        <h3 style="font-family:var(--serif);font-size:1.25rem;color:var(--navy);font-weight:900;margin-bottom:8px;"><span class="en">Antifragile</span><span class="zh">反脆弱思維</span></h3>
+        <p><span class="en">Bear markets are the best buying opportunity. Panic is a gift from weak hands to the steadfast.</span><span class="zh">熊市是最好的買入時機，恐慌是散戶送給堅定者的禮物。</span></p>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="contact.html">聯絡</a>
-      <a href="index.html">首頁</a>
+    <div>
+      <div class="q-box">「<span class="en">Markets are voting machines in the short run, weighing machines in the long run.</span><span class="zh">市場短期是投票機，長期是稱重機。</span>」<br><span style="font-style:normal;color:var(--wine);font-size:0.9rem;font-weight:700;">— Benjamin Graham</span></div>
+      <h3 style="font-family:var(--serif);font-size:1.35rem;color:var(--navy);margin:28px 0 14px;font-weight:900;"><span class="en">KC's Portfolio Framework</span><span class="zh">KC 的資產配置框架</span></h3>
+      <ul style="list-style:none;padding:0;">
+        <li style="padding:8px 0;color:var(--ink-soft);">· <strong><span class="en">Core:</span><span class="zh">核心倉位：</span></strong> <span class="en">Bitcoin BTC (digital gold)</span><span class="zh">比特幣 BTC（數字黃金）</span></li>
+        <li style="padding:8px 0;color:var(--ink-soft);">· <strong><span class="en">Growth:</span><span class="zh">成長倉位：</span></strong> <span class="en">Ethereum ETH &amp; Layer 2</span><span class="zh">以太坊 ETH 及 Layer 2</span></li>
+        <li style="padding:8px 0;color:var(--ink-soft);">· <strong><span class="en">Satellite:</span><span class="zh">衛星倉位：</span></strong> <span class="en">DeFi &amp; Privacy coins</span><span class="zh">精選 DeFi 與隱私幣</span></li>
+        <li style="padding:8px 0;color:var(--ink-soft);">· <strong><span class="en">Cash buffer:</span><span class="zh">現金緩衝：</span></strong> <span class="en">Waiting for extreme fear events</span><span class="zh">等待極端恐慌機會</span></li>
+      </ul>
     </div>
   </div>
-</footer>
+</section>
 
-<!-- BOTTOM THEME SCROLL BAR -->
-<div class="theme-scroll"><div class="theme-scroll-track"><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span></div></div>
+<div class="container-n center">
+  <h2 class="wine"><span class="en">Continue Exploring</span><span class="zh">繼續深潛</span></h2>
+  <div class="btn-row">
+    <a href="blockchain.html" class="btn btn-navy"><span class="en">Blockchain × AI</span><span class="zh">區塊鏈 × AI</span></a>
+    <a href="privacy.html" class="btn btn-ghost"><span class="en">Privacy</span><span class="zh">隱私幣</span></a>
+  </div>
+</div>
+</main>
+<div class="theme-scroll"><div class="theme-track">
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span> DAO governance <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span>
+</div></div>
+<footer class="footer"><div class="footer-in">
+  <div><div class="footer-brand">KCVISION.space</div><small>Signal before noise · <span class="zh">先看訊號，再拆雜音</span></small></div>
+  <div class="footer-links">
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a>
+    <a href="about.html"><span class="en">About</span><span class="zh">關於</span></a>
+    <a href="content.html"><span class="en">Content</span><span class="zh">內容</span></a>
+  </div>
+</div></footer>
 <script src="app.js"></script>
-<script>setTimeout(function(){var t=document.querySelector('#tv-ticker .tradingview-widget-container__widget iframe');if(t){document.getElementById('tickerWrap').style.setProperty('--fb','none');}},4000);</script>
 </body>
 </html>

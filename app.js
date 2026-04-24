@@ -1,51 +1,55 @@
-// KCVISION — shared scripts
-
-// ===== MOBILE NAV TOGGLE =====
+// KCVISION V4 — shared scripts
 document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.nav-links');
-  if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => links.classList.remove('open'))
-    );
+
+  // Mobile nav
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  if (ham && nav) {
+    ham.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
   }
 
-  // ===== FONT SIZE =====
+  // Font size
   const root = document.documentElement;
-  let currentSize = parseFloat(localStorage.getItem('kcFontSize') || 16);
-  root.style.fontSize = currentSize + 'px';
-
+  let fs = parseFloat(localStorage.getItem('kcFS') || 17);
+  root.style.fontSize = fs + 'px';
   document.querySelectorAll('.fs-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (btn.dataset.action === 'up' && currentSize < 22) currentSize += 2;
-      if (btn.dataset.action === 'dn' && currentSize > 12) currentSize -= 2;
-      root.style.fontSize = currentSize + 'px';
-      localStorage.setItem('kcFontSize', currentSize);
+      if (btn.dataset.a === 'up' && fs < 22) fs += 2;
+      if (btn.dataset.a === 'dn' && fs > 13) fs -= 2;
+      root.style.fontSize = fs + 'px';
+      localStorage.setItem('kcFS', fs);
     });
   });
 
-  // ===== LANGUAGE TOGGLE =====
+  // Language
   let lang = localStorage.getItem('kcLang') || 'en';
   applyLang(lang);
-
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      lang = btn.dataset.lang;
+      lang = btn.dataset.l;
       localStorage.setItem('kcLang', lang);
       applyLang(lang);
-      document.querySelectorAll('.lang-btn').forEach(b =>
-        b.classList.toggle('active', b.dataset.lang === lang)
-      );
     });
   });
 
   function applyLang(l) {
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.textContent = l === 'zh' ? (el.dataset.zh || el.dataset.en) : el.dataset.en;
-    });
-    document.querySelectorAll('.lang-btn').forEach(b =>
-      b.classList.toggle('active', b.dataset.lang === l)
-    );
+    document.body.classList.toggle('lang-zh', l === 'zh');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.l === l));
   }
+
+  // TradingView fallback hide
+  setTimeout(() => {
+    const iframe = document.querySelector('.tv-widget iframe');
+    if (iframe) {
+      const fb = document.querySelector('.ticker-fallback');
+      if (fb) fb.style.display = 'none';
+    }
+  }, 5000);
+
+  // NFT image error fallback
+  document.querySelectorAll('.nft-img img').forEach(img => {
+    img.addEventListener('error', () => img.closest('.nft-img').classList.add('err'));
+  });
+
 });

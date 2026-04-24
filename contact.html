@@ -1,186 +1,138 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>聯絡 KC — KC Vision Space</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light only">
+<title>Contact — KCVISION.space</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="ticker.css">
-<meta name="color-scheme" content="light only">
 </head>
 <body>
-<!-- TOP TICKER BAR -->
-<div class="tv-ticker-wrap" id="tickerWrap">
-  <div class="fallback-ticker"><div class="fallback-track"><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">ZEC</span><span class="price">$42.30</span><span class="change up">▲ 3.12%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">SUI</span><span class="price">$3.45</span><span class="change dn">▼ 1.23%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span><span class="tick-item"><span class="sym">ADA</span><span class="price">$0.682</span><span class="change up">▲ 2.11%</span></span><span class="tick-item"><span class="sym">S&amp;P 500</span><span class="price">5,842</span><span class="change up">▲ 0.52%</span></span><span class="tick-item"><span class="sym">NASDAQ</span><span class="price">18,965</span><span class="change up">▲ 0.78%</span></span><span class="tick-item"><span class="sym">BTC</span><span class="price">$67,420</span><span class="change up">▲ 2.34%</span></span><span class="tick-item"><span class="sym">ETH</span><span class="price">$3,280</span><span class="change up">▲ 1.82%</span></span><span class="tick-item"><span class="sym">XMR</span><span class="price">$178.50</span><span class="change dn">▼ 0.45%</span></span><span class="tick-item"><span class="sym">SOL</span><span class="price">$165.80</span><span class="change up">▲ 4.56%</span></span><span class="tick-item"><span class="sym">BNB</span><span class="price">$612.40</span><span class="change up">▲ 0.89%</span></span></div></div>
-  <div class="tradingview-widget-container" id="tv-ticker"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S<body>P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
-  </script></div>
-</div>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">KC Vision <span>Space</span></a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html">首頁</a></li>
-      <li><a href="about.html">關於 KC</a></li>
-      <li><a href="bitcoin.html">比特幣</a></li>
-      <li><a href="blockchain.html">區塊鏈 × AI</a></li>
-      <li><a href="privacy.html">隱私</a></li>
-      <li><a href="nft.html">NFT</a></li>
-      <li><a href="ecosystem.html">Web3 生態</a></li>
-      <li><a href="content.html">內容頻道</a></li>
-      <li><a href="contact.html" class="active">聯絡</a></li>
-    </ul>
+<div class="ticker-wrap">
+  <div class="ticker-fallback"><div class="ticker-track">
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">ZEC</span><span>$32.80</span><span class="chg up">▲3.12%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">SUI</span><span>$2.18</span><span class="chg up">▲4.56%</span></span>
+    <span class="t-item"><span class="sym">BNB</span><span>$589</span><span class="chg up">▲0.89%</span></span>
+    <span class="t-item"><span class="sym">ADA</span><span>$0.621</span><span class="chg dn">▼1.23%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+    <span class="t-item"><span class="sym">NASDAQ</span><span>16,286</span><span class="chg dn">▼0.38%</span></span>
+    <span class="t-item"><span class="sym">BTC</span><span>$84,250</span><span class="chg up">▲2.34%</span></span>
+    <span class="t-item"><span class="sym">ETH</span><span>$1,588</span><span class="chg dn">▼1.82%</span></span>
+    <span class="t-item"><span class="sym">XMR</span><span>$216.40</span><span class="chg up">▲0.95%</span></span>
+    <span class="t-item"><span class="sym">SOL</span><span>$131.50</span><span class="chg dn">▼2.11%</span></span>
+    <span class="t-item"><span class="sym">S&amp;P500</span><span>5,282</span><span class="chg up">▲0.52%</span></span>
+  </div></div>
+  <div class="tv-widget tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {"symbols":[{"description":"Bitcoin","proName":"BINANCE:BTCUSDT"},{"description":"Ethereum","proName":"BINANCE:ETHUSDT"},{"description":"Monero","proName":"KRAKEN:XMRUSD"},{"description":"Zcash","proName":"BINANCE:ZECUSDT"},{"description":"Solana","proName":"BINANCE:SOLUSDT"},{"description":"Sui","proName":"BINANCE:SUIUSDT"},{"description":"BNB","proName":"BINANCE:BNBUSDT"},{"description":"Cardano","proName":"BINANCE:ADAUSDT"},{"description":"S&P 500","proName":"FOREXCOM:SPXUSD"},{"description":"NASDAQ","proName":"FOREXCOM:NSXUSD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"zh_TW"}
+    </script>
   </div>
-</nav>
-
+</div><nav class="nav"><div class="nav-inner">
+    <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html"><span class="en">Home</span><span class="zh">首頁</span></a></li>
+<li><a href="about.html"><span class="en">About KC</span><span class="zh">關於 KC</span></a></li>
+<li><a href="bitcoin.html"><span class="en">Bitcoin</span><span class="zh">比特幣</span></a></li>
+<li><a href="blockchain.html"><span class="en">Blockchain × AI</span><span class="zh">區塊鏈 × AI</span></a></li>
+<li><a href="privacy.html"><span class="en">Privacy</span><span class="zh">隱私</span></a></li>
+<li><a href="nft.html">NFT</a></li>
+<li><a href="ecosystem.html"><span class="en">Web3</span><span class="zh">Web3 生態</span></a></li>
+<li><a href="content.html"><span class="en">Content</span><span class="zh">內容頻道</span></a></li>
+<li><a href="contact.html" class="active"><span class="en">Contact</span><span class="zh">聯絡</span></a></li>
+</ul>
+    <div class="nav-tools">
+      <button class="fs-btn sm" data-a="dn">A−</button>
+      <button class="fs-btn lg" data-a="up">A+</button>
+      <div class="nav-div"></div>
+      <div class="lang-wrap">
+        <button class="lang-btn active" data-l="en">EN</button>
+        <button class="lang-btn" data-l="zh">中</button>
+      </div>
+    </div>
+  </div></nav>
 <main>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-inner">
+    <span class="tag"><span class="en">CONNECT</span><span class="zh">聯絡 KC</span></span>
+    <h1><span class="en">Let's Connect &amp;<br>Explore Together</span><span class="zh">讓我們連結，<br>共同探索去中心化宇宙</span></h1>
+    <p class="lede"><span class="en">Whether it is a collaboration invitation, speaking request, podcast conversation or pure intellectual exchange — KC welcomes your message.</span><span class="zh">無論是合作邀請、演講邀約、播客對談還是純粹的思想交流，KC 都歡迎你的聯繫。</span></p>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-deco"></div>
-    <div class="hero-content">
-      <span class="tag">聯絡 KC</span>
-      <h1>讓我們連結，<br>共同探索去中心化宇宙</h1>
-      <p class="lede mt-m">無論是合作邀請、演講邀約、播客對談還是純粹的思想交流，KC 都歡迎你的聯繫。</p>
-    </div>
-  </section>
+<section class="container">
+  <div class="card-grid">
+    <div class="card"><div class="ico">🤝</div><h3><span class="en">Collaboration</span><span class="zh">合作邀請</span></h3><p><span class="en">Brand partnerships, content co-creation, sponsorships — please include a project brief.</span><span class="zh">品牌合作、內容聯名、贊助合作，請附上項目簡介。</span></p></div>
+    <div class="card lilac"><div class="ico">🎤</div><h3><span class="en">Speaking Invitations</span><span class="zh">演講邀約</span></h3><p><span class="en">Blockchain summits, crypto events, university lectures — all welcome.</span><span class="zh">區塊鏈峰會、加密貨幣活動、大學講座皆可洽談。</span></p></div>
+    <div class="card mint"><div class="ico">📡</div><h3><span class="en">Social Media</span><span class="zh">社群媒體</span></h3><p><span class="en">Connect with KC directly via Twitter / X or Telegram.</span><span class="zh">透過 Twitter / X 或 Telegram 與 KC 直接對話。</span></p></div>
+  </div>
+</section>
 
-  <!-- 3 contact boxes -->
-  <section class="container">
-    <div class="card-grid">
-      <div class="card">
-        <div class="icon">🤝</div>
-        <h3>合作邀請</h3>
-        <p>品牌合作、內容聯名、贊助合作，請附上項目簡介。</p>
-      </div>
-      <div class="card lilac">
-        <div class="icon">🎤</div>
-        <h3>演講邀約</h3>
-        <p>區塊鏈峰會、加密貨幣活動、大學講座皆可洽談。</p>
-      </div>
-      <div class="card mint">
-        <div class="icon">📡</div>
-        <h3>社群媒體</h3>
-        <p>透過 Twitter / X 或 Telegram 與 KC 直接對話。</p>
-      </div>
-    </div>
-  </section>
+<section class="container-n">
+  <div class="section-hd">
+    <span class="tag peach"><span class="en">PUBLIC CHANNELS</span><span class="zh">公開頻道</span></span>
+    <h2 class="wine"><span class="en">Where to Find KC</span><span class="zh">在哪裡找到 KC</span></h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:28px;">
+    <div class="ch-card"><div class="ch-ico">𝕏</div><div><div class="ch-name">Twitter / X</div><div class="ch-desc"><span class="en">Real-time crypto market views · on-chain data commentary</span><span class="zh">即時加密市場觀點 · 鏈上數據解讀</span></div></div></div>
+    <div class="ch-card" style="background:var(--c-lilac);"><div class="ch-ico" style="background:var(--c-sky);">✈️</div><div><div class="ch-name">Telegram</div><div class="ch-desc"><span class="en">Deep discussion · community live dialogue</span><span class="zh">深度交流 · 社群即時對話</span></div></div></div>
+  </div>
+  <div class="q-info mt-m" style="text-align:center;">
+    <strong>⚠️ <span class="en">Note:</span><span class="zh">注意：</span></strong> <span class="en">KC will never proactively DM to promote investment opportunities or request transfers. Beware any impersonation accounts.</span><span class="zh">KC 絕對不會主動私訊推銷投資機會或要求轉賬。請警惕任何冒名帳號。</span>
+  </div>
+</section>
 
-  <!-- Social channels (actual links) -->
-  <section class="container-narrow">
-    <div class="section-head">
-      <span class="tag peach">公開頻道</span>
-      <h2 class="wine">在哪裡找到 KC</h2>
-      <p>以下是 KC 公開活躍的頻道 —— 揀一個最啱你嘅方式開始。</p>
-    </div>
+<section class="container">
+  <div class="section-hd">
+    <span class="tag lilac"><span class="en">EXTENDED UNIVERSE</span><span class="zh">相關頻道</span></span>
+    <h2><span class="en">Extended Universe</span><span class="zh">延伸宇宙</span></h2>
+  </div>
+  <div class="card-grid" style="grid-template-columns:repeat(2,1fr);">
+    <div class="card sand"><div class="ico">📰</div><h3>ABAB News</h3><p><span class="en">KC's co-founded news platform — focused on decentralisation, crypto and tech frontiers.</span><span class="zh">KC 共同創辦的新聞平台，聚焦去中心化、加密與科技前沿。</span></p></div>
+    <div class="card peach"><div class="ico">🎙️</div><h3>Mago Talk Space</h3><p><span class="en">KC's hosted podcast — deep conversations with thinkers and builders of the crypto world.</span><span class="zh">KC 主持的播客空間，深度對談加密世界的思想者與建設者。</span></p></div>
+  </div>
+</section>
 
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 30px;">
-
-      <a href="#" style="display:flex; align-items:center; gap:16px; padding: 20px 22px; background: var(--bg-soft); border-radius: var(--radius); transition: all .25s ease; border: 1px solid transparent;"
-         onmouseover="this.style.background='var(--card-pink)'; this.style.borderColor='var(--wine)';"
-         onmouseout="this.style.background='var(--bg-soft)'; this.style.borderColor='transparent';">
-        <div style="width:44px; height:44px; background: var(--card-pink); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0;">𝕏</div>
-        <div>
-          <div style="font-family:var(--font-serif); color:var(--navy); font-size:1.1rem;">Twitter / X</div>
-          <div style="font-size:0.85rem; color:var(--ink-soft);">即時加密市場觀點 · 鏈上數據解讀</div>
-        </div>
-      </a>
-
-      <a href="#" style="display:flex; align-items:center; gap:16px; padding: 20px 22px; background: var(--bg-soft); border-radius: var(--radius); transition: all .25s ease; border: 1px solid transparent;"
-         onmouseover="this.style.background='var(--card-lilac)'; this.style.borderColor='var(--navy)';"
-         onmouseout="this.style.background='var(--bg-soft)'; this.style.borderColor='transparent';">
-        <div style="width:44px; height:44px; background: var(--card-lilac); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0;">✈️</div>
-        <div>
-          <div style="font-family:var(--font-serif); color:var(--navy); font-size:1.1rem;">Telegram</div>
-          <div style="font-size:0.85rem; color:var(--ink-soft);">深度交流 · 社群即時對話</div>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="quote-info mt-l" style="text-align:center;">
-      <strong>⚠️ 注意：</strong>KC 絕對不會主動私訊推銷投資機會或要求轉賬。請警惕任何冒名帳號。
-    </div>
-  </section>
-
-  <!-- Related properties -->
-  <section class="container">
-    <div class="section-head">
-      <span class="tag lilac">相關頻道</span>
-      <h2>延伸宇宙</h2>
-    </div>
-    <div class="card-grid">
-      <div class="card sand">
-        <div class="icon">📰</div>
-        <h3>ABAB News</h3>
-        <p>KC 共同創辦的新聞平台，聚焦去中心化、加密與科技前沿。</p>
-        <a href="https://ababnews.com" class="btn btn-ghost" style="margin-top:14px;">訪問網站</a>
-      </div>
-      <div class="card peach">
-        <div class="icon">🎙️</div>
-        <h3>Mago Talk Space</h3>
-        <p>KC 主持的播客空間，深度對談加密世界的思想者與建設者。</p>
-        <a href="#" class="btn btn-ghost" style="margin-top:14px;">收聽節目</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Legal & Disclaimer -->
-  <section class="container-narrow">
-    <div class="section-head">
-      <span class="tag">法律聲明</span>
-      <h2>版權聲明與免責聲明</h2>
-    </div>
-
-    <div class="two-col">
-      <div>
-        <h3 class="wine" style="font-family:var(--font-serif); font-size:1.4rem; margin-bottom: 14px;">© KC Vision Space 版權聲明</h3>
-        <p>本網站所有文字、圖像、AI 生成藝術作品及內容，版權歸屬 KC Vision Space 所有。未經授權，不得轉載、複製或商業使用。引用請標明出處。</p>
-        <div class="quote mt-m" style="font-style: normal;">
-          <span style="font-family:var(--font-sans); font-size:0.95rem;">📄 內容創作者保留所有知識產權，包括 AI 生成藝術的策展與提示詞設計版權。</span>
-        </div>
-      </div>
-
-      <div>
-        <h3 class="navy" style="font-family:var(--font-serif); font-size:1.4rem; margin-bottom: 14px;">⚠️ 投資免責聲明</h3>
-        <p>本網站所有內容，包括市場分析、項目介紹與個人觀點，<strong>僅代表 KC 個人信念與研究</strong>，不構成任何形式的財務建議或投資推薦。</p>
-        <div style="background:#F2CFCB; padding: 18px 22px; border-radius: 10px; margin-top: 20px; font-size: 0.95rem;">
-          ⊗ 加密貨幣投資具有極高風險，包括資產全損風險。請在充分研究後自行決策，並諮詢專業財務顧問。
-        </div>
-      </div>
-    </div>
-
-    <div class="center" style="border-top: 1px solid var(--line); padding-top: 24px; margin-top: 40px;">
-      <small style="color: var(--ink-soft);">
-        KC Vision Space · <a href="https://kcvision.space" style="color:var(--wine);">KcVision.space</a> · 所有觀點僅代表個人立場 · 非財務建議 · 投資加密資產前請做足自身研究 (DYOR)
-      </small>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
+<section class="container-n">
+  <div class="section-hd">
+    <span class="tag"><span class="en">LEGAL</span><span class="zh">法律聲明</span></span>
+    <h2><span class="en">Copyright &amp; Disclaimer</span><span class="zh">版權聲明與免責聲明</span></h2>
+  </div>
+  <div class="two-col">
     <div>
-      <div class="footer-brand">KC Vision Space</div>
-      <small>Signal before noise · 先看訊號，再拆雜音</small>
+      <h3 class="wine" style="font-family:var(--serif);font-size:1.3rem;margin-bottom:12px;font-weight:900;">© <span class="en">KCVISION Space Copyright</span><span class="zh">KCVISION Space 版權聲明</span></h3>
+      <p><span class="en">All text, images, AI-generated artworks and content on this site are the property of KCVISION Space. Unauthorised reproduction, copying or commercial use is prohibited.</span><span class="zh">本網站所有文字、圖像、AI 生成藝術作品及內容，版權歸屬 KCVISION Space 所有。未經授權，不得轉載、複製或商業使用。</span></p>
     </div>
-    <div class="footer-links">
-      <a href="about.html">關於</a>
-      <a href="index.html">首頁</a>
-      <a href="content.html">內容頻道</a>
+    <div>
+      <h3 class="navy" style="font-family:var(--serif);font-size:1.3rem;margin-bottom:12px;font-weight:900;">⚠️ <span class="en">Investment Disclaimer</span><span class="zh">投資免責聲明</span></h3>
+      <p><span class="en">All content on this site, including market analysis, project introductions and personal views, <strong>represents KC's personal beliefs and research only</strong> — it does not constitute financial advice of any kind.</span><span class="zh">本網站所有內容，<strong>僅代表 KC 個人信念與研究</strong>，不構成任何形式的財務建議或投資推薦。</span></p>
+      <div class="q-danger mt-m">⊗ <span class="en">Crypto investing carries extreme risk including total loss. Always DYOR.</span><span class="zh">加密貨幣投資具有極高風險，包括資產全損風險。請在充分研究後自行決策。</span></div>
     </div>
   </div>
-</footer>
-
-<!-- BOTTOM THEME SCROLL BAR -->
-<div class="theme-scroll"><div class="theme-scroll-track"><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span><span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span></div></div>
-<script src="app.js"></script>
-<script>setTimeout(function(){var t=document.querySelector('#tv-ticker .tradingview-widget-container__widget iframe');if(t){document.getElementById('tickerWrap').style.setProperty('--fb','none');}},4000);</script>
-</body>
-</html>
+  <div class="center" style="border-top:1px solid var(--line);padding-top:22px;margin-top:36px;">
+    <small style="color:var(--ink-soft);">KCVISION Space · KCVISION.space · <span class="en">All views represent personal opinion only · Not financial advice · DYOR</span><span class="zh">所有觀點僅代表個人立場 · 非財務建議 · DYOR</span></small>
+  </div>
+</section>
+</main>
+<div class="theme-scroll"><div class="theme-track">
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> NFT culture <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span> Bitcoin thesis <span class="dot">·</span> Web3 ecosystem <span class="dot">·</span></span>
+  <span>AI systems <span class="dot">·</span> Crypto structure <span class="dot">·</span> Privacy coin advocates <span class="dot">·</span> Podcast <span class="dot">·</span></span>
+</div></div>
+<footer class="footer"><div class="footer-in">
+  <div><div class="footer-brand">KCVISION.space</div><small>Signal before noise · <span class="zh">先看訊號，再拆雜音</span></small></div>
+  <div class="footer-links">
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">聯絡</span></a>
+    <a href="about.html"><span class="en">About</span><span class="zh">關於</span></a>
+    <a href="content.html"><span class="en">Content</span><span class="zh">內容</span></a>
+  </div>
+</div></footer>
+<script src="app.js"></script></body></html>
