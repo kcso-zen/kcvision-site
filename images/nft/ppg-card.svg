@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">Pudgy Penguins poster</title>
+  <desc id="desc">Pudgy Penguins inspired local cover art card.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dff4ff"/>
+      <stop offset="1" stop-color="#8bc2ea"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="60" fill="url(#bg)"/>
+  <circle cx="400" cy="318" r="178" fill="#152534"/>
+  <ellipse cx="400" cy="330" rx="138" ry="168" fill="#f7fbff"/>
+  <ellipse cx="400" cy="354" rx="102" ry="122" fill="#f2f4f7"/>
+  <ellipse cx="350" cy="302" rx="16" ry="20" fill="#18232f"/>
+  <ellipse cx="450" cy="302" rx="16" ry="20" fill="#18232f"/>
+  <path d="M400 334l40 24-40 20-40-20z" fill="#f5a623"/>
+  <ellipse cx="400" cy="387" rx="62" ry="30" fill="#f7d5c8"/>
+  <ellipse cx="272" cy="297" rx="32" ry="60" fill="#152534"/>
+  <ellipse cx="528" cy="297" rx="32" ry="60" fill="#152534"/>
+  <rect x="150" y="562" width="500" height="96" rx="24" fill="rgba(17,36,55,0.8)"/>
+  <text x="400" y="617" text-anchor="middle" font-family="Georgia, serif" font-size="60" font-weight="700" fill="#ffffff">PPG</text>
+  <text x="400" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" letter-spacing="6" fill="#c7eaff">PUDGY PENGUINS</text>
+</svg>
