@@ -38,15 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.l === l));
   }
 
-  // TradingView fallback hide
-  setTimeout(() => {
-    const iframe = document.querySelector('.tv-widget iframe');
-    if (iframe) {
-      const fb = document.querySelector('.ticker-fallback');
-      if (fb) fb.style.display = 'none';
-    }
-  }, 5000);
-
   // NFT image error fallback
   document.querySelectorAll('.nft-img img').forEach(img => {
     img.addEventListener('error', () => img.closest('.nft-img').classList.add('err'));
