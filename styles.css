@@ -201,6 +201,8 @@ strong { color: var(--ink); font-weight: 700; }
 .btn-navy:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(44,69,85,0.7); }
 .btn-ghost { background: #fff; border: 2px solid var(--navy); color: var(--navy); }
 .btn-ghost:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+.btn.is-disabled,
+.btn[aria-disabled="true"] { opacity: 0.45; pointer-events: none; }
 .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
 
 /* LAYOUT */
@@ -447,6 +449,9 @@ body.lang-zh .en { display:none; }
 }
 .admin-grid textarea { min-height:120px; resize:vertical; }
 .admin-toolbar { margin-bottom:26px; }
+.admin-section-head { margin: 34px 0 18px; }
+.admin-section-head h3 { margin-bottom: 6px; }
+.admin-section-head p { color: var(--ink-soft); }
 .admin-grid {
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -462,6 +467,7 @@ body.lang-zh .en { display:none; }
 .admin-preview.wide { aspect-ratio: 16 / 6; }
 .admin-preview img { width:100%; height:100%; object-fit:cover; }
 .admin-upload input { padding:10px; background:var(--bg); }
+.admin-row-start { justify-content: flex-start; }
 .admin-thesis { grid-column: 1 / -1; }
 @media(max-width:900px){
   .admin-grid { grid-template-columns: 1fr; }

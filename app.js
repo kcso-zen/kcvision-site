@@ -29,7 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     card4Sub: 'Milady Maker · CC0 · 2021',
     card4Name: 'Milady',
     card4DescEn: 'CC0 anime aesthetic. Cult status after Musk tweet. Pure online-tribe energy. Anyone can use freely.',
-    thesisEn: "I don't flip JPEGs. I collect <strong>cultural milestones</strong>. BAYC, MAYC, Pudgy Penguins and Milady each represent a different chapter of crypto's social history. Whether they 10x or go to zero is secondary. They are my on-chain identity."
+    thesisEn: "I don't flip JPEGs. I collect <strong>cultural milestones</strong>. BAYC, MAYC, Pudgy Penguins and Milady each represent a different chapter of crypto's social history. Whether they 10x or go to zero is secondary. They are my on-chain identity.",
+    bookZhHeading: 'Chinese EPUB',
+    bookZhTitle: 'Title: On-Chain Money War - Chinese Edition.',
+    bookZhLink: 'https://www.amazon.com/dp/B0GX34ZYG8',
+    bookEnHeading: 'English EPUB',
+    bookEnTitle: 'Title: The On-Chain Money War - English Edition.',
+    bookEnLink: 'https://www.amazon.com/dp/B0GX34ZYG8'
   };
 
   initNav();
@@ -116,6 +122,24 @@ document.addEventListener('DOMContentLoaded', () => {
       if (content[key]) node.innerHTML = content[key];
     });
 
+    document.querySelectorAll('[data-edit-link]').forEach(node => {
+      const key = node.dataset.editLink;
+      if (content[key]) node.href = content[key];
+    });
+
+    document.querySelectorAll('[data-download-link]').forEach(node => {
+      const key = node.dataset.downloadLink;
+      if (content[key]) {
+        node.href = content[key];
+        node.removeAttribute('aria-disabled');
+        node.classList.remove('is-disabled');
+      } else {
+        node.href = '#';
+        node.setAttribute('aria-disabled', 'true');
+        node.classList.add('is-disabled');
+      }
+    });
+
     const cardSelectors = [
       null,
       '.nft-grid .nft-card:nth-child(1)',
@@ -162,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(setupForm);
       const password = String(formData.get('password') || '');
       const confirm = String(formData.get('confirm') || '');
-      if (password.length < 6 || password !== confirm) {
-        alert('Password 唔一致，或者太短。');
+      if (!isStrongPassword(password) || password !== confirm) {
+        alert('Password 需要 12 碼以上，並包含大寫、小寫、數字、符號。');
         return;
       }
       localStorage.setItem(STORAGE_KEYS.pass, await sha256(password));
@@ -198,6 +222,30 @@ document.addEventListener('DOMContentLoaded', () => {
         field.dataset.pendingValue = dataUrl;
         const preview = document.querySelector(`[data-admin-preview="${field.dataset.adminFile}"]`);
         if (preview) preview.src = dataUrl;
+      });
+    });
+
+    document.querySelectorAll('[data-admin-download]').forEach(button => {
+      button.addEventListener('click', () => {
+        const key = button.dataset.adminDownload;
+        const content = getStoredNftContent();
+        if (!content[key]) {
+          alert('未有可下載檔案。');
+          return;
+        }
+        window.open(content[key], '_blank');
+      });
+    });
+
+    document.querySelectorAll('[data-admin-delete]').forEach(button => {
+      button.addEventListener('click', () => {
+        const key = button.dataset.adminDelete;
+        const current = getStoredNftContent();
+        delete current[key];
+        localStorage.setItem(STORAGE_KEYS.nft, JSON.stringify(current));
+        const preview = document.querySelector(`[data-admin-preview="${key}"]`);
+        if (preview) preview.removeAttribute('src');
+        alert('檔案已刪除。');
       });
     });
 
@@ -252,5 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
       reader.onerror = reject;
       reader.readAsDataURL(file);
     });
+  }
+
+  function isStrongPassword(password) {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}$/.test(password);
   }
 });

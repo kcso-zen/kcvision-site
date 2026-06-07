@@ -13,38 +13,47 @@
 <body data-page="admin">
 <nav class="nav"><div class="nav-inner">
   <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
-  <div class="nav-tools"><a href="nft.html" class="btn btn-ghost">Open NFT</a></div>
+  <div class="nav-tools"><a href="content.html" class="btn btn-ghost">Open Content</a></div>
 </div></nav>
 <main class="container admin-shell">
   <div class="section-hd">
-    <span class="tag sand">NFT ADMIN</span>
-    <h2>Upload And Edit</h2>
-    <p>登入後可修改 NFT 頁圖片與文字，圖片會自動填滿固定框架。</p>
+    <span class="tag sand">SITE ADMIN</span>
+    <h2>All In One Admin</h2>
+    <p>登入後可集中管理 NFT、E-Book 與內容欄位。圖片只會填滿固定框架，不會推亂版面。</p>
   </div>
+
   <section class="admin-gate card rose" id="adminSetup">
     <h3>Set Password</h3>
-    <p>第一次使用請先設定 password。</p>
+    <p>第一次使用請先設定強密碼：12 碼以上，包含大寫、小寫、數字、符號。</p>
     <form id="adminSetupForm" class="admin-form">
-      <label><span>Password</span><input type="password" name="password" minlength="6" required></label>
-      <label><span>Confirm</span><input type="password" name="confirm" minlength="6" required></label>
+      <label><span>Password</span><input type="password" name="password" minlength="12" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}" required></label>
+      <label><span>Confirm</span><input type="password" name="confirm" minlength="12" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}" required></label>
       <button type="submit" class="btn btn-navy">Save Password</button>
     </form>
   </section>
+
   <section class="admin-gate card lilac" id="adminLogin">
     <h3>Admin Login</h3>
-    <p>其他人只可以睇，知道 password 先可改。</p>
+    <p>其他人只可瀏覽，知道 password 先可修改。</p>
     <form id="adminLoginForm" class="admin-form">
       <label><span>Password</span><input type="password" name="password" required></label>
       <button type="submit" class="btn btn-navy">Login</button>
     </form>
   </section>
+
   <section id="adminEditor" hidden>
     <div class="admin-toolbar">
-      <p class="q-info">建議尺寸：卡片 1200x1200，橫幅 1600x560。Square/Circle 只會改相片裁切，不會改框架大小。</p>
+      <p class="q-info">建議尺寸：卡片 1200x1200，橫幅 1600x560。Square / Circle 只改裁切效果，不改框架大小。</p>
+      <p class="q-warn">2FA 已列入下一步設計，但真正安全的 2FA 需要伺服器後台。現階段先提供強密碼版本。</p>
       <div class="btn-row">
         <button type="button" class="btn btn-navy" id="adminSaveBtn">Save Changes</button>
-        <button type="button" class="btn btn-ghost" id="adminResetBtn">Reset NFT Page</button>
+        <button type="button" class="btn btn-ghost" id="adminResetBtn">Reset All Data</button>
       </div>
+    </div>
+
+    <div class="admin-section-head">
+      <h3>NFT Manager</h3>
+      <p>可換圖、改名、改英文描述。</p>
     </div>
     <div class="admin-grid">
       <article class="card sand">
@@ -91,6 +100,33 @@
       <article class="card rose admin-thesis">
         <h3>Thesis Text</h3>
         <label><span>English Thesis</span><textarea rows="5" data-admin-input="thesisEn"></textarea></label>
+      </article>
+    </div>
+
+    <div class="admin-section-head">
+      <h3>E-Book Manager</h3>
+      <p>可改書名、公開連結、上載 EPUB、下載或刪除。</p>
+    </div>
+    <div class="admin-grid">
+      <article class="card sand">
+        <h3>Chinese EPUB</h3>
+        <label><span>Title</span><input type="text" data-admin-input="bookZhTitle"></label>
+        <label><span>Public Link</span><input type="url" data-admin-input="bookZhLink"></label>
+        <label class="admin-upload"><span>Upload EPUB</span><input type="file" data-admin-file="bookZhFile" accept=".epub,application/epub+zip"></label>
+        <div class="btn-row admin-row-start">
+          <button type="button" class="btn btn-ghost" data-admin-download="bookZhFile">Download</button>
+          <button type="button" class="btn btn-ghost" data-admin-delete="bookZhFile">Delete</button>
+        </div>
+      </article>
+      <article class="card lilac">
+        <h3>English EPUB</h3>
+        <label><span>Title</span><input type="text" data-admin-input="bookEnTitle"></label>
+        <label><span>Public Link</span><input type="url" data-admin-input="bookEnLink"></label>
+        <label class="admin-upload"><span>Upload EPUB</span><input type="file" data-admin-file="bookEnFile" accept=".epub,application/epub+zip"></label>
+        <div class="btn-row admin-row-start">
+          <button type="button" class="btn btn-ghost" data-admin-download="bookEnFile">Download</button>
+          <button type="button" class="btn btn-ghost" data-admin-delete="bookEnFile">Delete</button>
+        </div>
       </article>
     </div>
   </section>
