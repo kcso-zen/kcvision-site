@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light only">
+<title>KCVISION Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin">
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
+  <div class="nav-tools"><a href="nft.html" class="btn btn-ghost">Open NFT</a></div>
+</div></nav>
+<main class="container admin-shell">
+  <div class="section-hd">
+    <span class="tag sand">NFT ADMIN</span>
+    <h2>Upload And Edit</h2>
+    <p>登入後可修改 NFT 頁圖片與文字，圖片會自動填滿固定框架。</p>
+  </div>
+  <section class="admin-gate card rose" id="adminSetup">
+    <h3>Set Password</h3>
+    <p>第一次使用請先設定 password。</p>
+    <form id="adminSetupForm" class="admin-form">
+      <label><span>Password</span><input type="password" name="password" minlength="6" required></label>
+      <label><span>Confirm</span><input type="password" name="confirm" minlength="6" required></label>
+      <button type="submit" class="btn btn-navy">Save Password</button>
+    </form>
+  </section>
+  <section class="admin-gate card lilac" id="adminLogin">
+    <h3>Admin Login</h3>
+    <p>其他人只可以睇，知道 password 先可改。</p>
+    <form id="adminLoginForm" class="admin-form">
+      <label><span>Password</span><input type="password" name="password" required></label>
+      <button type="submit" class="btn btn-navy">Login</button>
+    </form>
+  </section>
+  <section id="adminEditor" hidden>
+    <div class="admin-toolbar">
+      <p class="q-info">建議尺寸：卡片 1200x1200，橫幅 1600x560。Square/Circle 只會改相片裁切，不會改框架大小。</p>
+      <div class="btn-row">
+        <button type="button" class="btn btn-navy" id="adminSaveBtn">Save Changes</button>
+        <button type="button" class="btn btn-ghost" id="adminResetBtn">Reset NFT Page</button>
+      </div>
+    </div>
+    <div class="admin-grid">
+      <article class="card sand">
+        <h3>Top Banner</h3>
+        <div class="admin-preview wide"><img data-admin-preview="featureImage" src="images/nft/bayc-feature.svg" alt=""></div>
+        <label class="admin-upload"><span>Upload Banner</span><input type="file" data-admin-file="featureImage" accept="image/*"></label>
+      </article>
+      <article class="card">
+        <h3>Card 1</h3>
+        <div class="admin-preview"><img data-admin-preview="card1Image" src="images/nft/bayc-849.png" alt=""></div>
+        <label class="admin-upload"><span>Upload Image</span><input type="file" data-admin-file="card1Image" accept="image/*"></label>
+        <label><span>Shape</span><select data-admin-input="card1Shape"><option value="square">Square</option><option value="circle">Circle</option></select></label>
+        <label><span>Sub</span><input type="text" data-admin-input="card1Sub"></label>
+        <label><span>Name</span><input type="text" data-admin-input="card1Name"></label>
+        <label><span>Description</span><textarea rows="4" data-admin-input="card1DescEn"></textarea></label>
+      </article>
+      <article class="card mint">
+        <h3>Card 2</h3>
+        <div class="admin-preview"><img data-admin-preview="card2Image" src="images/nft/mayc-card.svg" alt=""></div>
+        <label class="admin-upload"><span>Upload Image</span><input type="file" data-admin-file="card2Image" accept="image/*"></label>
+        <label><span>Shape</span><select data-admin-input="card2Shape"><option value="square">Square</option><option value="circle">Circle</option></select></label>
+        <label><span>Sub</span><input type="text" data-admin-input="card2Sub"></label>
+        <label><span>Name</span><input type="text" data-admin-input="card2Name"></label>
+        <label><span>Description</span><textarea rows="4" data-admin-input="card2DescEn"></textarea></label>
+      </article>
+      <article class="card sky">
+        <h3>Card 3</h3>
+        <div class="admin-preview"><img data-admin-preview="card3Image" src="images/nft/ppg-card.svg" alt=""></div>
+        <label class="admin-upload"><span>Upload Image</span><input type="file" data-admin-file="card3Image" accept="image/*"></label>
+        <label><span>Shape</span><select data-admin-input="card3Shape"><option value="square">Square</option><option value="circle">Circle</option></select></label>
+        <label><span>Sub</span><input type="text" data-admin-input="card3Sub"></label>
+        <label><span>Name</span><input type="text" data-admin-input="card3Name"></label>
+        <label><span>Description</span><textarea rows="4" data-admin-input="card3DescEn"></textarea></label>
+      </article>
+      <article class="card peach">
+        <h3>Card 4</h3>
+        <div class="admin-preview"><img data-admin-preview="card4Image" src="images/nft/milady-card.svg" alt=""></div>
+        <label class="admin-upload"><span>Upload Image</span><input type="file" data-admin-file="card4Image" accept="image/*"></label>
+        <label><span>Shape</span><select data-admin-input="card4Shape"><option value="square">Square</option><option value="circle">Circle</option></select></label>
+        <label><span>Sub</span><input type="text" data-admin-input="card4Sub"></label>
+        <label><span>Name</span><input type="text" data-admin-input="card4Name"></label>
+        <label><span>Description</span><textarea rows="4" data-admin-input="card4DescEn"></textarea></label>
+      </article>
+      <article class="card rose admin-thesis">
+        <h3>Thesis Text</h3>
+        <label><span>English Thesis</span><textarea rows="5" data-admin-input="thesisEn"></textarea></label>
+      </article>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

@@ -352,6 +352,7 @@ strong { color: var(--ink); font-weight: 700; }
   box-shadow: 0 8px 20px -6px rgba(0,0,0,0.25);
   display:flex; align-items:center; justify-content:center;
 }
+.nft-img.is-circle { border-radius: 50%; }
 .nft-img img { width:100%; height:100%; object-fit:cover; }
 .nft-img .fb {
   display:none;
@@ -419,3 +420,49 @@ strong { color: var(--ink); font-weight: 700; }
 .zh { display:none; }
 body.lang-zh .zh { display:inline; }
 body.lang-zh .en { display:none; }
+
+/* ADMIN */
+.admin-shell { padding-top: 44px; padding-bottom: 80px; }
+.admin-gate { max-width: 560px; margin: 0 auto 24px; }
+.admin-form { display:grid; gap:16px; margin-top:18px; }
+.admin-form label,
+.admin-grid label {
+  display:grid;
+  gap:8px;
+  font-size:0.9rem;
+  color:var(--ink);
+  font-weight:700;
+}
+.admin-form input,
+.admin-grid input,
+.admin-grid select,
+.admin-grid textarea {
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1.5px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  font:inherit;
+}
+.admin-grid textarea { min-height:120px; resize:vertical; }
+.admin-toolbar { margin-bottom:26px; }
+.admin-grid {
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:22px;
+}
+.admin-preview {
+  aspect-ratio: 1;
+  border-radius:18px;
+  overflow:hidden;
+  background:var(--bg-soft);
+  margin:14px 0 16px;
+}
+.admin-preview.wide { aspect-ratio: 16 / 6; }
+.admin-preview img { width:100%; height:100%; object-fit:cover; }
+.admin-upload input { padding:10px; background:var(--bg); }
+.admin-thesis { grid-column: 1 / -1; }
+@media(max-width:900px){
+  .admin-grid { grid-template-columns: 1fr; }
+}
