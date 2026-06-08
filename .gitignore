@@ -1,2 +1,3 @@
 .vercel
 .env*
+data/site-content.local.json
