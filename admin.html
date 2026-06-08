@@ -15,28 +15,24 @@
   <a href="index.html" class="brand"><span class="kcv">KCVISION</span><span class="dot">.space</span></a>
   <div class="nav-tools"><a href="content.html" class="btn btn-ghost">Open Content</a></div>
 </div></nav>
+
 <main class="container admin-shell">
   <div class="section-hd">
     <span class="tag sand">SITE ADMIN</span>
     <h2>All In One Admin</h2>
-    <p>登入後可集中管理 NFT、E-Book 與內容欄位。圖片只會填滿固定框架，不會推亂版面。</p>
+    <p>這裡是正式後台。內容會儲存在雲端，任何電腦都會看到同一份資料。圖片只會填滿固定框，不會推亂版面。</p>
   </div>
 
-  <section class="admin-gate card rose" id="adminSetup">
-    <h3>Set Password</h3>
-    <p>第一次使用請先設定強密碼：12 碼以上，包含大寫、小寫、數字、符號。</p>
-    <form id="adminSetupForm" class="admin-form">
-      <label><span>Password</span><input type="password" name="password" minlength="12" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}" required></label>
-      <label><span>Confirm</span><input type="password" name="confirm" minlength="12" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}" required></label>
-      <button type="submit" class="btn btn-navy">Save Password</button>
-    </form>
+  <section class="admin-gate card rose" id="adminStatusPanel">
+    <h3>Server Status</h3>
+    <p id="adminStatusText">正在檢查後台連線與登入狀態。</p>
   </section>
 
   <section class="admin-gate card lilac" id="adminLogin">
     <h3>Admin Login</h3>
-    <p>其他人只可瀏覽，知道 password 先可修改。</p>
+    <p>請輸入管理密碼。之後我可再加上 Passkey / Face ID 作第二步驗證。</p>
     <form id="adminLoginForm" class="admin-form">
-      <label><span>Password</span><input type="password" name="password" required></label>
+      <label><span>Password</span><input type="password" name="password" required autocomplete="current-password"></label>
       <button type="submit" class="btn btn-navy">Login</button>
     </form>
   </section>
@@ -44,16 +40,16 @@
   <section id="adminEditor" hidden>
     <div class="admin-toolbar">
       <p class="q-info">建議尺寸：卡片 1200x1200，橫幅 1600x560。Square / Circle 只改裁切效果，不改框架大小。</p>
-      <p class="q-warn">2FA 已列入下一步設計，但真正安全的 2FA 需要伺服器後台。現階段先提供強密碼版本。</p>
+      <p class="q-warn">2FA / Passkey 已列入下一步。現階段先用伺服器端密碼登入與雲端儲存。</p>
       <div class="btn-row">
         <button type="button" class="btn btn-navy" id="adminSaveBtn">Save Changes</button>
-        <button type="button" class="btn btn-ghost" id="adminResetBtn">Reset All Data</button>
+        <button type="button" class="btn btn-ghost" id="adminLogoutBtn">Logout</button>
       </div>
     </div>
 
     <div class="admin-section-head">
       <h3>NFT Manager</h3>
-      <p>可換圖、改名、改英文描述。</p>
+      <p>可換圖、改名、改英文描述。儲存後全站同步。</p>
     </div>
     <div class="admin-grid">
       <article class="card sand">
@@ -105,7 +101,7 @@
 
     <div class="admin-section-head">
       <h3>E-Book Manager</h3>
-      <p>可改書名、公開連結、上載 EPUB、下載或刪除。</p>
+      <p>可改書名、公開連結、上載 EPUB、下載或刪除。按 Save 才正式生效。</p>
     </div>
     <div class="admin-grid">
       <article class="card sand">
@@ -131,6 +127,7 @@
     </div>
   </section>
 </main>
+
 <script src="app.js"></script>
 </body>
 </html>

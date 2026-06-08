@@ -1,13 +1,10 @@
-// KCVISION V4 - shared scripts
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const STORAGE_KEYS = {
     fs: 'kcFS',
-    lang: 'kcLang',
-    nft: 'kcNftContentV1',
-    pass: 'kcAdminPassHashV1',
-    auth: 'kcAdminAuthedV1'
+    lang: 'kcLang'
   };
-  const DEFAULT_NFT_CONTENT = {
+
+  const DEFAULT_CONTENT = {
     featureImage: 'images/nft/bayc-feature.svg',
     card1Image: 'images/nft/bayc-849.png',
     card2Image: 'images/nft/mayc-card.svg',
@@ -19,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     card4Shape: 'square',
     card1Sub: 'Bored Ape Yacht Club · Yuga Labs · 2021',
     card1Name: 'BAYC',
-    card1DescEn: "The blue-chip ape collection that defined PFP status culture. This sample artwork is now used as the lead visual on-site.",
+    card1DescEn: 'The blue-chip ape collection that defined PFP status culture. This sample artwork is now used as the lead visual on-site.',
     card2Sub: 'Mutant Ape · Yuga Labs · 2021',
     card2Name: 'MAYC',
-    card2DescEn: "Full commercial rights. The OG PFP expansion that pushed ape culture deeper into crypto identity.",
+    card2DescEn: 'Full commercial rights. The OG PFP expansion that pushed ape culture deeper into crypto identity.',
     card3Sub: 'Pudgy Penguins · 2021',
     card3Name: 'PPG',
     card3DescEn: 'From near-death to global IP. Walmart toys and animation proved a community NFT can become mass-market IP.',
@@ -42,10 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initFontSize();
   initLanguage();
   initNftFallback();
-  applyNftContent();
+
+  const sharedContent = await fetchPublicContent();
+  applySharedContent(sharedContent);
 
   if (document.body.dataset.page === 'admin') {
-    initAdmin();
+    initAdmin(sharedContent);
   }
 
   function initNav() {
@@ -53,20 +52,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('navLinks');
     if (ham && nav) {
       ham.addEventListener('click', () => nav.classList.toggle('open'));
-      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => nav.classList.remove('open'));
+      });
     }
   }
 
   function initFontSize() {
     const root = document.documentElement;
-    let fs = parseFloat(localStorage.getItem(STORAGE_KEYS.fs) || 17);
-    root.style.fontSize = fs + 'px';
-    document.querySelectorAll('.fs-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.dataset.a === 'up' && fs < 22) fs += 2;
-        if (btn.dataset.a === 'dn' && fs > 13) fs -= 2;
-        root.style.fontSize = fs + 'px';
-        localStorage.setItem(STORAGE_KEYS.fs, fs);
+    let size = Number(localStorage.getItem(STORAGE_KEYS.fs) || 17);
+    root.style.fontSize = `${size}px`;
+    document.querySelectorAll('.fs-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        if (button.dataset.a === 'up' && size < 22) size += 2;
+        if (button.dataset.a === 'dn' && size > 13) size -= 2;
+        root.style.fontSize = `${size}px`;
+        localStorage.setItem(STORAGE_KEYS.fs, String(size));
       });
     });
   }
@@ -74,9 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function initLanguage() {
     let lang = localStorage.getItem(STORAGE_KEYS.lang) || 'en';
     applyLang(lang);
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        lang = btn.dataset.l;
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        lang = button.dataset.l;
         localStorage.setItem(STORAGE_KEYS.lang, lang);
         applyLang(lang);
       });
@@ -85,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function applyLang(lang) {
     document.body.classList.toggle('lang-zh', lang === 'zh');
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.l === lang);
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.classList.toggle('active', button.dataset.l === lang);
     });
   }
 
@@ -96,22 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function getStoredNftContent() {
+  async function fetchPublicContent() {
     try {
-      return { ...DEFAULT_NFT_CONTENT, ...JSON.parse(localStorage.getItem(STORAGE_KEYS.nft) || '{}') };
+      const response = await fetch('/api/content', { cache: 'no-store' });
+      if (!response.ok) throw new Error('content unavailable');
+      const data = await response.json();
+      return { ...DEFAULT_CONTENT, ...(data.content || {}) };
     } catch {
-      return { ...DEFAULT_NFT_CONTENT };
+      return { ...DEFAULT_CONTENT };
     }
   }
 
-  function applyNftContent() {
-    const content = getStoredNftContent();
-
+  function applySharedContent(content) {
     document.querySelectorAll('[data-edit-image]').forEach(node => {
       const key = node.dataset.editImage;
       const img = node.tagName === 'IMG' ? node : node.querySelector('img');
-      if (!img) return;
-      if (content[key]) img.src = content[key];
+      if (!img || !content[key]) return;
+      img.src = content[key];
       if (node.dataset.editShape) {
         node.classList.toggle('is-circle', (content[node.dataset.editShape] || 'square') === 'circle');
       }
@@ -129,8 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-download-link]').forEach(node => {
       const key = node.dataset.downloadLink;
-      if (content[key]) {
-        node.href = content[key];
+      const value = content[key];
+      if (value) {
+        node.href = value;
         node.removeAttribute('aria-disabled');
         node.classList.remove('is-disabled');
       } else {
@@ -140,77 +143,68 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const cardSelectors = [
-      null,
-      '.nft-grid .nft-card:nth-child(1)',
-      '.nft-grid .nft-card:nth-child(2)',
-      '.nft-grid .nft-card:nth-child(3)',
-      '.nft-grid .nft-card:nth-child(4)'
-    ];
-
-    cardSelectors.forEach((selector, index) => {
-      if (!selector) return;
-      const card = document.querySelector(selector);
-      if (!card) return;
+    for (let index = 1; index <= 4; index += 1) {
+      const card = document.querySelector(`.nft-grid .nft-card:nth-child(${index})`);
+      if (!card) continue;
       const sub = card.querySelector('.nft-sub');
       const name = card.querySelector('.nft-name');
       const descEn = card.querySelector('.nft-desc .en');
-      if (sub) sub.textContent = content[`card${index}Sub`];
-      if (name) name.textContent = content[`card${index}Name`];
-      if (descEn) descEn.innerHTML = content[`card${index}DescEn`];
-    });
+      if (sub) sub.textContent = content[`card${index}Sub`] || '';
+      if (name) name.textContent = content[`card${index}Name`] || '';
+      if (descEn) descEn.innerHTML = content[`card${index}DescEn`] || '';
+    }
 
     const thesisEn = document.querySelector('section.container div[style*="background:linear-gradient"] .en');
-    if (thesisEn) thesisEn.innerHTML = content.thesisEn;
+    if (thesisEn && content.thesisEn) thesisEn.innerHTML = content.thesisEn;
   }
 
-  async function initAdmin() {
-    const setupPanel = document.getElementById('adminSetup');
+  function initAdmin(initialContent) {
     const loginPanel = document.getElementById('adminLogin');
     const editorPanel = document.getElementById('adminEditor');
-    const setupForm = document.getElementById('adminSetupForm');
+    const statusText = document.getElementById('adminStatusText');
     const loginForm = document.getElementById('adminLoginForm');
     const saveBtn = document.getElementById('adminSaveBtn');
-    const resetBtn = document.getElementById('adminResetBtn');
+    const logoutBtn = document.getElementById('adminLogoutBtn');
 
-    const hasPassword = !!localStorage.getItem(STORAGE_KEYS.pass);
-    const authed = sessionStorage.getItem(STORAGE_KEYS.auth) === 'yes';
-    if (setupPanel) setupPanel.hidden = hasPassword;
-    if (loginPanel) loginPanel.hidden = !hasPassword || authed;
-    if (editorPanel) editorPanel.hidden = !authed;
+    let currentContent = { ...initialContent };
+    let pendingUploads = {};
+    let removals = new Set();
 
-    if (authed) populateAdminForm();
+    boot();
 
-    setupForm?.addEventListener('submit', async event => {
-      event.preventDefault();
-      const formData = new FormData(setupForm);
-      const password = String(formData.get('password') || '');
-      const confirm = String(formData.get('confirm') || '');
-      if (!isStrongPassword(password) || password !== confirm) {
-        alert('Password 需要 12 碼以上，並包含大寫、小寫、數字、符號。');
-        return;
+    async function boot() {
+      statusText.textContent = '正在檢查登入狀態。';
+      const session = await fetchJson('/api/admin/session');
+      if (session.ok) {
+        statusText.textContent = '已登入，正在載入雲端內容。';
+        const adminData = await fetchJson('/api/admin/content');
+        if (adminData.ok) {
+          currentContent = { ...DEFAULT_CONTENT, ...(adminData.content || {}) };
+          showEditor();
+          populateAdminForm();
+          statusText.textContent = '後台已連線，所有變更會寫入雲端。';
+          return;
+        }
       }
-      localStorage.setItem(STORAGE_KEYS.pass, await sha256(password));
-      sessionStorage.setItem(STORAGE_KEYS.auth, 'yes');
-      if (setupPanel) setupPanel.hidden = true;
-      if (loginPanel) loginPanel.hidden = true;
-      if (editorPanel) editorPanel.hidden = false;
-      populateAdminForm();
-    });
+      loginPanel.hidden = false;
+      editorPanel.hidden = true;
+      statusText.textContent = '請先登入後台。';
+    }
 
     loginForm?.addEventListener('submit', async event => {
       event.preventDefault();
       const formData = new FormData(loginForm);
       const password = String(formData.get('password') || '');
-      const hash = await sha256(password);
-      if (hash !== localStorage.getItem(STORAGE_KEYS.pass)) {
-        alert('Password 錯誤。');
+      const result = await fetchJson('/api/admin/login', {
+        method: 'POST',
+        body: JSON.stringify({ password })
+      });
+      if (!result.ok) {
+        alert('密碼錯誤或後台尚未完成配置。');
         return;
       }
-      sessionStorage.setItem(STORAGE_KEYS.auth, 'yes');
-      if (loginPanel) loginPanel.hidden = true;
-      if (editorPanel) editorPanel.hidden = false;
-      populateAdminForm();
+      loginForm.reset();
+      await boot();
     });
 
     document.querySelectorAll('[data-admin-file]').forEach(input => {
@@ -219,7 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const file = field.files?.[0];
         if (!file) return;
         const dataUrl = await readFileAsDataUrl(file);
-        field.dataset.pendingValue = dataUrl;
+        pendingUploads[field.dataset.adminFile] = {
+          name: file.name,
+          contentType: file.type || inferContentType(file.name),
+          dataUrl
+        };
+        removals.delete(field.dataset.adminFile);
         const preview = document.querySelector(`[data-admin-preview="${field.dataset.adminFile}"]`);
         if (preview) preview.src = dataUrl;
       });
@@ -228,69 +227,113 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-admin-download]').forEach(button => {
       button.addEventListener('click', () => {
         const key = button.dataset.adminDownload;
-        const content = getStoredNftContent();
-        if (!content[key]) {
-          alert('未有可下載檔案。');
+        const draft = pendingUploads[key];
+        if (draft?.dataUrl) {
+          window.open(draft.dataUrl, '_blank');
           return;
         }
-        window.open(content[key], '_blank');
+        if (currentContent[key]) {
+          window.open(currentContent[key], '_blank');
+          return;
+        }
+        alert('目前沒有可下載檔案。');
       });
     });
 
     document.querySelectorAll('[data-admin-delete]').forEach(button => {
       button.addEventListener('click', () => {
         const key = button.dataset.adminDelete;
-        const current = getStoredNftContent();
-        delete current[key];
-        localStorage.setItem(STORAGE_KEYS.nft, JSON.stringify(current));
+        delete pendingUploads[key];
+        removals.add(key);
         const preview = document.querySelector(`[data-admin-preview="${key}"]`);
         if (preview) preview.removeAttribute('src');
-        alert('檔案已刪除。');
+        currentContent[key] = '';
+        alert('已標記刪除，按 Save 才會正式生效。');
       });
     });
 
-    saveBtn?.addEventListener('click', () => {
-      const current = getStoredNftContent();
-      const next = { ...current };
-      document.querySelectorAll('[data-admin-input]').forEach(field => {
-        next[field.dataset.adminInput] = field.value.trim();
-      });
-      document.querySelectorAll('[data-admin-file]').forEach(field => {
-        if (field.dataset.pendingValue) next[field.dataset.adminFile] = field.dataset.pendingValue;
-      });
-      localStorage.setItem(STORAGE_KEYS.nft, JSON.stringify(next));
-      alert('NFT 頁內容已儲存。');
-    });
+    saveBtn?.addEventListener('click', async () => {
+      saveBtn.disabled = true;
+      try {
+        const nextContent = { ...currentContent };
+        document.querySelectorAll('[data-admin-input]').forEach(field => {
+          nextContent[field.dataset.adminInput] = field.value.trim();
+        });
 
-    resetBtn?.addEventListener('click', () => {
-      if (!window.confirm('確定重設 NFT 頁內容？')) return;
-      localStorage.removeItem(STORAGE_KEYS.nft);
-      window.location.reload();
-    });
-  }
+        const result = await fetchJson('/api/admin/content', {
+          method: 'POST',
+          body: JSON.stringify({
+            content: nextContent,
+            uploads: pendingUploads,
+            removals: Array.from(removals)
+          })
+        });
 
-  function populateAdminForm() {
-    const content = getStoredNftContent();
-    document.querySelectorAll('[data-admin-input]').forEach(field => {
-      const key = field.dataset.adminInput;
-      if (content[key]) {
-        field.value = content[key];
-      } else if (field.tagName === 'SELECT') {
-        field.value = 'square';
-      } else {
-        field.value = '';
+        if (!result.ok) {
+          throw new Error(result.error || 'save failed');
+        }
+
+        currentContent = { ...DEFAULT_CONTENT, ...(result.content || {}) };
+        pendingUploads = {};
+        removals = new Set();
+        applySharedContent(currentContent);
+        populateAdminForm();
+        statusText.textContent = '已成功寫入雲端，現在任何電腦都會看到新資料。';
+        alert('已正式儲存到網站。');
+      } catch (error) {
+        alert(`儲存失敗：${error.message}`);
+      } finally {
+        saveBtn.disabled = false;
       }
     });
-    document.querySelectorAll('[data-admin-preview]').forEach(img => {
-      const key = img.dataset.adminPreview;
-      if (content[key]) img.src = content[key];
+
+    logoutBtn?.addEventListener('click', async () => {
+      await fetchJson('/api/admin/logout', { method: 'POST' });
+      window.location.reload();
     });
+
+    function showEditor() {
+      loginPanel.hidden = true;
+      editorPanel.hidden = false;
+    }
+
+    function populateAdminForm() {
+      document.querySelectorAll('[data-admin-input]').forEach(field => {
+        const key = field.dataset.adminInput;
+        if (field.tagName === 'SELECT') {
+          field.value = currentContent[key] || 'square';
+        } else {
+          field.value = currentContent[key] || '';
+        }
+      });
+
+      document.querySelectorAll('[data-admin-preview]').forEach(img => {
+        const key = img.dataset.adminPreview;
+        const draft = pendingUploads[key];
+        if (draft?.dataUrl) {
+          img.src = draft.dataUrl;
+        } else if (currentContent[key]) {
+          img.src = currentContent[key];
+        } else {
+          img.removeAttribute('src');
+        }
+      });
+    }
   }
 
-  async function sha256(text) {
-    const bytes = new TextEncoder().encode(text);
-    const buffer = await crypto.subtle.digest('SHA-256', bytes);
-    return Array.from(new Uint8Array(buffer)).map(v => v.toString(16).padStart(2, '0')).join('');
+  async function fetchJson(url, options = {}) {
+    try {
+      const response = await fetch(url, {
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        ...options
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) return { ok: false, ...data };
+      return { ok: true, ...data };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
   }
 
   function readFileAsDataUrl(file) {
@@ -302,7 +345,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function isStrongPassword(password) {
-    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}$/.test(password);
+  function inferContentType(name) {
+    const lower = String(name || '').toLowerCase();
+    if (lower.endsWith('.epub')) return 'application/epub+zip';
+    if (lower.endsWith('.png')) return 'image/png';
+    if (lower.endsWith('.jpg') || lower.endsWith('.jpeg')) return 'image/jpeg';
+    if (lower.endsWith('.webp')) return 'image/webp';
+    if (lower.endsWith('.svg')) return 'image/svg+xml';
+    return 'application/octet-stream';
   }
 });
