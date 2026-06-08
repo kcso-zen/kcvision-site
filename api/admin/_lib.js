@@ -30,6 +30,9 @@ async function loadContent() {
   }
 
   try {
+    if (process.env.VERCEL) {
+      return readSeedContent();
+    }
     const raw = await fs.readFile(localCachePath, 'utf8');
     return JSON.parse(raw);
   } catch {
@@ -47,7 +50,9 @@ async function saveContent(content) {
     });
   }
 
-  await fs.writeFile(localCachePath, JSON.stringify(content, null, 2), 'utf8');
+  if (!process.env.VERCEL) {
+    await fs.writeFile(localCachePath, JSON.stringify(content, null, 2), 'utf8');
+  }
   return content;
 }
 
